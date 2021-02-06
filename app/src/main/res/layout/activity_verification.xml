@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout_verification"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context="graymars.feedibk.com.myapplication.Activities.Verification">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verification"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"
+                android:fontFamily="@font/segoeui_nrml"
+                />
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageView_settings"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_settings"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/realtiveLayout"
+        android:layout_below="@+id/toolbar"
+        android:gravity="center"
+        android:padding="30dp">
+
+   <!-- <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardView"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        android:layout_margin="20dp"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            -->
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:visibility="visible"
+            android:id="@+id/imageView_welcome"
+            android:src="@drawable/biometric" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_campaignName"
+            android:text="Scan your employee ID card to verify details"
+            android:layout_below="@+id/imageView_welcome"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            android:fontFamily="@font/segoeui_nrml"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_description"
+            android:layout_below="@+id/textView_campaignName"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:text="Please scan your employee id Card with RFID id card reader next to iPad"
+            android:fontFamily="@font/segoeui_nrml"
+            />
+
+        <!-- </android.support.v7.widget.CardView> -->
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_empId"
+        android:hint="emp id"
+        android:layout_below="@+id/realtiveLayout"
+        android:fontFamily="@font/segoeui_nrml"
+        />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="graymars.feedibk.com.myapplication.Activities.Survey">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_arrow"
+                android:id="@+id/imageView_backArrow_survey"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Survey"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageView_settings"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_settings"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="30dp"
+        android:layout_below="@+id/toolbar">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_title_survey"
+        android:padding="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:text="Tell us about our office experience?"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/seperator"
+           android:layout_margin="30dp"
+            android:layout_below="@+id/textView_title_survey"
+            android:background="@android:color/darker_gray"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/spinner_category"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/seperator"
+        android:background="@drawable/rounded_background"></Spinner>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/spinner_sub_category"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/spinner_category"
+        android:background="@drawable/rounded_background"></Spinner>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/spinner_issue"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/spinner_sub_category"
+        android:background="@drawable/rounded_background"></Spinner>
+
+     <Spinner
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:id="@+id/spinner_options"
+         android:layout_marginTop="10dp"
+         android:layout_marginBottom="10dp"
+         android:layout_marginLeft="30dp"
+         android:layout_marginRight="30dp"
+         android:visibility="gone"
+         android:layout_below="@+id/spinner_issue"
+         android:background="@drawable/rounded_background"></Spinner>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/progressBar_survey"
+            android:visibility="gone"
+            android:layout_below="@+id/spinner_options"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/btn_continue"
+        android:background="@drawable/rounded_background_blue"
+        android:layout_below="@+id/spinner_options"
+        android:layout_centerHorizontal="true"
+        android:text="Continue"
+        android:layout_margin="60dp"
+        android:textColor="#fff"/>
+
+    </RelativeLayout>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

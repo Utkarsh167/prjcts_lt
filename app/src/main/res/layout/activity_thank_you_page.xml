@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context="graymars.feedibk.com.myapplication.Activities.ThankYouPage">
+
+<!--    android:background="@drawable/background"-->
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Survey"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imageView_settings"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_settings"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+   <!-- <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cardView"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@drawable/background"
+        android:layout_centerInParent="true"> -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:id="@+id/imageView_thankYouPage"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/check"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginRight="@dimen/_30sdp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_title_thankYouPage"
+        android:layout_below="@+id/imageView_thankYouPage"
+        android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_18ssp"
+        android:textColor="#000"
+        android:text="Thank you Manish"
+        android:gravity="center"
+        android:fontFamily="@font/segoeui_nrml"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_subtitle_thankYouPage"
+        android:layout_below="@+id/textView_title_thankYouPage"
+        android:padding="@dimen/_6sdp"
+        android:textColor="#000"
+        android:textSize="@dimen/_13ssp"
+        android:text="Thankyou for taking the time to provide us your feedback. Your feedback is important to us and we will endavour to respond to your feedback."
+        android:gravity="center"
+        android:fontFamily="@font/segoeui_nrml"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_final_subtitle_thankYouPage"
+        android:layout_below="@+id/textView_subtitle_thankYouPage"
+        android:padding="@dimen/_10sdp"
+        android:visibility="gone"
+        android:textSize="@dimen/_8ssp"
+        android:textColor="#000"
+        android:text="Your feedback is important to us and we will endavour to respond to your feedback."
+        android:gravity="center"
+        android:fontFamily="@font/segoeui_nrml"
+        />
+
+    </RelativeLayout>
+
+   <!-- </android.support.v7.widget.CardView>-->
+
+</RelativeLayout>

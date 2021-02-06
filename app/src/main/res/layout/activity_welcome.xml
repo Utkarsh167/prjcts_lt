@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinatorLayout_welcomeActivity"
+    tools:context="graymars.feedibk.com.myapplication.Activities.WelcomeActivity">
+
+<!--    android:background="@drawable/background"-->
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipeRefreshLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:visibility="visible"
+                android:src="@drawable/translab_logo"/>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:id="@+id/textView_time"
+                android:text="11:20:20"
+                android:padding="5dp"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"
+                android:fontFamily="@font/segoeui_nrml"
+                />
+
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imageView_settings"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_settings"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/_15sdp">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar_welcomeActivity"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_campaignName"
+        android:text="{Campaign Name}"
+        android:layout_below="@+id/imageView_welcome"
+        android:padding="@dimen/_5sdp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="@dimen/_20ssp"
+        android:fontFamily="@font/segoeui_nrml"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_description"
+        android:layout_below="@+id/textView_campaignName"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="@dimen/_13ssp"
+        android:text="Your opinion is very important to us. We appreciate your feedback and will use to evaluate changes and make improvement at our workspace."
+        android:fontFamily="@font/segoeui_nrml"
+        />
+
+    <Button
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:background="@drawable/rounded_background_blue"
+        android:layout_below="@+id/textView_description"
+        android:text="Start Survey"
+        android:textColor="#fff"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_getStarted"
+        android:fontFamily="@font/segoeui_nrml"
+        />
+    </RelativeLayout>
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</android.support.design.widget.CoordinatorLayout>

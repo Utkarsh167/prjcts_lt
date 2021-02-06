@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:id="@+id/coordinatorLayout_tableSettingsActivity"
+    tools:context="graymars.feedibk.com.myapplication.Activities.TabletSettings">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imageView_backArrow"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_back_arrow"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:id="@+id/relativeLayout"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:id="@+id/imageView_tabletSettings"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_tablet_settings"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView_tabletSettings"
+            android:id="@+id/textView_title_tableName"
+            android:text="Tablet Name"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"
+            android:padding="5dp"
+            android:textColor="#fff"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"
+            android:hint="Enter tablet name"
+            android:gravity="center"
+            android:layout_below="@+id/textView_title_tableName"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:id="@+id/editText_tabletName"
+            android:background="@drawable/rounded_background"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_tabletName"
+            android:id="@+id/textView_tabletLocation"
+            android:text="Tablet Location"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:singleLine="true"
+            android:layout_marginTop="5dp"
+            android:id="@+id/editText_tabletLocation"
+            android:layout_below="@+id/textView_tabletLocation"
+            android:background="@drawable/rounded_background"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tablet Area"
+            android:layout_below="@+id/editText_tabletLocation"
+            android:id="@+id/textView_tabletArea"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:id="@+id/editText_tabletArea"
+            android:layout_below="@+id/textView_tabletArea"
+            android:background="@drawable/rounded_background"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/editText_tabletArea"
+            android:id="@+id/btn_submit"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_background_blue"
+            android:text="submit"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

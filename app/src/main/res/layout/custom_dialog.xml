@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_root"
+    android:padding="20dp"
+    android:background="#fff">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/loader"
+        android:id="@+id/imageView_customProgressDialog"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:id="@+id/textView_customProgressDialog"
+        android:layout_below="@+id/imageView_customProgressDialog"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Verifying Identity"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="graymars.feedibk.com.myapplication.Activities.UserInfoActivity"
+    android:gravity="center">
+
+    <TextView
+        android:padding="@dimen/_20sdp"
+        android:textColor="#000"
+        android:id="@+id/info_page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employee information"
+        android:textStyle="bold"
+        android:textSize="@dimen/_25ssp"
+        >
+    </TextView>
+
+    <RelativeLayout
+        android:layout_below="@id/info_page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="@dimen/_10sdp"
+            android:id="@+id/emp_linear_lay"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="#000"
+                android:text="Employee Id: "
+                android:textSize="@dimen/_15ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:hint="Eg. 11345643"
+                android:textSize="@dimen/_15ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:padding="@dimen/_10sdp"
+            android:layout_below="@id/emp_linear_lay"
+            android:id="@+id/email_linear_lay"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="#000"
+                android:text="Employee Email: "
+                android:textSize="@dimen/_15ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:hint="Eg. xyz@grab.com"
+                android:textSize="@dimen/_15ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

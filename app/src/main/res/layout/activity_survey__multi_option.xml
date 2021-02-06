@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="graymars.feedibk.com.myapplication.Activities.Survey">
+<!--    android:background="@drawable/background"-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/toolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_back_arrow"
+                    android:id="@+id/imageView_backArrow_survey_multioption"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Survey"
+                    android:layout_marginTop="40dp"
+                    android:textSize="35sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#000"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/imageView_settings"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_settings"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_below="@+id/toolbar">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_title_survey"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:textSize="@dimen/_15ssp"
+                android:textColor="#000"
+                android:text="Tell us about our office experience?"
+                android:fontFamily="@font/segoeui_nrml"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:id="@+id/linearLayout_option1">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_60sdp"
+                    android:layout_marginLeft="@dimen/_60sdp"
+                    android:text="    A. Option 1"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:id="@+id/textView_option1"
+                    android:background="@drawable/rounded_border_blue"
+                    android:fontFamily="@font/segoeui_nrml"
+
+                    />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:visibility="gone"
+                        android:id="@+id/imageView_option1"
+                        android:src="@drawable/thank_you"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_60sdp"
+                    android:layout_marginLeft="@dimen/_60sdp"
+                    android:text="    B. Option 2"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:id="@+id/textView_option2"
+                    android:background="@drawable/rounded_border_blue"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoeui_nrml"
+                    />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:visibility="gone"
+                        android:id="@+id/imageView_option2"
+                        android:src="@drawable/thank_you"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_60sdp"
+                        android:layout_marginLeft="@dimen/_60sdp"
+                        android:text="    C. Option 3"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:id="@+id/textView_option3"
+                        android:background="@drawable/rounded_border_blue"
+                        android:fontFamily="@font/segoeui_nrml"
+                        />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:id="@+id/imageView_option3"
+                        android:visibility="gone"
+                        android:src="@drawable/thank_you"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_60sdp"
+                        android:layout_marginLeft="@dimen/_60sdp"
+                        android:text="    D. Option 4"
+                        android:gravity="left|center_vertical"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:id="@+id/textView_option4"
+                        android:background="@drawable/rounded_border_blue"
+                        android:fontFamily="@font/segoeui_nrml"
+
+                        />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:visibility="gone"
+                        android:id="@+id/imageView_option4"
+                        android:src="@drawable/thank_you"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_60sdp"
+                        android:layout_marginLeft="@dimen/_60sdp"
+                        android:text="    E. Option 5"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:gravity="left|center_vertical"
+                        android:id="@+id/textView_option5"
+                        android:background="@drawable/rounded_border_blue"
+                        android:fontFamily="@font/segoeui_nrml"
+
+                        />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:visibility="gone"
+                        android:id="@+id/imageView_option5"
+                        android:src="@drawable/thank_you"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_60sdp"
+                        android:layout_marginLeft="@dimen/_60sdp"
+                        android:text="    F. Option 6"
+                        android:gravity="left|center_vertical"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:id="@+id/textView_option6"
+                        android:background="@drawable/rounded_border_blue"
+                        android:fontFamily="@font/segoeui_nrml"
+                        />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:visibility="gone"
+                        android:id="@+id/imageView_option6"
+                        android:src="@drawable/thank_you"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/progressBar_survey"
+                android:visibility="gone"
+                android:layout_below="@+id/spinner_options"/>
+
+            <Button
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:id="@+id/btn_continue"
+                android:layout_below="@+id/linearLayout_option1"
+                android:background="@drawable/rounded_background_blue"
+                android:layout_centerHorizontal="true"
+                android:text="Continue"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:fontFamily="@font/segoeui_nrml"
+                android:textColor="#fff"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
