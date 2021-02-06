@@ -1,0 +1,548 @@
+<div style="padding-left: 50px;padding-right: 50px;">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
+ 
+
+<!-- <mat-spinner class="loader"></mat-spinner> -->
+
+  <div *ngIf="!loading" style="margin-top: 15px" class="row">
+      <div class="col">
+        <h1 class="header-title">Task List</h1>
+      </div>
+    <!-- <div class="col-auto">
+      <div class="pr-4 pl-4 mb-3 mb-xl-0 d-xl-block d-none">
+        <select class="form-control" (change)="changeStatusFilter(selectedStatus)" [(ngModel)]="selectedStatus" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" id="select_campaign" >
+          <option *ngFor ="let status of statusList" [ngValue]="status.status_id">
+                  {{status.status_name}}</option>
+            <option [ngValue]=1000 >All</option>
+
+          </select>
+    </div>
+    </div> -->
+    </div>
+
+        <!-- <div _ngcontent-qfd-c2="" class="row align-items-end" style="margin-top: 10px">
+            <div _ngcontent-qfd-c2="" class="col">
+                <h1 _ngcontent-qfd-c2="" class="header-title">Task List</h1>
+            </div>
+            <div class="col text-right">          
+               
+            </div>
+    </div> -->
+
+
+    <div class="row col-12">
+      <ul class="nav nav-tabs tab-transparent" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="daily-tab" (click)="changeStatusFilter(5)" data-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="true">Open</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="changeStatusFilter(6)" id="monthly-tab" data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">Pending</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="daily-tab" (click)="changeStatusFilter(7)" data-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="true">Resolved</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="changeStatusFilter(8)" id="monthly-tab" data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">Closed</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="changeStatusFilter(1000)" id="monthly-tab" data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">All</a>
+        </li>
+      </ul>
+      <div class="col-12">
+          <!-- <mat-card>  
+              <div>  
+                <input type="button" value="CAPTURE" (click)="captureScreen()"/>  
+              </div>  
+            </mat-card> -->
+         
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+              </mat-form-field>
+              
+              <div class="mat-elevation-z8 col-12" style="margin-bottom:20px;">
+            <table id="contentToConvert" mat-table [dataSource]="dataSource" matSort class="table table-sm table-nowrap card-table mat-elevation-z8">
+    
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                  <th class="text-muted sort" *matHeaderCellDef mat-sort-header> No. </th>
+                  <td *matCellDef="let element;let i=index"> {{i+1}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="task">
+                  <th class="text-muted sort" *matHeaderCellDef mat-sort-header> TASK </th>
+                  <td *matCellDef="let element"> <a>{{element.creator_name | titlecase}}</a>{{' assigned '}}<BR><a>{{element.assigned_name | titlecase}}</a>{{' a '}}<a (click)="openResponseList(element.survey_id,element.response_id)">task</a><BR> on Survey Named <BR><a (click)="openSurveyDashboard(element.survey_id)">{{element.survey_name}}</a> </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="rating">
+                  <th class="text-muted sort" *matHeaderCellDef mat-sort-header> RATING </th>
+                  <td class="text-center"  *matCellDef="let element"><span  *ngIf="element.rating==1"  class="badge badge-pill" style="background-color:#EE2762; color:#fff; font-size: 78%">{{element.rating}}</span>
+                    <span  *ngIf="element.rating==2"  class="badge badge-pill" style="background-color:#F67424; color:#fff; font-size: 78%">{{element.rating}}</span>
+                    <span  *ngIf="element.rating==3"  class="badge badge-pill" style="background-color:#F4C902; color:#fff; font-size: 78%">{{element.rating}}</span>
+                    <span  *ngIf="element.rating==4"  class="badge badge-pill" style="background-color:#43C153; color:#fff; font-size: 78%">{{element.rating}}</span>
+                    <span  *ngIf="element.rating==5" style=" font-size: 78%" class="badge badge-pill badge-success">{{element.rating}}</span>
+ </td>
+                </ng-container>
+              
+               
+                  <ng-container matColumnDef="comment">
+                      <th class="text-muted sort" *matHeaderCellDef mat-sort-header> COMMENT</th>
+                      <td style="white-space: pre-wrap" *matCellDef="let element"> {{element.comment}} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="emp_name">
+                      <th class="text-muted sort" *matHeaderCellDef mat-sort-header> RESPONDED BY </th>
+                      <td *matCellDef="let element"> {{element.emp_name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="due_date">
+                      <th class="text-muted sort" *matHeaderCellDef mat-sort-header> DUE DATE </th>
+                      <td *matCellDef="let element"> {{element.due_date}} </td>
+                    </ng-container>
+
+                    
+                    <ng-container matColumnDef="status_name">
+                      <th class="text-muted sort" *matHeaderCellDef mat-sort-header> STATUS </th>
+                      <td *matCellDef="let element"> 
+                        <select class="form-control"   (ngModelChange)="openChangeModal(element.task_id,$event,'change-confirmation')" [(ngModel)]="element.status_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                            <option *ngFor ="let status of statusList"  [ngValue]="status.status_id">
+                                    {{status.status_name}}
+                            </option>
+                            </select> 
+                          </td>
+                        </ng-container>
+                    
+
+                    <ng-container matColumnDef="priority">
+                      <th class="text-muted sort" *matHeaderCellDef mat-sort-header> PRIORITY </th>
+                      <td *matCellDef="let element"> {{element.priority}} </td>
+                    </ng-container>
+              
+                   
+                    <ng-container matColumnDef="created_at">
+                      <th class="text-muted sort" *matHeaderCellDef mat-sort-header> CREATED AT </th>
+                      <td *matCellDef="let element"> {{element.created_at.substring(0,10)}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="open">
+                      <th class="text-muted sort" *matHeaderCellDef mat-sort-header> COMMENTS </th>
+                      <td *matCellDef="let element" style="cursor:pointer" class="text-center" (click)="openCommentModal('comment-box',element.task_id)"><mat-icon> comment</mat-icon> </td>
+                    </ng-container>
+    
+                    
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+    
+              <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+    
+            </div>
+    
+    
+      </div>
+    </div>
+    
+
+
+
+    <!-- <div style="margin-top: 10px" class="card" data-toggle="lists" data-options="{&quot;valueNames&quot;: [&quot;orders-order&quot;, &quot;orders-product&quot;, &quot;orders-date&quot;, &quot;orders-total&quot;, &quot;orders-status&quot;, &quot;orders-method&quot;]}">
+        <div class="table-responsive">
+              
+                    <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                      <table class="table table-sm table-nowrap card-table">
+                        <thead>
+                          <tr>
+                            <th class="text-muted sort">S.no</th>
+                            <th class="text-muted sort">Task</th>
+                            <th class="text-muted sort">Rating</th>
+                            <th class="text-muted sort">Comment</th>
+                            <th class="text-muted sort">Responded By</th>
+                            <th class="text-muted sort">Task Due Date</th>
+                            <th class="text-muted sort">Task Status</th>
+                            <th class="text-muted sort">Priority</th>
+                            <th class="text-muted sort">Created at</th>
+                            <th class="text-muted sort">Open Comments</th>
+
+
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let task of openOrPendingTasks;let i=index">
+                                <td>{{i+1}}</td>
+                                <td ><a>{{task.creator_name | titlecase}}</a>{{' assigned '}}<a>{{task.assigned_name | titlecase}}</a><BR>{{' a '}}<a>task</a> on Survey Named <a>{{task.survey_name}}</a></td>
+                                <td class="text-center">
+                                    <span  *ngIf="task.rating==1"  class="badge badge-pill" style="background-color:#EE2762; color:#fff; font-size: 78%">{{task.rating}}</span>
+                                    <span  *ngIf="task.rating==2"  class="badge badge-pill" style="background-color:#F67424; color:#fff; font-size: 78%">{{task.rating}}</span>
+                                    <span  *ngIf="task.rating==3"  class="badge badge-pill" style="background-color:#F4C902; color:#fff; font-size: 78%">{{task.rating}}</span>
+                                    <span  *ngIf="task.rating==4"  class="badge badge-pill" style="background-color:#43C153; color:#fff; font-size: 78%">{{task.rating}}</span>
+                                    <span  *ngIf="task.rating==5" style=" font-size: 78%" class="badge badge-pill badge-success">{{task.rating}}</span>
+                
+                                </td>
+                                <td >{{task.comment}}</td>
+                                <td>{{task.emp_name}}</td>
+                                <td>{{task.due_date}}</td>
+                                <td> <select class="form-control"   (ngModelChange)="openChangeModal(task.task_id,$event,'change-confirmation')" [(ngModel)]="task.status_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                    <option *ngFor ="let status of statusList"  [ngValue]="status.status_id">
+                                            {{status.status_name}}
+                                    </option>
+                                    </select></td>
+                                <td>{{task.priority}}</td>
+                                <td>{{task.created_at}}</td>
+                                <td style="color: blue;cursor:pointer" class="text-center" (click)="openCommentModal('comment-box',task.task_id)"><u> Click Here</u>
+                                 </td>
+
+                            </tr>
+                                                   
+                           
+                   </tbody>
+                      </table>
+              </div>
+            </div>
+
+    <div class="col-md-12 col-sm-6 grid-margin">
+
+        <nav>
+
+            </nav></div>
+ </div> -->
+
+        <!-- <mat-tab-group>
+                <mat-tab label="OPEN"> 
+
+
+                  <div class="row col-12">
+                    <div class="col-12">
+                        <mat-card *ngFor="let task of openOrPendingTasks;let i =index" class="example-card" style="margin-top: 20px">
+                   
+                            <mat-card-header>
+                              <div mat-card-avatar class="example-header-image">
+                                  <div _ngcontent-miv-c7="" class=".example-header-image avatar avatar-sm">
+                                      <span _ngcontent-miv-c7="" class="avatar-title rounded-circle">{{task.emp_name!=NULL?task.emp_name.substring(0,1) :''| titlecase}}</span>
+                                    </div>
+                              </div>
+                              <mat-card-title>{{task.master_question}}</mat-card-title>
+                              <mat-card-subtitle>{{task.emp_name +'     &#9679; created at '+task.task_created_at}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+
+                              <div class="row">
+
+                              <div class="col-9">
+                              <p>
+                               {{task.comment}}
+                              </p>
+                              </div>
+
+                              <div class="col-3">
+                                  <select class="form-control"   (ngModelChange)="changeStatus(task.task_id,$event)" [(ngModel)]="task.status_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                  <option *ngFor ="let status of statusList"  [ngValue]="status.status_id">
+                                          {{status.status_name}}
+                                  </option>
+                                  </select>
+                                </div>
+
+                              </div>
+
+                            </mat-card-content>
+                            <mat-card-actions>
+                              <button mat-button (click)="openCommentModal('comment-box',task.task_id)">Comment</button>
+                            </mat-card-actions>
+
+                          
+                          </mat-card>  
+                    </div>
+
+                  </div>
+                    
+                  
+                </mat-tab>
+                                              
+                <mat-tab label="RESOLVED">
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <mat-card *ngFor="let task of resolvedTasks;let i =index" class="example-card" style="margin-top: 20px">
+                       
+                                <mat-card-header>
+                                  <div mat-card-avatar class="example-header-image">
+                                      <div _ngcontent-miv-c7="" class=".example-header-image avatar avatar-sm">
+                                          <span _ngcontent-miv-c7="" class="avatar-title rounded-circle">{{task.emp_name!=NULL?task.emp_name.substring(0,1) :''| titlecase}}</span>
+                                        </div>
+                                  </div>
+                                  <mat-card-title>{{task.master_question}}</mat-card-title>
+                                  <mat-card-subtitle>{{task.emp_name +'     &#9679; created at '+task.task_created_at}}</mat-card-subtitle>
+                                </mat-card-header>
+                                <mat-card-content>
+    
+                                  <div class="row">
+    
+                                  <div class="col-9">
+                                  <p>
+                                   {{task.comment}}
+                                  </p>
+                                  </div>
+    
+                                  <div class="col-3">
+                                      <select class="form-control"   (ngModelChange)="changeStatus(task.task_id,$event)" [(ngModel)]="task.status_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                      <option *ngFor ="let status of statusList"  [ngValue]="status.status_id">
+                                              {{status.status_name}}
+                                      </option>
+                                      </select>
+                                    </div>
+    
+                                  </div>
+    
+                                </mat-card-content>
+                                <mat-card-actions>
+                                  <button mat-button (click)="openCommentModal('comment-box',task.task_id)">Comment</button>
+                                </mat-card-actions>
+    
+                              
+                              </mat-card>  
+                        </div>
+    
+                      </div>  
+                </mat-tab>
+               
+
+                <mat-tab label="CLOSED"> 
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <mat-card *ngFor="let task of closedTasks;let i =index" class="example-card" style="margin-top: 20px">
+                       
+                                <mat-card-header>
+                                  <div mat-card-avatar class="example-header-image">
+                                      <div _ngcontent-miv-c7="" class=".example-header-image avatar avatar-sm">
+                                          <span _ngcontent-miv-c7="" class="avatar-title rounded-circle">{{task.emp_name!=NULL?task.emp_name.substring(0,1) :''| titlecase}}</span>
+                                        </div>
+                                  </div>
+                                  <mat-card-title>{{task.master_question}}</mat-card-title>
+                                  <mat-card-subtitle>{{task.emp_name +'     &#9679; created at '+task.task_created_at}}</mat-card-subtitle>
+                                </mat-card-header>
+                                <mat-card-content>
+    
+                                  <div class="row">
+    
+                                  <div class="col-9">
+                                  <p>
+                                   {{task.comment}}
+                                  </p>
+                                  </div>
+    
+                                  <div class="col-3">
+                                      <select class="form-control"   (ngModelChange)="changeStatus(task.task_id,$event)" [(ngModel)]="task.status_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                      <option *ngFor ="let status of statusList"  [ngValue]="status.status_id">
+                                              {{status.status_name}}
+                                      </option>
+                                      </select>
+                                    </div>
+    
+                                  </div>
+    
+                                </mat-card-content>
+                                <mat-card-actions>
+                                  <button mat-button (click)="openCommentModal('comment-box',task.task_id)">Comment</button>
+                                </mat-card-actions>
+    
+                              
+                              </mat-card>  
+                        </div>
+    
+                       
+                      </div>  
+                </mat-tab>
+
+
+                <mat-tab label="All"> 
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <mat-card *ngFor="let task of  taskList;let i =index" class="example-card" style="margin-top: 20px">
+                       
+                                <mat-card-header>
+                                  <div mat-card-avatar class="example-header-image">
+                                      <div _ngcontent-miv-c7="" class=".example-header-image avatar avatar-sm">
+                                          <span _ngcontent-miv-c7="" class="avatar-title rounded-circle">{{task.emp_name!=NULL?task.emp_name.substring(0,1) :''| titlecase}}</span>
+                                        </div>
+                                  </div>
+                                  <mat-card-title>{{task.master_question}}</mat-card-title>
+                                  <mat-card-subtitle>{{task.emp_name +'     &#9679; created at '+task.task_created_at}}</mat-card-subtitle>
+                                </mat-card-header>
+                                <mat-card-content>
+    
+                                  <div class="row">
+    
+                                  <div class="col-9">
+                                  <p>
+                                   {{task.comment}}
+                                  </p>
+                                  </div>
+    
+                                  <div class="col-3">
+                                      <select class="form-control"   (ngModelChange)="changeStatus(task.task_id,$event)" [(ngModel)]="task.status_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                      <option *ngFor ="let status of statusList"  [ngValue]="status.status_id">
+                                              {{status.status_name}}
+                                      </option>
+                                      </select>
+                                    </div>
+    
+                                  </div>
+    
+                                </mat-card-content>
+                                <mat-card-actions>
+                                  <button mat-button (click)="openCommentModal('comment-box',task.task_id)">Comment</button>
+                                </mat-card-actions>
+    
+                              
+                              </mat-card>  
+                        </div>
+    
+                      </div>  
+                </mat-tab>
+        </mat-tab-group> -->
+
+</div>
+
+
+
+<jw-modal class="modal-dialog" id="comment-box">    
+    <div class="modal-dialog" style="display: block;">
+<div class="modal-dialog modal-confirm">
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Add Comment</h5><h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="closeModal('comment-box');" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+      </h5></div>
+   <div   class="thumbnail">
+            
+      <mat-card *ngFor="let comment of commentList;let i =index" class="example-card" style="margin-top: 20px">
+                   
+          <!-- <mat-card-header style="margin:0 0 !important"> -->
+            
+            <div class="row col-12">
+                <div  mat-card-avatar class=" col-auto example-header-image" style="margin:0 0 !important">
+                    <div _ngcontent-miv-c7="" class=".example-header-image avatar avatar-sm" style="margin:0 0 !important">
+                        <span _ngcontent-miv-c7="" class="avatar-title rounded-circle">{{comment.user_name.substring(0,1) | titlecase}}</span>
+                      </div>
+                </div>
+              <div class="col-7" style="margin-top: 5px;margin-left: 10px;">
+                  <div style="color: #33475B;font-size: 12px">{{comment.user_name |titlecase}}{{' ('+comment.admin_type+')'}}</div>
+                  <div style="color: #33475B;font-size: 11px">{{comment.comment}}</div>
+
+              </div>
+
+              <div class="col-4 row" style="font-size: 10px; color:gray ; margin-top: 5px">   
+                 <span style="margin-top: 6px;">{{comment.created_at}}</span> 
+                  <mat-icon style="cursor: pointer;" (click)="open_delete_comment_modal('delete-comment-confirmation',comment)">delete</mat-icon>
+              </div>
+
+            </div>
+
+           
+            <!-- <mat-card-title>{{comment.user_name |titlecase}}{{' ('+comment.admin_type+')'}}</mat-card-title>
+            <mat-card-subtitle>{{comment.comment|titlecase}}</mat-card-subtitle> -->
+          <!-- </mat-card-header> -->
+          <!-- <mat-card-content>
+            <p>
+             {{comment.comment}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+           
+          </mat-card-actions> -->
+        </mat-card> 
+
+
+        <form  (ngSubmit)="addComment()" method="POST">
+            <div class="modal-body">   
+              <div [formGroup]="add_comment" class="form-group">
+                
+                      <div class="row">
+                            <!-- <div class="col-6">
+                                <h4 style="margin-top: 15px" >Comment : </h4>
+                               </div> -->
+
+                              <div class="col-12">
+                          <textarea class="form-control" placeholder="Comment" rows=1 formControlName="task_comment"></textarea>
+                                </div>
+                        </div>
+                      
+
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" (click)="closeModal('comment-box')" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </form>
+
+    </div>
+
+     </div>
+     </div>
+     </div>
+</jw-modal>
+
+
+<jw-modal id="change-confirmation">
+    <div id="myModal" class="modal" style="display: block;">
+        <div class="modal-dialog modal-confirm">
+          <div class="modal-content">
+            <div class="modal-header">			
+              
+                <h3>Alert !</h3>
+                      <button type="button" (click)="closeModalChangeStatus('change-confirmation')" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+
+            <div class="modal-body">
+            <p *ngIf="changeStatusId==5" style="color: red; font-size:18px" class="modal-title">{{'Are You Sure you want move this task to open ?'}}</p>
+            <p *ngIf="changeStatusId==6" style="color: red; font-size:18px" class="modal-title">{{'Are You Sure you want move this task to pending ?'}}</p>
+            <p *ngIf="changeStatusId==7" style="color: red; font-size:18px" class="modal-title">{{'Are You Sure you want move this task to resolved ?'}}</p>
+            <p *ngIf="changeStatusId==8" style="color: red; font-size:18px" class="modal-title">{{'Are You Sure you want move this task to closed ?'}}</p>
+        
+          </div>
+            <!-- <br/> -->
+            <!-- <h4 class="text-center" style="padding: 10px"> </h4> -->
+
+            
+            <div class="modal-footer">
+              <button type="button" (click)="closeModalChangeStatus('change-confirmation')" class="btn btn-info" data-dismiss="modal">Cancel</button>
+              <button type="button" (click)="changeStatus(changeTaskId,changeStatusId)" class="btn btn-danger">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </jw-modal>
+
+  <jw-modal id="delete-comment-confirmation">
+      <div id="myModal" class="modal" style="display: block;">
+          <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+              <div class="modal-header">			
+                
+                  <h3>Alert !</h3>
+                        <button type="button" (click)="closeModal('delete-comment-confirmation')" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+  
+              <div class="modal-body">
+              <p style="color: red; font-size:18px" class="modal-title">{{'The message will be deleted, Are you sure you want to continue ?'}}</p>
+          
+            </div>
+              <!-- <br/> -->
+              <!-- <h4 class="text-center" style="padding: 10px"> </h4> -->
+  
+              
+              <div class="modal-footer">
+                <button type="button" (click)="closeModal('delete-comment-confirmation')" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                <button type="button" (click)="delete_comment()" class="btn btn-danger">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </jw-modal>
+  

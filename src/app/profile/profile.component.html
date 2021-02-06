@@ -1,0 +1,257 @@
+<!-- <div class="header">
+
+    <img src="assets/img/covers/profile-cover-1.jpg" class="header-img-top" alt="...">
+    
+    <div class="container-fluid">
+
+      <div class="header-body mt-n5 mt-md-n6">
+        <div class="row align-items-end">
+          <div class="col-auto">
+            
+
+            <div class="profile-pic avatar avatar-xxl header-avatar-top">
+                <img sty [src]="imgURL?imgURL:'assets/img/avatars/profiles/avatar-1.jpg'"  alt="..." class="avatar-img rounded-circle border border-4 border-body">
+                <div #file type="file" accept='image/*' (click)="preview(file.files)" class="edit"><a>
+
+                </a></div>
+              </div>
+
+
+              <input #imageInput
+         type="file"
+         accept="image/*"
+         (change)="processFile(imageInput)">
+
+            
+
+          </div>
+          <div class="col mb-3 ml-n3 ml-md-n2">
+            
+            <h6 class="header-pretitle">
+              Members
+            </h6>
+
+            
+
+          </div>
+          <div class="col-12 col-md-auto mt-2 mt-md-0 mb-md-3">
+            
+            <a href="#!" class="btn btn-primary d-block d-md-inline-block lift">
+              Subscribe
+            </a>
+
+          </div>
+        </div> 
+        <div class="row align-items-center">
+          <div class="col">
+            
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <mat-tab-group>
+    <mat-tab label="Profile"> 
+      <input #imageInput
+      type="file"
+      accept="image/*"
+      id="comp_icon" name="comp_icon" 
+      (change)="processFile(imageInput)">
+      </mat-tab>
+        <mat-tab label="Edit Profile"> 
+             
+            </mat-tab>
+        <mat-tab label="Activity Log"> 
+                <div style="margin-top: 10px" class="container">
+                        <div class="main-panel">
+                          <div class="content-wrapper">
+                            <div class="row">
+                    <div class="col">
+                      <h2 class="header-title">Activity Log</h2>
+                    </div>
+                    <div class="col-auto">
+                        <div >
+                          <div >
+                              <div>
+                                  <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            <!-- <mat-icon>calendar_today</mat-icon> -->
+                                          </span>
+                                      </div>
+                                <input type="text"
+                                  ngxDaterangepickerMd
+                                  [(ngModel)]="selected"
+                                  [showCustomRangeLabel]="true"
+                                  [alwaysShowCalendars]="alwaysShowCalendars"
+                                  [ranges]="ranges"
+                                  [showClearButton]="false"
+                                  [showCancel]="true"
+                                  [linkedCalendars]="true"
+                                  (rangeClicked)="rangeClicked($event)"
+                                  (datesUpdated)="datesUpdated($event)"
+                                  [keepCalendarOpeningWithRange]="keepCalendarOpeningWithRange"
+                                  [showRangeLabelOnInput]="showRangeLabelOnInput"
+                                  class="form-control"
+                                  placeholder="Select please..."/> 
+                                  </div>
+                                  <!-- <i class="fa fa-caret-down"></i> -->
+                              </div>
+                             
+                          
+                          </div>
+                        </div>
+                      </div>
+
+              
+              
+                    
+        </div>
+
+
+        <div style="margin-top: 10px" class="card" data-toggle="lists" data-options="{&quot;valueNames&quot;: [&quot;orders-order&quot;, &quot;orders-product&quot;, &quot;orders-date&quot;, &quot;orders-total&quot;, &quot;orders-status&quot;, &quot;orders-method&quot;]}">
+          <div class="table-responsive">
+                
+                      <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                        <table class="table table-sm table-nowrap card-table">
+                          <thead>
+                            <tr>
+                              <th class="text-muted sort">S.no</th>
+                              <th class="text-muted sort">Activity Name</th>
+                              <th class="text-muted sort">Date</th>
+                              <th class="text-muted sort">Added By</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                                  <tr *ngFor="let activityLog of activityLogList;let i=index">
+                                  <td>{{i+1}}</td>
+                                  <td *ngIf="activityLog.task_id!=0" id="tasks">{{activityLog.admin_name +' added task for '+activityLog.survey_name_tasks}}</td>
+                                  <td *ngIf="activityLog.comment_id!=0" id="comments">{{activityLog.user_name_commented+' commented '+activityLog.comment+' on survey  named '+activityLog.survey_name_comments+' which has '+activityLog.rating_comments+' rating'}}</td>
+                                  <td *ngIf="activityLog.survey_id!=0" id="survey">{{activityLog.admin_name +' added survey named '+activityLog.survey_name_survey+' under '+activityLog.location_name_survey+' location'}}</td>
+                                  <td *ngIf="activityLog.location_id!=0" id="location">{{activityLog.admin_name +' added location named '+activityLog.location_name_location}}</td>
+                                  <td *ngIf="activityLog.area_id!=0" id="area">{{activityLog.admin_name +' added area named '+activityLog.area_name_area}}</td>
+                                  <td *ngIf="activityLog.workplace_id!=0" id="workplace">{{activityLog.admin_name +' added workplace named '+activityLog.workplace_name_workplace}}</td>
+
+                                  <td>{{activityLog.created_at}}</td>
+                                  <!--<td>2</td> -->
+                                  <td>{{activityLog.admin_name}}</td>
+                              </tr>
+                                                     
+                             
+                     </tbody>
+                        </table>
+                </div>
+              </div>
+  
+      <div class="col-md-12 col-sm-6 grid-margin">
+  
+          <nav>
+  
+              </nav></div>
+   </div>
+
+
+
+
+
+        <!-- <div >
+
+          <div *ngIf="activityLog.task_id!=0" id="tasks">
+            <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                {{ activityLog.admin_name | titlecase }} added Task
+              </mat-card-title>
+              <mat-card-subtitle>
+                  {{'added at '+activityLog.created_at}}
+              </mat-card-subtitle>
+            </mat-card-header>
+              <p>{{activityLog.admin_name +' added task for '+activityLog.survey_name_tasks+' at '+activityLog.created_at}}</p>
+            </mat-card>
+          </div>
+
+          <div *ngIf="activityLog.comment_id!=0" id="comments">
+              <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                      {{ activityLog.admin_name | titlecase }} added Comment
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{'added at '+activityLog.created_at}}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+              <p>{{activityLog.user_name_commented+' commented '+activityLog.comment+' at '+activityLog.created_at+' on '+activityLog.survey_name_comments+' which has '+activityLog.rating_comments+' rating'}}</p>
+          </mat-card>
+            </div>
+          <div *ngIf="activityLog.survey_id!=0" id="survey">
+              <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                      {{ activityLog.admin_name | titlecase }} added Survey
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{'added at '+activityLog.created_at}}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+              <p>{{activityLog.admin_name +' added '+activityLog.survey_name_survey+' at '+activityLog.created_at+' under '+activityLog.location_name_survey+' location'}}</p>
+          </mat-card>
+            </div>
+          <div *ngIf="activityLog.workplace_id!=0" id="workplace">
+              <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                      {{ activityLog.admin_name | titlecase }} added Workplace
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{'added at '+activityLog.created_at}}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+              <p>{{activityLog.admin_name +' added '+activityLog.workplace_name_workplace+' at '+activityLog.created_at}}</p>
+          </mat-card>
+            </div>
+
+          <div *ngIf="activityLog.location_id!=0" id="location">
+              <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                      {{ activityLog.admin_name | titlecase }} added Location
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{'added at '+activityLog.created_at}}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+              <p>{{activityLog.admin_name +' added '+activityLog.location_name_location+' at '+activityLog.created_at}}</p>
+         </mat-card>
+            </div>
+
+          <div *ngIf="activityLog.area_id!=0" id="area">
+              <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                      {{ activityLog.admin_name | titlecase }} added Area
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{'added at '+activityLog.created_at}}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+              <p>{{activityLog.admin_name +' added '+ activityLog.area_name_area+' at '+activityLog.created_at}}</p>
+                  </mat-card>
+            </div>
+
+        </div> -->
+      </div>
+    </div>
+  </div>
+            </mat-tab>
+</mat-tab-group>
+<!-- Title -->
+            <!-- <h1 class="header-title">
+              {{profileData.name}}
+            </h1> -->
+
+

@@ -1,0 +1,373 @@
+.b-r{
+    border-right: thin black solid;
+    height: 70vh;
+    overflow: auto;
+  }
+
+  .b-r-part2{
+    height: 70vh;
+    overflow: auto;
+  }
+  
+  .margin_top_600px{
+    margin-top:600px;
+  }
+  
+  .noScroll {
+      overflow: hidden;
+      position:fixed;
+  }
+  
+  
+  
+  #over img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .caption-welcome {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+  
+  .caption-tagline {
+    position: absolute;
+    top: 55%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-button {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-smiley-question{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    /* padding-left: 15%;
+    padding-right: 20%; */
+  }
+  
+  .thumbnail {
+    position: relative;
+  }
+  
+  p {
+    font-size: 10px;
+  }
+
+  .caption-pos-neg-neu-qiestion{
+    position: absolute;
+    top: 2%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-pos-neg-neu-qiestion-overlay{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-input-op{
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-form-control{
+    height: 25px !important;
+    font-size: 0.5rem !important;
+  }
+  
+  .caption-button-que-op{
+    position: absolute;
+    top: 75%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .faded{
+background: darkgrey;
+  }
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  
+  .nav-tabs{
+    flex: 1.7;
+  }
+
+
+   .mat-radio-outer-circle .mat-radio-checked {
+          border-color: #3f51b5;
+        }
+    
+    
+     .mat-radio-inner-circle {
+        background-color: #3f51b5;
+    }
+    
+    .mat-radio-ripple .mat-ripple-element {
+        background-color: rgba(#3f51b5, 0.26);
+    }
+  
+
+  /* .modal-dialog {
+  width: 80%;
+  height: 90%;
+  padding: 0;
+  max-width: 90% !important;
+}
+
+.modal-content {
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;
+} */
+
+.caption-thank-you{
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 20%;
+}
+
+.caption-thank-you-msg{
+  position: absolute;
+  top: 58%;
+  left: 0;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 20%;
+}
+
+.caption-button-last{
+  position: absolute;
+  top: 80%;
+  right: 0;
+  width: 100%;
+}
+
+
+
+
+/* overlay css */
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.overlay .prevbtn {
+  position: absolute;
+  top: 35px;
+  left: 45px;
+  font-size: 25px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+.overlay-caption-pos-neg-neu-qiestion{
+  position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    padding-left: 29%;
+    padding-right: 33%; 
+}
+
+.input-transparent{
+  background: transparent;
+  margin:5px;
+}
+
+
+
+.caption-welcome-overlay {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    font-size: 25px;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+  
+  .caption-tagline-overlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-button-last-overlay{
+    position: absolute;
+    top: 70%;
+    right: 0;
+    width: 100%;
+    right: 2%;
+  }
+
+
+  .caption-input-op-remark{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .caption-button-remark{
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  textarea::placeholder {           
+    /* Firefox, Chrome, Opera */ 
+    text-align: center; 
+} 
+
+textarea:-ms-input-placeholder {    
+  /* Internet Explorer 10-11 */ 
+  text-align: center; 
+} 
+
+
+.caption-button-remark-overlay{
+  position: absolute;
+  top: 35%;
+  left: 0;
+  width: 100%;
+  padding-right: 5%;
+}
+ 
+.header-title{
+flex: .6 !important;
+}

@@ -1,0 +1,99 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="topnav">
+  <div class="container">
+
+    <!-- Toggler -->
+    <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Brand -->
+    <!--<a class="navbar-brand mr-auto" href="index.html">
+      <img src="./assets/img/logo.svg" alt="..." class="navbar-brand-img">
+    </a>-->
+
+    <!-- Form -->
+    
+
+    <!-- User -->
+  
+
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse mr-auto order-lg-first" id="navbar">
+
+      <!-- Form -->
+      <form class="mt-4 mb-3 d-md-none">
+        <input type="search" class="form-control form-control-rounded" placeholder="Search" aria-label="Search">
+      </form>
+
+      <!-- Navigation -->
+      <ul class="navbar-nav mr-auto">
+        
+         
+
+         
+
+           
+          <li *ngIf="(isSuper=='true' ||  user_right_json[8]==1)" [routerLinkActive]="['active']" #rlaus="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+            <a class="nav-link" [class.active]="rlaus.isActive" routerLink="/home/settings/users" >
+              User
+            </a>
+          </li>
+
+          <li *ngIf="(isSuper=='true' || user_right_json[6]==1 )" routerLinkActive #rlael="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+            <a class="nav-link navbar-link" [class.active]="rlael.isActive"  [routerLink]="['/home/settings/emp-list']"  >
+              Employee List 
+            </a>
+          </li>
+
+          <li *ngIf="(isSuper=='true' || user_right_json[6]==1 )" routerLinkActive #rlall="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+            <a class="nav-link navbar-link" [class.active]="rlall.isActive"  [routerLink]="['/home/settings/location-list']"  >
+              Location List 
+            </a>
+          </li>
+
+          <li *ngIf="(isSuper=='true' || user_right_json[6]==1 )" routerLinkActive #rlawl="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+            <a class="nav-link navbar-link" [class.active]="rlawl.isActive"  [routerLink]="['/home/settings/workplace-list']"  >
+              Workplace List 
+            </a>
+          </li>
+
+
+         
+      </ul>
+
+    </div>
+
+  </div> <!-- / .container -->
+</nav> 
+
+
+
+
+    <!-- <ng-container *ngFor="let breadcrumbLabel of breadcrumbList; let i=index">
+      <li class="breadcrumb-item">
+        <a [routerLink]="breadcrumbLinksList[i]">{{breadcrumbLabel}}</a>
+      </li>
+  </ng-container> -->
+
+
+
+
+<router-outlet></router-outlet>
+
+

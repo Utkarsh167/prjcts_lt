@@ -1,0 +1,221 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="topnav">
+    <div class="row col-12">
+
+    
+
+    
+
+    
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse mr-auto order-lg-first col-10" id="navbar">
+
+        <!-- Form -->
+        <form class="mt-4 mb-3 d-md-none">
+          <input type="search" class="form-control form-control-rounded" placeholder="Search" aria-label="Search">
+        </form>
+
+        <!-- Navigation -->
+        <ul class="navbar-nav mr-auto">
+          
+    <img [routerLink]="['/home']" style="width:4%;height:4%;margin-left: 30px; border-style: none;
+    border: 0px; outline: none;cursor: pointer;" src="assets/img/xpLogo.png">
+
+            <li  [routerLinkActive]="['active']" #rlawp="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+                <a class="nav-link" [class.active]="rlawp.isActive" [routerLink]="['/home']">
+                  <!-- <i class="fe fe-home"></i> -->
+                   Workplace
+                </a>
+              </li>
+          
+          <li *ngIf="isHome==='true' && (isSuper=='true' || user_right_json[6]==1 )" routerLinkActive #rlad="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link navbar-link" [class.active]="rlad.isActive"  [routerLink]="['/home/devices']"  >
+                Devices <!-- {{ rla.isActive ? '(already open)' : 'not open'}} -->
+              </a>
+            </li>
+
+            <!-- <li *ngIf="isHome==='true' && (isSuper=='true' || user_right_json[6]==1 )" routerLinkActive #rlael="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link navbar-link" [class.active]="rlael.isActive"  [routerLink]="['/home/emp-list']"  >
+                Employee List 
+              </a>
+            </li> -->
+
+
+             <li *ngIf="isHome==='true'  && (isSuper=='true' || user_right_json[7]==1 )" [routerLinkActive]="['active']" #rlaar="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link"  [class.active]="rlaar.isActive" routerLink="/home/areas">
+                Device Areas
+              </a>
+            </li>
+            
+            <!-- <li *ngIf="isHome==='true'  && (isSuper=='true' ||  user_right_json[8]==1)" [routerLinkActive]="['active']" #rlaus="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link" [class.active]="rlaus.isActive" routerLink="/home/users" >
+                User
+              </a>
+            </li> -->
+
+             <li *ngIf="false" [routerLinkActive]="['active']" #rlacu="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link" [class.active]="rlacu.isActive" routerLink="/home/check_ui">
+                Check UIS
+              </a>
+            </li>
+
+            <!-- isHome==='true'  &&  -->
+          
+
+             <li *ngIf="isHome!='true'  && (isSuper=='true' ||  user_right_json[10]==1)" [routerLinkActive]="['active']" #rlada="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link" [class.active]="rlada.isActive" routerLink="/home/work-place/dashboard">
+                Dashboard
+              </a>
+            </li>
+
+             <li *ngIf="isHome!='true'  && (isSuper=='true' ||  user_right_json[11]==1)" [routerLinkActive]="['active']" #rlaana="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link" [class.active]="rlaana.isActive" routerLink="/home/work-place/analytics">
+               Reports
+              </a>
+            </li>
+
+             <li *ngIf="isHome!='true'  && (isSuper=='true' ||  user_right_json[12]==1)" [routerLinkActive]="['active']" #rlares="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link" [class.active]="rlares.isActive" routerLink="/home/work-place/responses">
+                Responses 
+              </a>
+            </li>
+
+            <li *ngIf="(isSuper=='true' ||  user_right_json[9]==1)" [routerLinkActive]="['active']" #rlamt="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+              <a class="nav-link" [class.active]="rlamt.isActive" routerLink="/home/my-tasks">
+                My Tasks
+              </a>
+            </li>
+
+            <!-- <li *ngIf="isHome==='true'  && (isSuper=='true')" [routerLinkActive]="['active']" #rlapro="routerLinkActive" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+                <a class="nav-link" [class.active]="rlapro.isActive" routerLink="/home/profile">
+                  Profile 
+                </a>
+              </li> -->
+          
+          
+        </ul>
+
+      </div>
+
+
+
+        <!-- User -->
+        <div class="navbar-user col-2">
+  
+          <!-- Dropdown -->
+          <div style="margin-left:145px;" class="dropdown mr-4 d-none d-lg-flex">
+      
+            <!-- Toggle -->
+            <a href="#" class="navbar-user-link" role="button" data-toggle="dropdown" id="notifications" aria-haspopup="true" aria-expanded="false">
+              <span class="icon" [class.active]="isOnline">
+                <i class="fas fa-bell"></i>
+              </span>
+            </a>
+  
+  
+            
+            <!-- Menu -->
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-card">
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col">
+              
+                    <!-- Title -->
+                    <h5 class="card-header-title">
+                      Notifications
+                    </h5>
+  
+                  </div>
+                  <div class="col-auto">
+              
+                    <!-- Link  *ngIf="noti_data!=null?noti_data.length>0:false"-->
+                    <!-- <a  *ngIf="false" (click)="OnViewAll()" class="small">
+                        View all
+                      </a> -->
+  
+                  </div>
+                </div> <!-- / .row -->
+              </div> <!-- / .card-header -->
+              <div class="card-body">
+                <div class="list-group list-group-flush my-n3">
+                
+                  <a  *ngFor="let notification of noti_data" (click)="OnViewAll(notification.response_id)" class="list-group-item text-reset px-0">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <span *ngIf="notification.user_name!=''" class="avatar-title rounded-circle">{{notification.user_name.substring(0,1) | titlecase}}</span>
+                          <span *ngIf="notification.user_name==''" class="avatar-title rounded-circle">A</span>
+
+                        </div>
+                      </div>
+                      <div class="col ml-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong  *ngIf="notification.user_name!=''">{{notification.user_name | titlecase}}</strong>  <strong  *ngIf="notification.user_name==''">Anonymous</strong> {{'responded to '+notification.survey_name +' and provided rating '+notification.rating}}                         </div>
+                        <!-- Time -->
+                        <small class="text-muted">
+                            {{notification.created_at}}                         </small>
+  
+                      </div>
+                    </div> <!-- / .row -->
+                  </a>
+  
+                  <a *ngIf="noti_data.length==0" class="dropdown-item preview-item">
+                      <div class="preview-item-content flex-grow">
+                          <h6 class="preview-subject ellipsis font-weight-normal">No new notifications.</h6>
+                      </div>
+                  </a>
+                          
+              </div>
+              </div>
+            </div> <!-- / .dropdown-menu -->
+  
+          </div>
+  
+          <!-- Dropdown -->
+          <div class="dropdown">
+      
+            <!-- Toggle -->
+            <a href="#" class="avatar avatar-sm dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  
+              <div class="avatar avatar-sm">
+                <span class="avatar-title rounded-circle">{{userName.substring(0,1) | titlecase}}</span>
+              </div>
+              
+              <!--<img src="./assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">-->
+            </a>
+  
+            <!-- Menu -->
+            <div class="dropdown-menu dropdown-menu-right">
+              <a [routerLink]="['/home/settings/users']" class="dropdown-item">Settings</a>
+              <a [routerLink]="['/home/profile']" class="dropdown-item">Profile</a>
+              <hr class="dropdown-divider">
+              <a  (click)="logout()" class="dropdown-item">Logout</a>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+
+    </div> <!-- / .container -->
+  </nav> 
+ 
+ 
+
+
+      <!-- <ng-container *ngFor="let breadcrumbLabel of breadcrumbList; let i=index">
+        <li class="breadcrumb-item">
+          <a [routerLink]="breadcrumbLinksList[i]">{{breadcrumbLabel}}</a>
+        </li>
+    </ng-container> -->
+
+    <ol *ngIf="0" class="breadcrumb">
+        <li *ngFor="let breadcrumbLabel of breadcrumbList;let i=index" class="breadcrumb-item">
+          <a [routerLink]="breadcrumbLinksList[i]">
+            {{ breadcrumbLabel }}
+          </a>
+        </li>
+      </ol>
+
+      <router-outlet></router-outlet>

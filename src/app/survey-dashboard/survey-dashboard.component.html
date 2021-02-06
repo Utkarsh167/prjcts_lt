@@ -1,0 +1,514 @@
+    <div style="padding-left: 50px;padding-right: 50px;margin-bottom: 20px;">
+
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
+
+  <div *ngIf="!loading">
+  <div class="header">
+          <!-- Body -->
+          <div class="header-body">
+            <div class="row align-items-end">
+              <div class="col">
+                
+                <!-- Pretitle -->
+                <h6 class="header-pretitle">
+                  Overview
+                </h6>
+
+                <!-- Title -->
+                <h1 class="header-title">
+                  {{selectedSurveyName}}               
+                </h1>
+
+              </div>
+              <div class="col-auto">
+                
+                <select class="form-control" (change)="selectOption(selected)" [(ngModel)]="selected" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" id="select_campaign" >
+                  <!-- <option [ngValue]="'0'" >Select Survey</option> -->
+                <option *ngFor ="let survey of surveyList" [ngValue]="survey.survey_id">
+                        {{'Survey : '+survey.survey_name}}</option>
+                </select>
+              </div>
+
+              <!-- <div class="col text-right">
+                <button class="btn" style="background: #0078D4;color: #fff;" (click)="captureScreen()"> Download PDF</button>
+                  </div> -->
+            </div> <!-- / .row -->
+          </div> <!-- / .header-body -->
+      </div>
+
+
+<div id="contentToConvert" class="row">
+            <div class="col-12 col-lg-6 col-xl">
+              
+
+              <div class="tab-content tab-transparent-content pb-0">
+                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+
+                  <div class="row">       
+                    <div class="col-12 col-lg-6 col-xl">
+                      <!-- Card -->
+                      <mat-card style="cursor: pointer" [routerLink]="['/home/work-place/responses']">
+                        <div class="card-body">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <!-- Title -->
+                              <h6 class="card-title text-uppercase text-muted mb-2">
+                                Responses
+                              </h6>
+                              <!-- Heading -->
+                              <span class="h2 mb-0">
+                                {{noOfResponses}}                             </span>
+                              <!-- Badge -->
+                              <!-- <span class="badge badge-soft-success mt-n1">
+                                +3.5%
+                              </span> -->
+                            </div>
+                            <div class="col-auto">
+                              <!-- Icon -->
+                              <span class="h2 fe fe-message-square text-muted mb-0"></span>
+                            </div>
+                          </div> <!-- / .row -->
+                        </div>
+                      </mat-card>
+                    </div>
+
+                    <div class="col-12 col-lg-6 col-xl">
+                      <!-- Card -->
+                      <mat-card>
+                        <div class="card-body">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <!-- Title -->
+                              <h6 class="card-title text-uppercase text-muted mb-2">
+                                Respondents
+                              </h6>
+                              <!-- Heading -->
+                              <span class="h2 mb-0">
+                                {{noOfRespondents}}                             </span>
+                              <!-- Badge -->
+                              <!-- <span class="badge badge-soft-success mt-n1">
+                                +3.5%
+                              </span> -->
+                            </div>
+                            <div class="col-auto">
+                              <!-- Icon -->
+                              <span class="h2 fe fe-users text-muted mb-0"></span>
+                            </div>
+                          </div> <!-- / .row -->
+                        </div>
+                      </mat-card>
+                    </div>
+
+                    <div class="col-12 col-lg-6 col-xl">
+                      <!-- Card -->
+                      <mat-card>
+                        <div class="card-body">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <!-- Title -->
+                              <h6 class="card-title text-uppercase text-muted mb-2">
+                                Device Areas
+                              </h6>
+                              <!-- Heading -->
+                              <span class="h2 mb-0">
+                                {{noOfAreas}}                              </span>
+                              <!-- Badge -->
+                              <!-- <span class="badge badge-soft-success mt-n1">
+                                +3.5%
+                              </span> -->
+                            </div>
+                            <div class="col-auto">
+                              <!-- Icon -->
+                              <span class="h2 fe fe-home text-muted mb-0"></span>
+                            </div>
+                          </div> <!-- / .row -->
+                        </div>
+                      </mat-card>
+                    </div>
+                  </div>
+
+                   <div class="row">
+                    <div id="guageDiv" class="col-lg-5 grid-margin stretch-card">
+                      <mat-card >
+                        <div class="card-body" >
+                            <div class="row" style="margin-top: 10px;">
+                          <h4 class="card-title col-auto" >Happiness Score</h4>
+                            <span *ngIf="chageFromLast7days==11111" class="col-auto badge badge-soft-success mt-n1 text-right">
+                                0%
+                              </span>
+  
+                              <span *ngIf="chageFromLast7days>=0 && chageFromLast7days!=11111" class="badge badge-soft-success mt-n1 text-right">
+                                  {{chageFromLast7days>=0?'+'+chageFromLast7days+'%':chageFromLast7days+'%'}}
+                                  <i class="fas fa-long-arrow-alt-up"></i>
+                                </span>
+                               
+                                <span *ngIf="chageFromLast7days<0" class="badge badge-soft-danger mt-n1 text-right">
+                                    {{chageFromLast7days>=0?'+'+chageFromLast7days+'%':chageFromLast7days+'%'}}                              
+                                      <i class="fas fa-long-arrow-alt-down"></i>
+                                  </span>
+                        </div>
+                          <p style="font-size: 12px; color:darkgray
+                          ;margin-top: 10px;">Last 7 days</p>
+
+                         
+                           
+                          <div class="row" style="padding:1px;margin-top: 32px;" >
+                            <div class="col-auto">
+                                <ngx-gauge  [type]="gaugeType" 
+                                [value]="gaugeValue" 
+                                [thick]="guageThickness"
+                                [label] = "'Happiness'"
+                                [append]="'%'"
+                                [size]="guageSize">
+                              </ngx-gauge>
+                            </div>
+                       
+                            <div class="col-auto" style="margin-top: 20px;">
+                              <h3 *ngIf="happy_hour.length!=24 || happy_day.data!=0 || sad_hour.length!=24 || sad_day.data!=0">Insights : </h3>
+                                <ul>
+                                    <li *ngIf="happy_hour.length!=24" style="font-size: 12px;">Best hour was {{happy_hour[0] |  date:'shortTime'}}</li>
+                                    <li *ngIf="happy_day.data!=0" style="font-size: 12px;">Overall best day was {{happy_day.key |  date:'mediumDate'}}</li>
+                                    <li *ngIf="sad_hour.length!=24" style="font-size: 12px;">Worst hour was {{sad_hour[0] |  date:'shortTime'}}</li>
+                                    <li *ngIf="sad_day.data!=0" style="font-size: 12px;">Worst day was {{sad_day.key |  date:'mediumDate'}}</li>
+                                  </ul> 
+                            </div>
+
+                                                <!-- <mwl-gauge
+                                  [max]="100"
+                                  [dialStartAngle]="-90"
+                                  [dialEndAngle]="-90.001"
+                                  [value]="gaugeValue"
+                                  [animated]="true"
+                                  [animationDuration]="1">
+                                </mwl-gauge> -->
+                      </div>
+                      <p style="font-size: 12px;margin-top: 15px;">{{seven_week_start_date | date:'mediumDate'}} - {{seven_week_end_date  | date:'mediumDate'}}</p>
+                    
+                        </div>
+                        
+                      </mat-card>
+                    </div>
+
+
+                    <div class="col-lg-7 grid-margin stretch-card">
+                      <mat-card>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-5">
+                            <h4 class="card-title">Score Distribution <span style="color: darkgray;font-size: 13px;">(From Starting)</span></h4>                          
+                                <div *ngIf="totalRating!=0" style="display: block; margin-top: 30px">
+                                    <canvas baseChart 
+                                      height="200" 
+                                      [data]="doughnutChartData"
+                                      [colors]="doughnutChartColors"
+                                      [labels]="doughnutChartLabels"
+                                      [options]="doughNutChartOptions"
+                                      [plugins]="doughnutChartPlugins"
+                                      [chartType]="doughnutChartType">
+                                    </canvas>
+                                  </div>
+                                    <label style="color:darkgray;margin-left: 62px;margin-top: 10px;">Responses :{{noOfResponses}}</label>
+
+                                  <!-- <p>{{happy_hour.key+' '+happy_hour.data }}</p> -->
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="row" style="padding:5px;">
+                                    <div class="col-sm-2"> 
+                                      <img  src="assets/img/smileys/group1_50x50.png">
+                                    </div>
+                                    <div class="col-sm-8">
+                                      {{fiveStarPer}}%
+                                      <div class="progress progress-sm" style="width: 100%">
+                                         <div class="progress-bar" role="progressbar" [style.width]="fiveStarWithPer" style="background-color:#189150" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div> 
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-2" style="margin-top: 15px">
+                                       {{fiveStarValue}}                              </div>
+                                  </div>
+                                  <div class="row" style="padding:5px">
+                                    
+                                    <div class="col-sm-2"> 
+                                      <img src="assets/img/smileys/group2_50x50.png">
+                                    </div>
+                                    <div class="col-sm-8">
+                                      {{fourStarPer}}%
+                                    
+                                      <div class="progress progress-sm" style="width: 100%">
+                                        <div class="progress-bar" role="progressbar" [style.width]="fourStarWithPer" style=" background-color:#74B78C" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-2" style="margin-top: 15px">
+                                       {{fourStarValue}}                              </div>
+                                  </div>
+        
+                                  <div class="row" style="padding:5px;">
+                                    <div class="col-sm-2"> 
+                                      <img src="assets/img/smileys/group3_50x50.png">
+                                    </div>
+                                    <div class="col-sm-8">
+                                      {{threeStarPer}}%
+                                      
+                                      <div class="progress progress-sm" style="width: 100%">
+                                        <div class="progress-bar" role="progressbar" [style.width]="threeStarWithPer" style=" background-color:#FECE8B" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-2" style="margin-top: 15px">
+                                       {{threeStarValue}}                              </div>
+                                  </div>
+        
+                                  <div class="row" style="padding:5px">
+                                    <div class="col-sm-2"> 
+                                      <img src="assets/img/smileys/group4_50x50.png">
+                                    </div>
+                                    <div class="col-sm-8">
+                                      {{twoStarPer}}%
+                                      
+                                      <div class="progress progress-sm" style="width: 100%">
+                                        <div class="progress-bar" role="progressbar" [style.width]="twoStarWithPer" style=" background-color:#FF847C" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-2" style="margin-top: 15px">
+                                       {{twoStarValue}}                              </div>
+                                  </div>
+        
+                                  <div class="row" style="padding:5px">
+                                    <div class="col-sm-2"> 
+                                      <img src="assets/img/smileys/group5_50x50.png">
+                                    </div>
+                                    <div class="col-sm-8">
+                                      {{oneStarPer}}%
+        
+                                      <div class="progress progress-sm" style="width: 100%">
+                                        <div class="progress-bar" role="progressbar" [style.width]="oneStarWithPer" style="background-color:#E84A5F" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-2" style="margin-top: 15px">
+                                       {{oneStarValue}}                              </div>
+                                  </div>
+                              </div>
+                          </div>
+                         
+
+                        </div>
+                      </mat-card>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <mat-card>
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                  <div class="col-10">
+                                    <!-- Title -->
+                                    <h4 class="card-header-title">Happiness Score Trend</h4>
+                                    <div style="font-size: 13px;color: darkgray;margin-left: 6px;margin-top: 4px;" class="row">
+                                      <div  *ngIf="!month">{{month_start | date: 'mediumDate'}}</div>
+                                      <div *ngIf="!month">{{' - '}}</div>
+                                      <div *ngIf="!month">{{month_end | date: 'mediumDate'}}</div>
+                                      <div *ngIf="month">{{month_start}}</div>
+                                      <div *ngIf="month">{{' - '}}</div>
+                                      <div *ngIf="month">{{month_end}}</div>
+                                    </div>
+                                 
+
+
+                                  <!-- <p>{{month?(month_start+' - '+month_end):(month_start +' - '+month_end)}}</p> -->
+                                  </div>
+                                  <div class="col-2">
+                                      <ul class="nav nav-tabs tab-transparent" role="tablist">
+                                          <li class="nav-item">
+                                            <a class="nav-link active" id="daily-tab" (click)="loadDailyGraph()" data-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="true">Daily</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a class="nav-link" (click)="loadMonthlyGraph()" id="monthly-tab" data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">Monthly</a>
+                                          </li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- / .row -->
+                              </div>
+
+                         
+                            
+                        <div class="card-body loader-container">
+                         <mat-spinner *ngIf="loading_linechart" [color]="'#0078D4'" [diameter]="50" class="centered"></mat-spinner>
+                          <div style="display: block;">
+
+                              <canvas baseChart height="300"
+                                [datasets]="lineChartData"
+                                [labels]="lineChartLabels"
+                                [options]="lineChartOptions"
+                                [colors]="lineChartColors"
+                                [legend]="lineChartLegend"
+                                [chartType]="lineChartType"
+                                [plugins]="lineChartPlugins">
+                              </canvas>
+                            </div>
+                        </div>
+                      </mat-card>
+                    </div>
+
+                  </div>
+
+                    <div class="row">
+                          <!-- <div class="col-12 col-xl-4">
+                              <div class="card">
+                                <div class="card-header">
+                                  <div class="row align-items-center">
+                                    <div class="col">
+                                    <h4 class="card-header-title">Area Wise Data</h4>
+                                    </div>
+                                  </div> 
+                                </div>
+                                <div class="card-body">
+                                      <div class="table-responsive">
+                                        <table class="table table-sm card-table">
+                                          <thead>
+                                            <tr>
+                                              <th>Area</th>
+                                              <th class="text-right">Score (%)</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody >
+                                              <tr *ngFor="let indexAreaWise of positiveIndexAreaWise">
+                                            <div *ngFor="let key of objectKeys(indexAreaWise)">
+                                              <td>
+                                              {{key}}
+                                            </td>
+                                              <td class="text-right">
+                                                  <div class="text-right">
+                                              {{indexAreaWise[key] |  number:'1.0-0'}}   <span>%</span>                                                   
+                                                      <div class="progress progress-sm" style="width: 100%">
+                                                         <div class="progress-bar" role="progressbar" [style.width]="indexAreaWise[key]+'%'" style="background-color:#189150" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div> 
+                                                      </div>
+                                                    </div>
+                                              </td>
+                                            </div>
+                                          </tr>
+                                          </tbody>
+                                        </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> -->
+
+                            <div class="col-4 col-xl-4">
+                                <mat-card>
+                                  <div class="card-header">
+                                    <div class="row align-items-center">
+                                      <div class="col">
+                                        <!-- Title -->
+                                      <h4 class="card-header-title">Trending Device Areas </h4>
+                                      </div>
+                                    </div> <!-- / .row -->
+                                  </div>
+                                  <div class="card-body">
+                                        <div class="table-responsive">
+                                          <table class="table table-sm card-table">
+                                            <thead>
+                                              <tr>
+                                                <th>Area</th>
+                                                <th class="text-right">Happy Index (%)</th>
+                                                
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                                   <ng-container *ngFor="let indexAreaWise of positiveIndexAreaWise">
+                                                     <tr *ngFor="let key of objectKeys(indexAreaWise)">
+                                                      <td>{{key}}</td>
+                                                                                               
+                                              <td class="text-right"> {{indexAreaWise[key] |  number:'1.0-0'}}   <span>%</span>
+                                                <div class="progress progress-sm" style="width: 100%">
+                                                    <div class="progress-bar" role="progressbar" [style.width]="indexAreaWise[key]+'%'" style="background-color:#189150" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div> 
+                                                 </div> </td>
+                                                     </tr>
+                                                   </ng-container>
+                                                    <!-- <tr>
+                                                      <td>Washroom</td>
+                                                      <td class="text-right">50</td>
+                                                    </tr>                              -->
+                                                   </tbody>
+                                          </table>
+                                    </div>
+                                  </div>
+                                </mat-card>
+                              </div>
+
+                    <div class="col-8 col-xl-8">
+                        <mat-card>
+                          <div class="card-header">
+                            <div class="row align-items-center">
+                              <div class="col">
+                                <!-- Title -->
+                                <h4 class="card-header-title">Latest Feedback</h4>
+                              </div>
+                              
+                            </div> <!-- / .row -->
+                          </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table table-sm card-table">
+                              <thead>
+                                <tr>
+                                  <th>Initial</th>
+                                  <th> Name</th>
+                                  <th> Area</th>
+                                  <th>Rating</th>
+                                  <th>Follow Up</th>
+                                  <th>Time</th>
+                                </tr>
+                              </thead>
+                              <tbody *ngFor="let responseData of responses">
+
+                                <tr>
+                                        <td>
+                                        <div class="avatar avatar-sm">
+                                        <span class="avatar-title rounded-circle">{{responseData.user_name.substring(0,1) | titlecase}}</span>
+                                        </div>
+                                        </td>
+                                        <td><div class="text-dark font-weight-medium">
+                                          {{responseData.user_name | titlecase}}
+                                        </div></td>
+                                        <td>
+                                          {{responseData.area_name | titlecase}}
+                                        </td>
+                                        <td><div class="avatar avatar-sm">
+                              <span  *ngIf="responseData.rating==1"  class="avatar-title rounded-circle" style="background-color:#EE2762; color:#fff">{{responseData.rating}}</span>
+                              <span  *ngIf="responseData.rating==2"  class="avatar-title rounded-circle" style="background-color:#F67424; color:#fff">{{responseData.rating}}</span>
+                              <span  *ngIf="responseData.rating==3"  class="avatar-title rounded-circle" style="background-color:#F4C902; color:#fff">{{responseData.rating}}</span>
+                              <span  *ngIf="responseData.rating==4"  class="avatar-title rounded-circle" style="background-color:#43C153; color:#fff">{{responseData.rating}}</span>
+                              <span  *ngIf="responseData.rating==5"  class="avatar-title rounded-circle" style="background-color:#189150; color:#fff">{{responseData.rating}}</span>
+                                    </div>
+                                        </td>
+                                        <td>
+                                          {{responseData.multi_option | titlecase}}
+                                        </td>
+                                        <td>
+                                          {{responseData.created_at}}
+                                        </td>
+                                        </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </mat-card>
+                    </div>
+
+                      </div>
+                  
+                </div>
+                <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
+                  Tab Item
+                </div>
+                <div class="tab-pane fade" id="returns-1" role="tabpanel" aria-labelledby="returns-tab">
+                  Tab Item
+                </div>
+                <div class="tab-pane fade" id="more" role="tabpanel" aria-labelledby="more-tab">
+                  Tab Item
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+</div>

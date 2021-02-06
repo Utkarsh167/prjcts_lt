@@ -1,0 +1,241 @@
+<!-- <div class="container" > -->
+    <div style="padding-left: 50px;padding-right: 50px;">
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
+
+<div *ngIf="!loading" class="row">
+  <div class="col-12" style="margin-top: 15px">
+
+    <h1>Device List</h1>
+      <!-- <mat-card>  
+          <div>  
+            <input type="button" value="CAPTURE" (click)="captureScreen()"/>  
+          </div>  
+        </mat-card> -->
+    <!-- <div class="table-responsive"> -->
+     
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+          </mat-form-field>
+          
+          <div class="mat-elevation-z8" >
+
+          <div class="table-responsive">
+              
+                  <div class="table-sorter-wrapper col-lg-12 table-responsive">
+            
+        <table class="table table-sm table-nowrap card-table" id="contentToConvert" mat-table [dataSource]="dataSource" matSort>
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th class="text-muted sort" *matHeaderCellDef mat-sort-header> NO. </th>
+              <td *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="tablet_name">
+              <th class="text-muted sort" *matHeaderCellDef mat-sort-header> NAME </th>
+              <td (click)="openModalForChangeDeviceName(element.tablet_name,element.tablet_id)" *matCellDef="let element"> <a data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">{{element.tablet_name}}</a> </td>
+
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="location_name">
+              <th class="text-muted sort" *matHeaderCellDef mat-sort-header> LOCATION </th>
+              <td *matCellDef="let element" > {{element.location_name}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="area_name">
+              <th class="text-muted sort" *matHeaderCellDef mat-sort-header> AREA </th>
+              <td (click)="editDevice(element,'add-new-device','edit_area')" *matCellDef="let element"><a data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">{{element.area_name==null?'Select Area':element.area_name+" "}}</a>
+            </ng-container>
+
+            <ng-container matColumnDef="survey_name">
+                <th class="text-muted sort" *matHeaderCellDef mat-sort-header> SURVEY </th>
+                <td  (click)="editDevice(element,'add-new-device','edit_survey')" *matCellDef="let element"><a data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">{{element.survey_name==null?'Select Survey':element.survey_name+" "}}</a> </td>
+              </ng-container>
+
+              <ng-container matColumnDef="created_at">
+                  <th class="text-muted sort" *matHeaderCellDef mat-sort-header> CREATED AT </th>
+                  <td *matCellDef="let element"> {{element.created_at}} </td>
+                </ng-container>
+          
+                <ng-container matColumnDef="battery_status">
+                    <th class="text-muted sort" *matHeaderCellDef mat-sort-header> HEALTH </th>
+                    <td  *matCellDef="let element">
+                      <div *ngIf="element.last_responsed>60 ; else elseBlock">
+                          Tablet not reponding for more than a hour
+                      </div>
+                      <ng-template #elseBlock>
+                        <div *ngIf="element.battery_status ; else batteryelseblock">{{element.battery_status}}</div>
+                           <ng-template #batteryelseblock><div> No Data</div>
+                        </ng-template>
+                               </ng-template>
+                      </td>
+                    
+                  </ng-container>
+
+                  <!-- <ng-container matColumnDef="action">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                      <td mat-cell *matCellDef="let element"><i class="fe fe-lock"></i> </td>
+                    </ng-container> -->
+
+                    <!-- <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                        <td mat-cell *matCellDef="let element"><div  class="col text-left dropdown">
+                          <i class="fe fe-more-vertical"  data-toggle="dropdown">
+                           <span class="caret"></span></i>
+                    <ul class="dropdown-menu">
+                      <li><a  (click)="editDevice(element,'add-new-device')" class="dropdown-item">Edit</a></li>
+                    </ul>  
+                    </div>
+                   </td>
+                      </ng-container> -->
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        </div>
+          </div>
+          </div>
+
+        <div class="col-12" >
+          <mat-paginator [pageSizeOptions]="[ 10, 25, 100]"></mat-paginator>
+</div>
+
+        </div>
+
+
+    <!-- </div> -->
+  <!-- </div> -->
+</div>
+</div>
+
+
+<jw-modal id="add-new-device">
+  <div class="modal" style="display: block;">
+      <div class="modal-dialog modal-confirm">
+  <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Edit Device</h5><h5>
+                    <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-new-device');" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                </h5></div>
+                <!-- <form action="add_subscription" [formGroup]="add_subscription" (ngSubmit)="addNewSubscription()" method="POST"> -->
+                  <div class="modal-body">   
+                    <div class="form-group">
+
+                      <!-- <div class="row">
+                          <div class="col-6">
+          
+                              <select class="form-control" (change)="selectAdmin(selectedAdmin)" [(ngModel)]="selectedAdmin" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                <option [ngValue]="0" >*Select Admin</option>
+                              <option *ngFor ="let admin of allAdmins" [ngValue]="admin.id">
+                                      {{admin.name}}</option>
+                              </select>
+                            </div>
+
+                            <div class="col-6">
+            
+                                <select class="form-control" (change)="selectLocation(selectedLocation)" [(ngModel)]="selectedLocation" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end"  >
+                                  <option [ngValue]="0" >Select Location</option>
+                                <option *ngFor ="let location of allLocations" [ngValue]="location.id">
+                                        {{location.name}}</option>
+                                </select>
+                              </div>
+
+                              </div> -->
+
+                              <div class="row" style="margin-top: 12px">
+                              <!-- <div class="col-6">
+          
+                                  <select class="form-control" (change)="selectSurvey(selectedSurvey)" [(ngModel)]="selectedSurvey" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">
+                                    <option [ngValue]="0" >Select Survey</option>
+                                  <option *ngFor ="let survey of allSurveys" [ngValue]="survey.survey_id">
+                                          {{survey.survey_name}}</option>
+                                  </select>
+                                </div> -->
+
+                                <div *ngIf="edit_type=='edit_area'" class="col-12" >
+            
+                                    <select class="form-control"  [(ngModel)]="selectedArea" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                      <option [ngValue]="0" >Select Area</option>
+                                    <option *ngFor ="let area of areaList" [ngValue]="area.area_id">
+                                            {{area.area_name}}</option>
+                                    </select>
+                                  </div>
+
+                                  <div *ngIf="edit_type=='edit_survey'" class="col-12" >
+            
+                                      <select class="form-control"  [(ngModel)]="selectedSurvey" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                        <option [ngValue]="0" >Select Survey</option>
+                                      <option *ngFor ="let survey of surveyList" [ngValue]="survey.survey_id">
+                                              {{survey.survey_name}}</option>
+                                      </select>
+                                    </div>
+<!-- 
+                                  <input style="margin-top: 10px" type="text" [(ngModel)]="tabletName" class="form-control" placeholder="Enter tablet name">
+                                  <input style="margin-top: 10px" type="text" [(ngModel)]="uuid" class="form-control" placeholder="Enter Uuid"> -->
+
+                      </div>
+                       
+                           
+                     <!--  <input type="text" id="client_id" formControlName="client_id" class="form-control" name="client_id" placeholder="Enter client id">
+                      <input style="margin-top: 10px" type="text" id="start_date" formControlName="start_date" class="form-control" name="start_date" placeholder="Enter subscription start date">
+                      <input style="margin-top: 10px" type="text" id="end_date" formControlName="end_date" class="form-control" name="end_date" placeholder="Enter subscription end date">
+                      <input style="margin-top: 10px" type="text" id="status_expired" formControlName="status_expired" class="form-control" name="status_expired" placeholder="Enter subscription expiry date">                        
+-->                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="closeModal('add-new-device')" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success" (click)="editTabletArea()">Edit Device</button>
+                  </div>
+              <!--   </form> -->
+              </div>
+              </div>
+              </div>
+</jw-modal>
+
+
+
+<jw-modal id="edit-device-name">
+    <div class="modal" style="display: block;">
+        <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Edit Device Name</h5><h5>
+                      <button type="button" class="close" data-dismiss="modal" (click)="closeModal('edit-device-name');" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                  </h5></div>
+                    <div class="modal-body">   
+                      <div class="form-group">
+  
+                      
+                                <div class="row" style="margin-top: 12px">
+                              
+  
+                                  <div class="col-12" >
+               
+                                    <div class="form-group" style="text-align: center">
+                                        <mat-form-field style="width: 80%" appearance="outline"  class="example-full-width" >
+                                            <mat-label>Device Name</mat-label>
+                                            <input matInput  placeholder="Give it a name" type="text" [(ngModel)]="tablet_name_change"   required>
+                                            </mat-form-field>
+                                    </div>
+                                    </div>
+  
+                        </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light" (click)="closeModal('edit-device-name')" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-success" (click)="editDeviceName()">Edit</button>
+                    </div>
+                </div>
+                </div>
+                </div>
+  </jw-modal>

@@ -1,0 +1,32 @@
+p{
+    font-size: 12px;
+}
+
+mat-card{
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.profile-pic {
+    position: relative;
+    width: 200px;
+    height: 200px;
+	display: inline-block;
+}
+
+.profile-pic:hover .edit {
+	display: block;
+}
+
+.edit {
+	padding-top: 65px;	
+	padding-right: 13px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	/* display: none; */
+}
+
+.edit a {
+	color: #fff;
+}

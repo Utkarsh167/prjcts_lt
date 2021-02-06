@@ -1,0 +1,218 @@
+<!-- <div class="container"> -->
+    <div style="padding-left: 50px;padding-right: 50px;">
+
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
+ 
+
+<!-- <mat-spinner class="loader"></mat-spinner> -->
+
+  <div *ngIf="!loading" style="margin-top: 15px" class="row">
+      <div class="col">
+        <h1 class="header-title">Device Area List</h1>
+      </div>
+    <div class="col-auto">
+      <div class="pr-4 pl-4 mb-3 mb-xl-0 d-xl-block d-none">
+        <button class="btn btn-success" (click)="openModalForAddArea()" data-toggle="modal" data-target="#add_new_area">Add new</button>  
+      </div>
+    </div>
+    </div>
+
+<!-- <div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-sm table-nowrap card-table">
+        <thead>
+          <tr>
+            <th class="text-muted sort">
+              #
+            </th>
+             <th class="text-muted sort">
+              AREA NAME
+            </th>
+             <th class="text-muted sort">
+              LOCATION NAME
+            </th>
+             <th class="text-muted sort">
+              CREATED AT
+            </th>
+             <th class="text-muted sort">
+              ACTION
+            </th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let area of allAreaData ; let i = index">
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{area.area_name}}
+          </td>
+          <td>
+            {{area.location_name}}
+          </td>
+          <td>
+            {{area.created_at}}
+          </td>
+         <td>
+            <i class="fe fe-lock"></i>
+          </td>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="row">
+
+  <div class="col-12">
+      <!-- <mat-card>  
+          <div>  
+            <input type="button" value="CAPTURE" (click)="captureScreen()"/>  
+          </div>  
+        </mat-card> -->
+     
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+          </mat-form-field>
+          
+          <div class="mat-elevation-z8 col-12" style="margin-bottom: 20px">
+        <table id="contentToConvert" mat-table [dataSource]="dataSource" matSort class="table table-sm table-nowrap card-table mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th class="text-muted sort" *matHeaderCellDef mat-sort-header> No. </th>
+              <td *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="area_name">
+              <th class="text-muted sort" *matHeaderCellDef mat-sort-header> AREA NAME </th>
+              <td (click)="openModalForChangeAreaName(element.area_name,element.area_id)" *matCellDef="let element"> <a data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">{{element.area_name}}</a> </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="location_name">
+              <th class="text-muted sort" *matHeaderCellDef mat-sort-header> LOCATION NAME </th>
+              <td  *matCellDef="let element"> {{element.location_name}} </td>
+            </ng-container>
+          
+           
+              <ng-container matColumnDef="created_at">
+                  <th class="text-muted sort" *matHeaderCellDef mat-sort-header> CREATED AT </th>
+                  <td *matCellDef="let element"> {{element.created_at}} </td>
+                </ng-container>
+          
+               
+
+                  <!-- <ng-container matColumnDef="action">
+                      <th class="text-muted sort" *matHeaderCellDef mat-sort-header> ACTION </th>
+                      <td  *matCellDef="let element"><i class="fe fe-lock"></i> </td>
+                    </ng-container> -->
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <div>
+          <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+        </div>
+        </div>
+
+
+  </div>
+</div>
+</div>
+
+
+<jw-modal id="add-area">
+    <div class="modal" style="display: block;">
+        <div class="modal-dialog modal-confirm">
+  <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Add Area</h5><h5>
+                    <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-area');" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                </h5></div>
+                <form [formGroup]="add_area" (ngSubmit)="onSubmitArea()" method="POST">
+                  <div class="modal-body">   
+                    <div class="form-group text-center">
+  
+                        <!-- <input type="text" id="area_name" formControlName="area_name" class="form-control" placeholder="Give it a name"> -->
+  
+                        <mat-form-field style="width: 100%" appearance="outline"  class="example-full-width" >
+                            <mat-label>Area Name</mat-label>
+                            <input matInput  placeholder="Give it a name" type="text"  formControlName="area_name" required>
+                             <!-- <div *ngIf="f.wp_name.errors" class="invalid-feedback">
+                                <div *ngIf="f.wp_name.errors.required">Workplace Name is required</div>
+                            </div> -->
+                            </mat-form-field>
+  
+                      <div style="margin-top: 10px" class="row">
+                        <!-- <div class="col-6">
+                           <h4 style="margin-top: 15px" >Location Name : </h4>
+                          </div> -->
+                        
+                          <div class="col-12">
+                            <select class="form-control" formControlName="location_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                              <option [ngValue]="'0'" >*Select Location</option>
+                            <option *ngFor ="let location of locationList" [ngValue]="location.id">
+                                    {{location.name}}</option>
+                            </select>
+                          </div>
+  
+                            </div>
+                                            </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="closeModal('add-area')" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">Add Area</button>
+                  </div>
+                </form>
+              </div>
+              </div>
+              </div>
+  </jw-modal>
+
+  <jw-modal id="edit-area-name">
+      <div class="modal" style="display: block;">
+          <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="ModalLabel">Edit Device Area</h5><h5>
+                        <button type="button" class="close" data-dismiss="modal" (click)="closeModal('edit-area-name');" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                    </h5></div>
+                      <div class="modal-body">   
+                        <div class="form-group">
+    
+                        
+                                  <div class="row" style="margin-top: 12px">
+                                
+    
+                                    <div class="col-12" >
+                 
+                                      <div class="form-group" style="text-align: center">
+                                          <mat-form-field style="width: 80%" appearance="outline"  class="example-full-width" >
+                                              <mat-label>Device Area Name</mat-label>
+                                              <input matInput  placeholder="Give it a name" type="text" [(ngModel)]="area_name_change"   required>
+                                              </mat-form-field>
+                                      </div>
+                                      </div>
+    
+                          </div>
+                      </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-light" (click)="closeModal('edit-area-name')" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success" (click)="editAreaName()">Edit</button>
+                      </div>
+                  </div>
+                  </div>
+                  </div>
+    </jw-modal>
+  

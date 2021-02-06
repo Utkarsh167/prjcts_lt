@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+    background-color: #fff !important;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  
+  .mat-elevation-z8{
+    box-shadow: none !important;
+  }
+  
+  .mat-table{
+    font-family: "Cerebri Sans", sans-serif !important;
+  }
+  
+  tr.mat-header-row {
+    height: 0px !important;
+  }
+  
+  .thumbnail {
+    position: relative;
+  }

@@ -1,0 +1,60 @@
+
+
+.example-header-image {
+  background-size: cover;
+}
+
+.thumbnail {
+  position: relative;
+}
+
+/* a {
+  color: blue !important;
+} */
+
+
+
+/* mouse over link */
+a:hover {
+  color: cadetblue !important;
+}
+
+.mat-card-header-text {
+  margin: 0 0 !important;
+}
+
+table {
+  width: 100%;
+  background-color: #fff !important;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-elevation-z8{
+  box-shadow: none !important;
+}
+
+
+  
+  .loader {
+    margin:auto;
+    display:block;
+  }
+
+  .mat-table{
+    font-family: "Cerebri Sans", sans-serif !important;
+  }
+
+  tr.mat-header-row {
+    height: 0px !important;
+}
+/* selected link */
+
+
+
+.form-control{
+  padding: 0.1rem 0.1rem !important;
+  /* font-size: 0.5375rem !important; */
+}

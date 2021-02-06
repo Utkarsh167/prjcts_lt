@@ -1,0 +1,565 @@
+
+  <div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
+
+<!-- <div> -->
+<!-- <div class="container"> -->
+    <div style="padding-left: 50px;padding-right: 50px;margin-bottom: 20px;">
+
+  <div class="main-panel">
+    <div class="content-wrapper">
+     
+        <div class="header">
+            <!-- Body -->
+            <div class="header-body">
+              <div class="row align-items-end">
+                <div class="col">
+                  
+                  <!-- Pretitle -->
+                  <h6 class="header-pretitle">
+                    Overview
+                  </h6>
+  
+                  <!-- Title -->
+                  <h1 class="header-title">
+                      Response List               
+                  </h1>
+  
+                </div>
+
+                <div  *ngIf="isCritical!=1" class="col-auto">
+                  
+                    <!-- <div class="col-auto justify-content-end d-flex text-right"> -->
+                        <!-- <div class="input-group">
+                            <span class="input-group-addon">
+                        <i style="margin-top: 10px" class="fe fe-calendar"></i>
+                            </span>  -->
+                            
+                            <div *ngIf="0" class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                                      <!-- <mat-icon>calendar_today</mat-icon> -->
+                                    </span>
+                                </div>
+                        <input type="text" 
+                          ngxDaterangepickerMd
+                          [(ngModel)]="selected"
+                          [showCustomRangeLabel]="true"
+                          [alwaysShowCalendars]="alwaysShowCalendars"
+                          [ranges]="ranges"
+                          [showClearButton]="false"
+                          [showCancel]="true"
+                          [linkedCalendars]="true"
+                          (rangeClicked)="rangeClicked($event)"
+                          (datesUpdated)="datesUpdated($event)"
+                          [keepCalendarOpeningWithRange]="keepCalendarOpeningWithRange"
+                          [showRangeLabelOnInput]="showRangeLabelOnInput"
+                          class="form-control"
+                          placeholder="Select please..."/> 
+                          </div>
+                          <!-- <i class="fa fa-caret-down"></i> -->
+                      <!-- </div>  -->
+                </div>
+                <div  *ngIf="isCritical!=1" class="col-auto">
+                  
+                  <mat-form-field >
+                    <mat-label>Select Survey</mat-label>
+                    <mat-select   [(ngModel)]="selectedSurveyId" name="survey" (ngModelChange)="selectOption(selectedSurveyId)">
+                      <mat-option *ngFor="let survey of surveyList" [value]="survey.survey_id">
+                        {{survey.survey_name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <!-- <p> Selected food: {{selectedSurveyId}} </p> -->
+
+                    <!-- <select class="form-control" (change)="selectOption(selectedSurveyId)" [(ngModel)]="selectedSurveyId" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" id="select_campaign" >
+                        <option  [ngValue]="0">Select Survey</option>
+                      <option *ngFor ="let survey of surveyList" [ngValue]="survey.survey_id">
+                              {{survey.survey_name}}</option>
+                      </select> -->
+                </div>
+              </div> <!-- / .row -->
+            </div> <!-- / .header-body -->
+        </div>
+     
+        <mat-card>
+          <div class="row"  >
+              <form [formGroup]="filterForm" (ngSubmit)="onFilterGo()" class="form form-inline col-12" action="">
+                  <div class="input-group col-3">
+                      <label for="input_search" class="mb-2 mr-sm-2">Search</label>
+                      <input type="text" formControlName="search_string" class="form-control mb-2 mr-sm-2 border" id="input_search" name="search_string" placeholder="search here" value="">
+                    
+                      </div>
+                      
+                      <div class="input-group col-2">
+                          <label for="input_order" class="mr-sm-2">Order By</label>
+                          <select formControlName="filter_col" class="form-control">
+                             <option [value]="'rating'" >rating</option> 
+                             <option [value]="'created_at'" >created_at</option>                    
+                            </select>
+                          </div>
+    
+                          <div class="input-group col-2">
+                              <select  formControlName="order_by" class="form-control" id="input_order">
+                                <option [value]="'asc'">Asc</option>
+                                <option [value]="'desc'">Desc</option>
+                              </select>
+                            </div>
+    
+                            <div class="col-2">
+                              <div class="input-group col-auto border">
+        
+        
+                                <select style="width: 100% !important" class="form-control" id="example-multiple-selected" multiple="multiple">
+                                    <option value="1">1 Star</option>
+                                    <option value="2">2 Star</option>
+                                    <option value="3">3 Star</option>
+                                    <option value="4">4 Star</option>
+                                    <option value="5">5 Star</option>
+                                </select>
+                             
+                            </div>
+                            </div>
+                         
+                            <div class="input-group col-2">
+                              <input type="submit" value="Go" class="btn btn-success">
+                            </div>
+      
+                            
+                          
+              </form>
+    
+              <form [formGroup]="filterForm" (ngSubmit)="onFilterGo()" class="form form-inline d-flex justify-content-center col-12" action="">
+                  
+      
+                
+            </form>
+    
+    
+           
+    </div>
+    </mat-card>
+
+
+
+
+
+        <div class="col-12 col-xl-12" style="margin-top: 20px;">
+          <mat-card>
+            <!-- <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h4 class="card-header-title">Latest Feedback</h4>
+                </div>
+                
+              </div> 
+            </div> -->
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-sm card-table">
+                <thead>
+                  <tr>
+                    <th>Initial</th>
+                    <th> Name</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    <th>Multi Option</th>
+                    <th>Survey</th>
+                    <th>Location</th>
+                    <th> Area</th>
+                    <th>Time</th>
+                    <th *ngIf="isCritical==1">Assign</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let responseData of pageOfItems">
+
+                  <tr>
+                          <td>
+                          <div class="avatar avatar-sm">
+                          <span class="avatar-title rounded-circle">{{responseData.user_name.substring(0,1) | titlecase}}</span>
+                          </div>
+                          </td>
+                          <td><div class="text-dark font-weight-medium">
+                            {{responseData.user_name | titlecase}}
+                          </div></td>
+                          
+                          <td><div class="avatar avatar-sm">
+                <span  *ngIf="responseData.rating==1"  class="avatar-title rounded-circle" style="background-color:#EE2762; color:#fff">{{responseData.rating}}</span>
+                <span  *ngIf="responseData.rating==2"  class="avatar-title rounded-circle" style="background-color:#F67424; color:#fff">{{responseData.rating}}</span>
+                <span  *ngIf="responseData.rating==3"  class="avatar-title rounded-circle" style="background-color:#F4C902; color:#fff">{{responseData.rating}}</span>
+                <span  *ngIf="responseData.rating==4"  class="avatar-title rounded-circle" style="background-color:#43C153; color:#fff">{{responseData.rating}}</span>
+                <span  *ngIf="responseData.rating==5"  class="avatar-title rounded-circle" style="background-color:#189150; color:#fff">{{responseData.rating}}</span>
+                      </div>
+                          </td>
+                          <td>
+                            {{responseData.comment | titlecase}}
+                          </td>
+                          <td>
+                            {{responseData.multi_option | titlecase}}
+                          </td>
+                          <td>
+                            {{responseData.survey_name | titlecase}}
+                          </td>
+                          <td>
+                            {{responseData.name | titlecase}}
+                          </td>
+                          
+                          <td>
+                            {{responseData.area_name | titlecase}}
+                          </td>
+                          <td>
+                            {{responseData.res_created_at}}
+                          </td>
+                          <td  *ngIf="isCritical==1">
+                            <button _ngcontent-emp-c21="" (click)="openModalAssignTask('assign-task')" class="btn btn-outline-primary" data-target="#add_new_area" data-toggle="modal">Assign Task</button>
+                          </td>
+                          </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </mat-card>
+      </div>   
+     
+      <!-- <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+            <div class="col-sm-4 mb-4 mb-xl-0">
+              <h3></h3>
+            </div>
+            <div *ngIf="isCritical!=1" class="col-sm-8">
+              <div class="d-flex align-items-center justify-content-md-end">
+                <div class="border-right-dark pr-4 mb-3 mb-xl-0 d-xl-block d-none">
+
+                   
+                
+                </div>
+                <div class="mb-3 mb-xl-0">
+                  <div class="btn-group dropdown">
+
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div> -->
+
+
+  
+
+  <!-- <div *ngIf="isCritical!=1" class="col-12 stretch-card" style="margin-top: 20px"> -->
+  
+<!-- </div> -->
+  <!--
+
+<hr>
+
+ <div class="col-md-12">
+    <form class="form form-sample" action="">
+        <div class="inputGroupContainer">
+                     <div class="input-group">
+                        <input type="text" class="form-control"  id="input_search"  name="search_string" placeholder="Enter Search String" aria-label="Search String" value="">
+                        <div class="input-group-append">
+                            <button class="btn btn-sm btn-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+    </form>
+</div> -->
+
+<hr>
+
+<!-- <mat-card class="content-wrapper">
+    <h2 *ngIf="allResponses.length==0">No data to show. Please select another date or survey and try again.</h2>
+
+      <div class="email-wrapper wrapper">
+        <div class="row align-items-stretch" style="background: #fff; padding-bottom: 15px;">
+                          
+        
+          <div class="mail-list-container col-md-4 pt-4 pb-4 border-right bg-white">
+            
+         
+
+
+                              <div (click)="clicked_response(response)" class="mail-list" style="cursor: pointer;"  [class.selected]="response.response_id==response_id" *ngFor="let response of pageOfItems;let i =index">
+
+                             
+                    <div class="content" style="margin-left:20px;">
+                    <p class="sender-name" id="0" (click)="clicked_response(response)">{{response.user_name+' , '+response.area_name}}</p>
+                  <p class="message_text" id="0" (click)="clicked_response(response)">{{response.comment}}</p></div>
+                  <div>
+                    <span  *ngIf="response.rating==1"  class="badge badge-pill" style="background-color:#EE2762; color:#fff">{{response.rating}}</span>
+                    <span  *ngIf="response.rating==2"  class="badge badge-pill" style="background-color:#F67424; color:#fff">{{response.rating}}</span>
+                    <span  *ngIf="response.rating==3"  class="badge badge-pill" style="background-color:#F4C902; color:#fff">{{response.rating}}</span>
+                    <span  *ngIf="response.rating==4"  class="badge badge-pill" style="background-color:#43C153; color:#fff">{{response.rating}}</span>
+                    <span  *ngIf="response.rating==5"  class="badge badge-pill badge-success">{{response.rating}}</span>
+
+                  <p style="font-size: 10px; margin-top:10px" id="0|" (click)="clicked_response(response)">{{response.res_created_at | date:'MMM d'}}</p>
+
+        
+                  </div>
+            </div>   
+           </div>
+          <div *ngIf="allResponses.length>0" class="mail-view d-none d-md-block col-md-8 col-lg-8 bg-white">
+           
+            <div class="message-body">
+              <div class="sender-details">
+
+                <div class="details col-md-8 col-lg-8">
+
+                        <p class="msg-subject" id="campaign_name">
+                            {{survey_name}}</p>
+
+                 
+                    
+                    <p id="issue_details"> {{'('+multioption+')'}}</p>                      <p></p>
+                  <p class="sender-email" id="usernameanddate">
+                     <strong id="user_name">{{name}}</strong>                           
+                 <i id="comment_date" style="font-weight:normal; font-size:12px"> {{created_at}} </i><br>
+       <strong>Location:</strong><i id="tablet_location" style="font-weight:normal; font-size:12px"> {{location}}</i>,
+       <strong>Area: </strong> <i id="tablet_area" style="font-weight:normal; font-size:12px">{{area_name}}</i>
+                  </p>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <div *ngIf="isCritical==1" _ngcontent-emp-c21="" class="col-auto">
+                        <div _ngcontent-emp-c21="" class="pr-4 pl-4 mb-3 mb-xl-0 d-xl-block d-none">
+                          <button _ngcontent-emp-c21="" (click)="openModalAssignTask('assign-task')" class="btn btn-outline-primary" data-target="#add_new_area" data-toggle="modal">Assign Task</button>
+                        </div>
+                      </div>
+                </div>
+              </div>
+              <div class="message-content" id="comment">
+               {{comment}}                  </div>
+              <div class="attachments-sections">
+               <form class="forms-sample">
+                <div class="form-group">
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card> -->
+
+
+
+
+<div style="margin-top: 20px" class="col-md-12 col-sm-6 grid-margin text-center">
+  <div class="card-footer pb-0 pt-3 text-center">
+    <jw-pagination  [items]="allResponses" (changePage)="onChangePage($event)"></jw-pagination>
+</div>
+    <!-- <nav *ngIf="total_pages>1">
+    <ul class="pagination d-flex flex-wrap justify-content-center pagination-success">
+      <li [class]="item == selectedPage ? 'active page-item' : 'page-item'" *ngFor="let item of pages">
+        <a class="page-link" (click)="OnPageClick(item)">{{item}}</a>
+      </li>
+    </ul>
+  </nav>   -->
+  </div>
+
+ 
+</div>
+</div>
+</div>
+</div>
+
+<!-- <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="header">
+        <div class="header-body">
+          <div class="row align-items-end">
+            <div class="col">
+              <h1 class="header-title">Response List</h1>
+            </div>
+            <div class="col-auto">
+              <div class="d-flex align-items-center justify-content-md-end">
+                <div class="border-right-dark pr-4 mb-3 mb-xl-0 d-xl-block d-none">
+                  <div id="datepicker-popup-response" class="input-group date datepicker">
+                    <input type="text" id="select_date_responses" class="form-control" onchange="onDateChanged(event)" value="">
+                    <span class="input-group-addon input-group-append border-left">
+                      <span class="fe fe-calendar input-group-text"></span>
+                    </span>
+                  </div>
+
+                    </div>
+                    <div class="col-auto">
+                      <div class="btn-group dropdown">
+
+
+ <select class="form-control" (change)="selectOption(selected)" [(ngModel)]="selected" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" id="select_campaign_responses" >
+                  <option  >Select Survey</option>
+                <option *ngFor ="let survey of surveyList" [ngValue]="survey.survey_id">
+                        {{survey.survey_name}}</option>
+                </select>
+                
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+ 
+    
+ <div class="card">
+          <div class="card-body">
+            <div class="row align-items-center">
+                  <div class="table-responsive">
+                      <table id="sortable-table-1" class="table table-sm card-table">
+                        <thead>
+                          <tr>
+                            <th class="col-auto">#</th>
+                            <th class="col-auto"> Name</th>
+                            <th class="col-auto">Rating</th>
+                            <th class="col-auto">Comment</th>
+                            <th class="col-auto">Survey Name</th>
+                            <th class="col-auto">Followup</th>
+                            <th class="col-auto">Location</th>
+                            <th class="col-auto">Area</th>
+                            <th class="col-auto">Date</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let response of allResponses; let i = index">
+                                               <tr>
+                                                 <td>
+                                                   {{i+1}}
+                                                 </td>
+                                                 <td>
+                                                   {{response.name}}
+                                                 </td>
+                                                 <td>
+                                                   {{response.rating}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.comment}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.surveyName}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.multiOption}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.locationName}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.areaName}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.created_at}}
+                                                   
+                                                 </td>
+                                               </tr>    
+                                             </tbody>
+            </table>
+        </div>
+          </div>
+        </div>
+
+    
+
+    <div class="col-md-12 col-sm-6 grid-margin">
+
+        <nav>
+
+            </nav></div>
+</div>
+
+
+</div>
+</div>
+</div> -->
+
+
+<jw-modal id="assign-task">
+    <div class="modal" style="display: block;">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Assign Task</h5><h5>
+                      <button type="button" class="close" data-dismiss="modal" (click)="closeModal('assign-task');" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                  </h5></div>
+                  <form [formGroup]="add_task" (ngSubmit)="assignTask()" method="POST">
+                    <div class="modal-body">   
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-6">
+                              <select class="form-control" formControlName="assigned_user_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                  <option [value]="0" >*Select User</option>
+                                <option *ngFor ="let user of adminList" [value]="user.id">
+                                        {{user.name}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6">
+                                <select class="form-control" formControlName="priority_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                                    <option [value]="0" >*Select Priority</option>
+                                  <option *ngFor ="let priority of priorityList" [value]="priority.priority_id">
+                                          {{priority.priority}}</option>
+                                  </select>
+                               
+                            </div>
+                            </div>
+
+                             
+
+
+                                <div style="margin-top: 10px" class="row">
+                                    <div class="col-6 text-center">
+                                        <ng-datepicker [options]="options" formControlName="task_due_date" >
+                                          </ng-datepicker>
+
+                                        <!-- <mat-form-field style="width: 95%" >
+                                            <input matInput [matDatepicker]="picker1" (click)="picker1.open()" placeholder="Choose task due date" formControlName="task_due_date">
+                                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1></mat-datepicker>
+                                          </mat-form-field> -->
+                                      </div>
+          
+                                      <div class="col-6 text-center">
+                                  <textarea rows="1" class="form-control" placeholder="Comment" formControlName="task_comment"></textarea>
+                                       
+                                      </div>
+                                      </div>
+
+
+                                <!-- <div class="row">
+                                    <div class="col-6">
+                                        <h4 style="margin-top: 15px" >Comment : </h4>
+                                       </div>
+
+                                      <div class="col-6">
+                                        </div>
+                                </div> -->
+                                <!-- <div *ngFor="let checked of checkedResponseList">
+                                  <p>{{checked}}</p>
+                                </div> -->
+
+
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light" (click)="closeModal('assign-task')" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                  </form>
+                </div>
+                </div>
+                </div>
+  </jw-modal>

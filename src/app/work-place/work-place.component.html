@@ -1,0 +1,622 @@
+<!-- 
+<div *ngFor="let hero of heroes"> -->
+
+<div class="container-fluid">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
+
+  <div *ngIf="!loading" class="row">
+    <div  class="col-2 border-right">
+
+<!-- <h2>My Surveys</h2>
+<ul class="heroes">
+  <li *ngFor="let survey of allSurveyData"
+    [class.selected]="survey === selectedsurvey"
+    (click)="onSelect(survey)">
+    <span class="badge">{{survey.survey_id}}</span> {{survey.survey_name}}
+  </li>
+</ul>
+
+<div *ngFor="let survey of allSurveyData">
+<div *ngIf="survey===selectedsurvey">
+
+  <h2>{{selectedsurvey.survey_name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedsurvey.survey_id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedsurvey.survey_name" placeholder="name"/>
+    </label>
+  </div>
+
+  </div>
+
+</div> -->
+
+<!-- A vertical navbar -->
+
+<nav class="navbar ">
+  <!-- Links -->
+
+  
+    <!-- <input class="form-control" type="text" placeholder="Search"> -->
+
+    <h5 class="header-pretitle" style="margin-top: 15px;">Workplaces
+     <i *ngIf="isSuper=='true' || user_right_json[0]" class="fe fe-plus-circle" data-toggle="modal" data-target="#add_new_workplace" (click)="openWorkplaceModal('custom-modal-1',formDirectiveWp)" title="Add New Workplace"> </i></h5>
+
+  <ul  class="navbar-nav">
+     <li [routerLinkActive]="['active']" class="nav-item dropdown" [class.show]="workplaces.workplace_name==selectedWp?true:false" *ngFor="let workplaces of allWorkplaceLocationData">
+      <a class="nav-link dropdown-toggle" [class.active]="workplaces.workplace_name==selectedWp?true:false" href="#" id="navbardrop" aria-expanded="true" data-toggle="dropdown">
+          <i class="fas fa-building"></i>{{'  '+workplaces.workplace_name}}
+      </a>
+      <div style="padding-top:0 " class="dropdown-menu" [class.show]="workplaces.workplace_name==selectedWp?true:false">
+        <a [class.active]="locations.name==loc_name?true:false" style="margin-top: 2px;" class="dropdown-item"   href="#" data-toggle="dropdown" (click)="getSurveyUnderLocationData(workplaces.workplace_name,locations.id,locations.name)" *ngFor="let locations of workplaces.locations">
+          <div class="row">
+            <div class="col-auto" style="padding:0">
+                <i style="margin-left: 14px" class="fas fa-code-branch"></i>
+            </div>
+            <div class="col"  style="padding:0; margin-left: 7px">
+              <a  style="white-space: pre-wrap">{{locations.name}}</a>
+            </div>
+          </div>
+          </a>
+        
+        <a *ngIf="isSuper=='true' || user_right_json[1]" class="dropdown-item" href="#" data-toggle="dropdown" (click)="openModalForAddNewLocation('add-new-location',workplaces.workplace_id,formDirectiveLoc)" title="Add New Location"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a>
+      </div>
+    </li>
+
+
+
+   <!--  <li class="nav-item" *ngFor="let workplaces of allWorkplaceLocationData">
+      <a class="nav-link" href="#"></a>
+    </li> -->
+   <!--  <li class="nav-item">
+      <a class="nav-link" href="#">Link 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 3</a>
+    </li>
+    <li class="nav-item dropdown" *ngFor="let workplaces of allWorkplaceLocationData">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        DropDown Link
+      </a>
+      <div class="dropdown-menu myclass">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li> -->
+  </ul>
+
+</nav>
+      </div>
+      <div class="col-10" >
+
+         <!--  if there is no survey data -->
+
+         <!-- <div *ngIf="onScreen=='inner'" class="row" >
+            <div *ngIf="isSuper=='true' || user_right_json[2]" class="col-3 text-center grid-margin stretch-card" style="margin-top:40px; margin-left: 30px">
+                <img id="img_add" src="assets/img/add_icon.png" (click)="openAddSurveyModel()" alt="add icon" height="50" width="50">
+                 <br/><label (click)="openAddSurveyModel()">Create a Survey</label>
+                  </div>
+
+                  <div  class="col-md-3 pointer" *ngFor="let survey of allSurveyData" >
+                      <div class="card">
+                      <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                        <h4 (click)="openSurveyDashboard(survey.survey_id)" class="card-title">{{survey.survey_name}}</h4>
+                       
+                      </div>
+                      <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                        <p>No. of responses : {{survey.response_count}}</p>
+                      
+                        <ng-container *ngFor="let status of statusArray">
+                            <div class="row">
+                                <h4 class="col-auto" *ngIf="survey.status_id==status.status_id">Status :</h4>
+                                <div class="col-auto" *ngIf="survey.status_id==status.status_id && !(isSuper=='true' || user_right_json[5])">{{status.status}}</div>
+                                <ui-switch class="col-auto" size="small" *ngIf="survey.status_id==status.status_id && (isSuper=='true' || user_right_json[5])" [checked]="survey.status_id==1" (change)="onSwitchChange($event,survey.survey_id,'innerSurvey')"  ></ui-switch>  
+                
+                            </div>
+                                 </ng-container>
+                      </div>
+              
+                      <div class="card-footer">
+              <div class="row">
+                <div class="col">
+                  Devices : {{survey.no_of_devices}}
+                </div>
+                <div *ngIf="isSuper=='true' || (user_right_json[3] || user_right_json[4])" class="col text-right dropdown">
+                      <i class="fe fe-more-vertical"  data-toggle="dropdown">
+                       <span class="caret"></span></i>
+                <ul class="dropdown-menu">
+                  <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,'false')" class="dropdown-item">Edit</a></li>
+                  <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+               
+                </ul>  
+                </div>
+              </div>
+                </div>
+                    </div>
+                  </div>
+                  
+           
+         </div> -->
+
+
+         <p class="carbon-text" style="cursor: pointer; margin-top: 7px !important;color:#1862c6 !important; font-size: 14px" *ngIf="onScreen=='inner'">{{selectedWp+' / '+loc_name}}</p>                  
+         <mat-tab-group *ngIf="onScreen=='inner'">
+           <mat-tab label="Active">
+              <div *ngIf="onScreen=='inner'"  class="row col-12">
+                  <div *ngIf="isSuper=='true' || user_right_json[2]" class="col-md-2 text-center pointer card" id="box" style="flex: 0 0 20%;">
+                      <div (click)="openAddSurveyModel()" class="icon">
+                        <button  type="button" class="btn btn-primary" mat-fab style="width: 30px;height: 30px;margin-top: 90px; background-color: #0078D4"><mat-icon style="color: #fff; font-size: 16px;position: relative;bottom: 10px; ">add</mat-icon></button>
+                         <p style="font-size: 11px;">Create a Survey</p>
+                         </div>
+                         </div>
+      
+                  <div class="col-md-3 pointer card" (mouseover)="hover=true" (mouseleave)="hover=false" *ngFor="let survey of activeSurveyList">
+                      <span class="badge badge-warning">CSAT</span>
+                      <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                         
+                      <span class="carbon-text" style="font-size: 13px;">{{survey.survey_name.length<25?survey.survey_name:survey.survey_name.substring(0,24)+'...'}}</span>
+                      <!-- <span class="carbon-text" style="font-size: 13px;">{{survey.survey_name.length<18?survey.survey_name:survey.survey_name.substring(0,16)+'...'}}</span> -->
+                
+                    </div>
+                       <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                          <div style="font-size: 12px;color:rgba(0,0,0,.5)">{{'Responses : '+survey.response_count}}</div>
+                        <ng-container *ngFor="let status of statusArray">
+                          <p  *ngIf="survey.status_id==status.status_id" style="font-size: 11px;margin-top: 5px;color:rgba(0,0,0,.5) "> Status : 
+                          <span [style.color]="survey.status_id==1?'green':'red'" style="font-size: 11px">{{status.status | titlecase}}</span></p>
+                          </ng-container>
+                       </div> 
+                       <div class="card-footer">
+                        <span style="font-size: 9px;color:rgba(0,0,0,.5)">{{'Devices Assigned : '+survey.no_of_devices}}</span>
+                        <i class="fas fa-ellipsis-h" data-toggle="dropdown" style="float: right; color: #0404048a; margin-top: 5px"></i>
+                        <!-- <i class="fas fa-ellipsis-h"></i> -->
+                        <ul class="dropdown-menu">
+                            <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,survey.location_id,'false')" class="dropdown-item">Edit</a></li>
+                            <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,survey.location_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+                            <li><a *ngIf="isSuper=='true' || user_right_json[5]" (click)="onSwitchChange(survey.status_id==1?'false':'true',survey.survey_id,'innerSurvey','disable-confirmation')"  class="dropdown-item">{{survey.status_id==1?'Draft':'Activate'}}</a></li>                   
+                          </ul>   
+                      </div>     
+                   </div>
+              
+          </div>
+           </mat-tab>
+           <!-- <mat-tab label="Inactive">
+              <div *ngIf="onScreen=='inner'"  class="row col-12">
+                  <div *ngIf="isSuper=='true' || user_right_json[2]" class="col-md-2 text-center pointer card" id="box" style="flex: 0 0 20%;">
+                      <div (click)="openAddSurveyModel()" class="icon">
+                        <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" mat-fab style="width: 30px;height: 30px;margin-top: 90px; background-color: #0078D4"><mat-icon style="color: #fff; font-size: 16px;position: relative;bottom: 10px; ">add</mat-icon></button>
+                         <p style="font-size: 11px;">Create a Survey</p>
+                         </div>
+                         </div>
+      
+                  <div class="col-md-3 pointer card" *ngFor="let survey of inactiveSurveyList">
+                      <span class="carbon-text" class="badge badge-warning">CSAT</span>
+                      <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                         
+                          <span style="font-size: 13px;">{{survey.survey_name.length<18?survey.survey_name:survey.survey_name.substring(0,16)+'...'}}</span>
+                          
+                       
+                       </div>
+                       <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                          <div style="font-size: 12px;color:rgba(0,0,0,.5)">{{'Responses : '+survey.response_count}}</div>
+                        <ng-container *ngFor="let status of statusArray">
+                          <p  *ngIf="survey.status_id==status.status_id" style="font-size: 11px;margin-top: 5px;color:rgba(0,0,0,.5) "> Status : 
+                          <span [style.color]="survey.status_id==1?'green':'red'" style="font-size: 11px">{{status.status | titlecase}}</span></p>
+                          </ng-container>
+                       </div> 
+                       <div class="card-footer">
+                        <span style="font-size: 9px;color:rgba(0,0,0,.5)">{{'Devices Assigned : '+survey.no_of_devices}}</span>
+                        <i class="fas fa-ellipsis-h" data-toggle="dropdown" style="float: right; color: #0404048a; margin-top: 5px"></i>
+                        <ul class="dropdown-menu">
+                            <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,survey.location_id,'false')" class="dropdown-item">Edit</a></li>
+                            <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,survey.location_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+                            <li><a *ngIf="isSuper=='true' || user_right_json[5]" (click)="onSwitchChange(survey.status_id==1?'false':'true',survey.survey_id,'innerSurvey','disable-confirmation')"  class="dropdown-item">{{survey.status_id==1?'Disable':'Enable'}}</a></li>                   
+                          </ul>   
+                      </div>     
+                   </div>
+              
+          </div>
+           </mat-tab> -->
+           <mat-tab label="Draft">
+              <div *ngIf="onScreen=='inner'"  class="row col-12">
+                  <div *ngIf="isSuper=='true' || user_right_json[2]" class="col-md-2 text-center pointer card" id="box" style="flex: 0 0 20%;">
+                      <div (click)="openAddSurveyModel()" class="icon">
+                        <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" mat-fab style="width: 30px;height: 30px;margin-top: 90px; background-color: #0078D4"><mat-icon style="color: #fff; font-size: 16px;position: relative;bottom: 10px; ">add</mat-icon></button>
+                         <p style="font-size: 11px;">Create a Survey</p>
+                         </div>
+                         </div>
+      
+                  <div class="col-md-3 pointer card" *ngFor="let survey of draftSurveyList">
+                      <span class="badge badge-warning">CSAT</span>
+                      <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                         
+                          <span class="carbon-text" style="font-size: 13px;">{{survey.survey_name.length<18?survey.survey_name:survey.survey_name.substring(0,16)+'...'}}</span>
+                          
+                       
+                       </div>
+                       <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                          <div style="font-size: 12px;">{{'Responses : '+survey.response_count}}</div>
+                        <ng-container *ngFor="let status of statusArray">
+                          <p  *ngIf="survey.status_id==status.status_id" style="font-size: 11px;margin-top: 5px;color:rgba(0,0,0,.5) "> Status : 
+                          <span [style.color]="survey.status_id==4?'orange':'red'" style="font-size: 11px">{{status.status | titlecase}}</span></p>
+                          </ng-container>
+                       </div> 
+                       <div class="card-footer">
+                        <span style="font-size: 9px;color:rgba(0,0,0,.5)">{{'Devices Assigned : '+survey.no_of_devices}}</span>
+                        <i class="fas fa-ellipsis-h" data-toggle="dropdown" style="float: right; color: #0404048a; margin-top: 5px"></i>
+                        <ul class="dropdown-menu">
+                            <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,survey.location_id,'false')" class="dropdown-item">Edit</a></li>
+                            <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,survey.location_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+                            <li><a *ngIf="isSuper=='true' || user_right_json[5]" (click)="onSwitchChange(survey.status_id==1?'false':'true',survey.survey_id,'innerSurvey','disable-confirmation')"  class="dropdown-item">{{survey.status_id==1?'Draft':'Activate'}}</a></li>                   
+                          </ul>   
+                      </div>     
+                   </div>
+              
+          </div>
+           </mat-tab>
+
+           <!-- <mat-tab label="All">
+              <div *ngIf="onScreen=='inner'"  class="row col-12">
+                  <div *ngIf="isSuper=='true' || user_right_json[2]" class="col-md-2 text-center pointer card" id="box" style="flex: 0 0 20%;">
+                      <div (click)="openAddSurveyModel()" class="icon">
+                        <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" mat-fab style="width: 30px;height: 30px;margin-top: 90px; background-color: #0078D4"><mat-icon style="color: #fff; font-size: 16px;position: relative;bottom: 10px; ">add</mat-icon></button>
+                         <p style="font-size: 11px;">Create a Survey</p>
+                         </div>
+                         </div>
+      
+                  <div class="col-md-3 pointer card" *ngFor="let survey of allSurveyData">
+                      <span class="badge badge-warning">CSAT</span>
+                      <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                         
+                          <span class="carbon-text" style="font-size: 13px;">{{survey.survey_name.length<18?survey.survey_name:survey.survey_name.substring(0,16)+'...'}}</span>
+                          
+                       
+                       </div>
+                       <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                          <div style="font-size: 12px;color:rgba(0,0,0,.5)">{{'Responses : '+survey.response_count}}</div>
+                        <ng-container *ngFor="let status of statusArray">
+                          <p  *ngIf="survey.status_id==status.status_id" style="font-size: 11px;margin-top: 5px;color:rgba(0,0,0,.5) "> Status : 
+                          <span [style.color]="survey.status_id==1?'green':survey.status_id==2?'red':'orange'" style="font-size: 11px">{{status.status | titlecase}}</span></p>
+                          </ng-container>
+                       </div> 
+                       <div class="card-footer">
+                        <span style="font-size: 9px;color:rgba(0,0,0,.5)">{{'Devices Assigned : '+survey.no_of_devices}}</span>
+                        <i class="fas fa-ellipsis-h" data-toggle="dropdown" style="float: right; color: #0404048a; margin-top: 5px"></i>
+                        <ul class="dropdown-menu">
+                            <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,survey.location_id,'false')" class="dropdown-item">Edit</a></li>
+                            <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,survey.location_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+                            <li><a *ngIf="isSuper=='true' || user_right_json[5]" (click)="onSwitchChange(survey.status_id==1?'false':'true',survey.survey_id,'innerSurvey','disable-confirmation')"  class="dropdown-item">{{survey.status_id==1?'Disable':'Enable'}}</a></li>                   
+                          </ul>   
+                      </div>     
+                   </div>
+              
+          </div>
+           </mat-tab> -->
+         </mat-tab-group>
+
+         
+         
+
+
+         <div *ngIf="surveySize==0 && onScreen=='outer'">
+          <div class="col-12 grid-margin stretch-card" style="margin-top:50px" >
+            <p>
+                No survey available
+            </p>
+            <h2>Please select a location then add survey</h2>
+          </div>
+         </div>
+        
+
+
+
+         <h3 style="margin-top: 20px" *ngIf="surveySize>0 && onScreen=='outer'">Surveys of all location</h3>
+         <mat-tab-group *ngIf="surveySize>0 && onScreen=='outer'">
+            <mat-tab label="Active"> 
+        <div *ngIf="onScreen=='outer'"  class="row col-12">
+          
+                        <div class="col-md-3 pointer card" *ngFor="let survey of activeSurveyList">
+                <span class="badge badge-warning">CSAT</span>
+                <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                   
+                    <span  class="carbon-text" style="font-size: 13px;">{{survey.survey_name.length<18?survey.survey_name:survey.survey_name.substring(0,16)+'...'}}</span>
+                    
+                 
+                 </div>
+                 <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                    <div style="font-size: 12px;">{{'Responses : '+survey.response_count}}</div>
+                    <ng-container *ngFor="let status of statusArray">
+                   <p *ngIf="survey.status_id==status.status_id" style="font-size: 12px; "> Status : <span style="color: green;font-size: 12px">{{status.status | titlecase}}</span></p>
+                   </ng-container>
+                 </div> 
+                 <div class="card-footer">
+                  <span style="font-size: 12px;">{{'Devices Assigned : '+survey.no_of_devices}}</span>
+                  <i class="fas fa-ellipsis-v" data-toggle="dropdown"  style="float: right; color: #0404048a;"></i>
+                  <ul class="dropdown-menu">
+                      <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,survey.location_id,'false')" class="dropdown-item">Edit</a></li>
+                      <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,survey.location_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+                      <li><a *ngIf="isSuper=='true' || user_right_json[5]" (click)="onSwitchChange(survey.status_id==1?'false':'true',survey.survey_id,'outerSurvey','disable-confirmation')"  class="dropdown-item">{{survey.status_id==1?'Disable':'Enable'}}</a></li>
+                   
+                    </ul>  
+                </div>     
+             </div>
+    </div>
+    </mat-tab>
+    <mat-tab label="Inactive"> 
+        <div *ngIf="onScreen=='outer'"  class="row col-12">
+            <div class="col-md-3 pointer card" *ngFor="let survey of inactiveSurveyList">
+                <span class="badge badge-warning">CSAT</span>
+                <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                   
+                    <span class="carbon-text" style="font-size: 13px;">{{survey.survey_name.length<18?survey.survey_name:survey.survey_name.substring(0,16)+'...'}}</span>
+                    
+                 
+                 </div>
+                 <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                    <div style="font-size: 12px;">{{'Responses : '+survey.response_count}}</div>
+                    <ng-container *ngFor="let status of statusArray">
+                   <p *ngIf="survey.status_id==status.status_id" style="font-size: 12px; "> Status : <span style="color: red;font-size: 12px">{{status.status | titlecase}}</span></p>
+                   </ng-container>
+                 </div> 
+                 <div class="card-footer">
+                  <span style="font-size: 12px;">{{'Devices Assigned : '+survey.no_of_devices}}</span>
+                  <i class="fas fa-ellipsis-v" data-toggle="dropdown"  style="float: right; color: #0404048a;"></i>
+                  <ul class="dropdown-menu">
+                      <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,survey.location_id,'false')" class="dropdown-item">Edit</a></li>
+                      <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,survey.location_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+                      <li><a *ngIf="isSuper=='true' || user_right_json[5]" (click)="onSwitchChange(survey.status_id==1?'false':'true',survey.survey_id,'outerSurvey','disable-confirmation')"  class="dropdown-item">{{survey.status_id==1?'Disable':'Enable'}}</a></li>
+                   
+                    </ul>  
+                </div>     
+             </div>
+        
+    </div>
+    </mat-tab>
+    <mat-tab label="Draft"> 
+        <div *ngIf="onScreen=='outer'"  class="row col-12">
+            <div class="col-md-3 pointer card" *ngFor="let survey of draftSurveyList">
+                <span class="badge badge-warning">CSAT</span>
+                <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                   
+                    <span class="carbon-text" style="font-size: 13px;">{{survey.survey_name.length<18?survey.survey_name:survey.survey_name.substring(0,16)+'...'}}</span>
+                    
+                 
+                 </div>
+                 <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                    <div style="font-size: 12px;">{{'Responses : '+survey.response_count}}</div>
+                    <ng-container *ngFor="let status of statusArray">
+                   <p *ngIf="survey.status_id==status.status_id" style="font-size: 12px; "> Status : <span style="color: green;font-size: 12px">{{status.status | titlecase}}</span></p>
+                   </ng-container>
+                 </div> 
+                 <div class="card-footer">
+                  <span style="font-size: 12px;">{{'Devices Assigned : '+survey.no_of_devices}}</span>
+                  <i class="fas fa-ellipsis-v" data-toggle="dropdown"  style="float: right; color: #0404048a;"></i>
+                  <ul class="dropdown-menu">
+                      <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,survey.location_id,'false')" class="dropdown-item">Edit</a></li>
+                      <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,survey.location_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+                      <li><a *ngIf="isSuper=='true' || user_right_json[5]" (click)="onSwitchChange(survey.status_id==1?'false':'true',survey.survey_id,'outerSurvey','disable-confirmation')"  class="dropdown-item">{{survey.status_id==1?'Disable':'Enable'}}</a></li>
+                   
+                    </ul>  
+                </div>     
+             </div>
+        
+    </div>
+    </mat-tab>
+
+    <mat-tab label="All"> 
+        <div *ngIf="onScreen=='outer'"  class="row col-12">
+            <div class="col-md-3 pointer card" *ngFor="let survey of allSurveyData">
+                <span class="badge badge-warning">CSAT</span>
+                <div (click)="openSurveyDashboard(survey.survey_id)" class="card-header">
+                   
+                    <span class="carbon-text" style="font-size: 13px;">{{survey.survey_name.length<18?survey.survey_name:survey.survey_name.substring(0,16)+'...'}}</span>
+                    
+                 
+                 </div>
+                 <div (click)="openSurveyDashboard(survey.survey_id)" class="card-body">
+                    <div  style="font-size: 12px;color:rgba(0,0,0,.5)">{{'Responses : '+survey.response_count}}</div>
+                    <ng-container *ngFor="let status of statusArray">
+                        <p *ngIf="survey.status_id==status.status_id" style="font-size: 12px;color:rgba(0,0,0,.5) "> Status : 
+                        <span [style.color]="survey.status_id==1?'green':'red'" style="font-size: 11px">{{status.status | titlecase}}</span></p>
+
+                   </ng-container>
+                 </div> 
+                 <div class="card-footer">
+                  <span style="font-size: 12px;color:rgba(0,0,0,.5)">{{'Devices Assigned : '+survey.no_of_devices}}</span>
+                  <i class="fas fa-ellipsis-v" data-toggle="dropdown"  style="float: right; color: #0404048a;"></i>
+                  <ul class="dropdown-menu">
+                      <li><a *ngIf="isSuper=='true' || user_right_json[3]" (click)="editSurvey(survey.survey_id,survey.location_id,'false')" class="dropdown-item">Edit</a></li>
+                      <li><a *ngIf="isSuper=='true' || user_right_json[4]" (click)="editSurvey(survey.survey_id,survey.location_id,'true')" class="dropdown-item">Duplicate Survey</a></li>
+                      <li><a *ngIf="isSuper=='true' || user_right_json[5]" (click)="onSwitchChange(survey.status_id==1?'false':'true',survey.survey_id,'outerSurvey','disable-confirmation')"  class="dropdown-item">{{survey.status_id==1?'Disable':'Enable'}}</a></li>
+                   
+                    </ul>  
+                </div>     
+             </div>
+        
+    </div>
+    </mat-tab>
+    </mat-tab-group>
+
+
+</div>
+
+</div>
+
+
+
+<jw-modal id="custom-modal-1">
+    <div class="modal" style="display: block;">
+        <div class="modal-dialog modal-confirm">
+<div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">Add New Workplace</h5><h5>
+            <button type="button" class="close" (click)="closeModal('custom-modal-1');" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </h5></div>
+          <form #formDirectiveWp="ngForm"  action="add_workplace" [formGroup]="add_workplace" (ngSubmit)="onSubmitWp()" method="POST">
+            <div class="modal-body">   
+              <div class="form-group" style="text-align: center">
+                  <mat-form-field style="width: 80%" appearance="outline"  class="example-full-width" >
+                      <mat-label>Workplace Name</mat-label>
+                      <input matInput  placeholder="Give it a name" type="text"  formControlName="wp_name" required>
+                       <!-- <div *ngIf="f.wp_name.errors" class="invalid-feedback">
+                          <div *ngIf="f.wp_name.errors.required">Workplace Name is required</div>
+                      </div> -->
+                      </mat-form-field>
+                <!-- <input type="text" id="workplace_name" formControlName="wp_name" class="form-control" name="name" placeholder="Give it a name"> -->
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" (click)="closeModal('custom-modal-1');" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-success">Create workplace</button>
+              
+            </div>
+          </form>
+      </div>
+      </div>
+      </div>
+</jw-modal>
+
+
+
+<jw-modal id="add-new-location">
+    <div class="modal" style="display: block;">
+        <div class="modal-dialog modal-confirm">
+  <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Add New location</h5><h5>
+                    <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-new-location');" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                </h5></div>
+                <form action="add_location" #formDirectiveLoc="ngForm"  [formGroup]="add_location" (ngSubmit)="onSubmitLocationUnderWp(modalWorkplaceId)" method="POST">
+                  <div class="modal-body">  
+                    
+                      <div class="form-group" style="text-align: center">
+                          <mat-form-field style="width: 80%" appearance="outline"  class="example-full-width" >
+                              <mat-label>Location Name</mat-label>
+                              <input matInput  placeholder="Give it a name" type="text"  formControlName="location_name" required>
+                               <!-- <div *ngIf="f.wp_name.errors" class="invalid-feedback">
+                                  <div *ngIf="f.wp_name.errors.required">Workplace Name is required</div>
+                              </div> -->
+                              </mat-form-field>
+                        <!-- <input type="text" id="workplace_name" formControlName="wp_name" class="form-control" name="name" placeholder="Give it a name"> -->
+                      </div>
+                    <!-- <div class="form-group">
+                      <input type="text" id="location_name" formControlName="location_name" class="form-control" name="location_name" placeholder="Give it a name">
+                    </div> -->
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="closeModal('add-new-location')" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">Add Location</button>
+                  </div>
+                </form>
+              </div>
+              </div>
+              </div>
+</jw-modal>
+
+<!-- <app-survey-dashboard></app-survey-dashboard>
+ --><!-- <jw-modal id="custom-modal-1">
+    <h1>A Custom Modal!</h1>
+    <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>
+    <button (click)="closeModal('custom-modal-1');">Close</button>
+</jw-modal> -->
+
+
+<jw-modal id="add-new-survey">
+    <div class="modal" style="display: block;">
+        <div class="modal-dialog modal-confirm">
+  <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Add New Survey</h5><h5>
+                    <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-new-survey');" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                </h5></div>
+                <form action="add_survey" [formGroup]="add_survey" (ngSubmit)="onSubmitAddSurvey()" method="POST">
+                  <div class="modal-body">   
+                    <div class="form-group">
+                        <!-- (change)="selectOption(selected)"  -->
+                        <select class="form-control" (change)="storeSurveyType(add_survey.get('surveyType').value)" formControlName="surveyType" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                            <option [value]="0" >*Select Survey Type</option>
+                          <option *ngFor ="let surveyType of surveyTypes" [value]="surveyType">
+                                  {{surveyType}}</option>
+                          </select>
+                      <input type="text"  id="survey_name" style="margin-top: 10px" formControlName="survey_name" class="form-control" placeholder="Give it a name">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="closeModal('add-new-survey')" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">Add Survey</button>
+                  </div>
+                </form>
+              </div>
+              </div>
+              </div>
+</jw-modal>
+
+
+<jw-modal id="add-duplicate-survey">
+  <div class="modal" style="display: block;">
+      <div class="modal-dialog modal-confirm">
+<div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Add Duplicate Survey</h5><h5>
+                  <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-duplicate-survey');" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+              </h5></div>
+              <form [formGroup]="add_duplicate_survey" (ngSubmit)="onSubmitDuplicateSurvey()" method="POST">
+                <div class="modal-body">   
+                  <div class="form-group">
+
+                      <input type="text" id="survey_name" formControlName="survey_name" class="form-control" placeholder="Give it a name">
+
+
+                    <div style="margin-top:10px" class="row">
+                      <div class="col-6">
+                         <h4 style="margin-top: 15px" >Location Name : </h4>
+                        </div>
+
+                        
+                        <div class="col-6">
+                          <select class="form-control" formControlName="location_id" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" >
+                            <option [value]="0" >*Select Location</option>
+                          <option *ngFor ="let location of locationList" [value]="location.id">
+                                  {{location.name}}</option>
+                          </select>
+                        </div>
+
+                          </div>
+                                          </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" (click)="closeModal('add-duplicate-survey')" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-success">Add Survey</button>
+                </div>
+              </form>
+            </div>
+            </div>
+            </div>
+</jw-modal>
+
+
+<jw-modal id="disable-confirmation">
+    <div id="myModal" class="modal" style="display: block;">
+        <div class="modal-dialog modal-confirm">
+          <div class="modal-content">
+            <div class="modal-header">			
+              <h4 class="modal-title">{{status=='draft'?'Are you sure you want to save this survey as draft ?':'Are sure you want to make this survey active ?'}}</h4>	
+                      <button type="button" (click)="closeModal('disable-confirmation')" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" (click)="closeModal('disable-confirmation')" class="btn btn-info" data-dismiss="modal">Cancel</button>
+              <button type="button" (click)="onStatusChange('disable-confirmation')" class="btn btn-danger">{{status=="draft"?"Make Draft":"Make Active"}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </jw-modal>

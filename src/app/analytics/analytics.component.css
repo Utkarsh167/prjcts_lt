@@ -1,0 +1,60 @@
+canvas{
+    height: 250px ;
+}
+
+mat-card{
+    padding: 0;
+    margin-top: 15px;
+}
+.fe {
+    margin-top: 10px;
+  }
+
+  .loader {
+  left: 50%;
+  margin-left: -4em;
+}
+
+#linebarchart{
+  height: 300px !important;
+}
+
+
+/* #positiveGuage{
+  stroke: #189150;
+}
+
+
+#neutralGuage{
+  stroke: #FECE8B;
+}
+
+#negativeGuage{
+  stroke: #E84A5F;
+}
+
+mwl-gauge > .gauge > .value{
+  stroke: #E84A5F !important;
+} */
+
+/* mwl-gauge > .gauge > .value {
+  stroke: #E84A5F !important;
+}
+
+.gauge>.value{
+  stroke: #E84A5F !important;
+}
+
+mwl-gauge{
+  stroke: #E84A5F !important;
+} */
+
+.avatar-title{
+  width: 70%;
+  height: 70%;
+}
+
+kendo-pdf-export {
+  font-family: "DejaVu Sans", "Arial", sans-serif;
+  font-size: 12px;
+}

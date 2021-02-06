@@ -1,0 +1,72 @@
+
+
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
+
+<div *ngIf="!loading"> 
+<div class="container">
+  <div class="row" id="section-padding">
+    <div class="col-md-7">
+      <p style="margin-top: 10%; color: #33475B; font-size: 20px; margin-left: 55px;"> Illustration to be placed <br>here
+      </p>
+        <p class="text-center" style="margin-top: 20%; font-weight: 600; font-size: 22px;">Create workplace,add location of the company and add terminal area</p>
+    </div>
+
+    <div class="col-md-4">
+      <form [formGroup]="workplaceForm" (ngSubmit)="firstTimeSetup()" method="POST">
+        
+                    <mat-form-field appearance="outline"  class="example-full-width" >
+                       <mat-label>Workplace</mat-label>
+                        <input matInput  placeholder="Enter the name of the company" type="text" formControlName="workplace_name"  required>
+                    </mat-form-field>
+                    
+
+                    <mat-form-field appearance="outline"  class="example-full-width" >
+                    <mat-label>Location</mat-label>
+                        <input matInput  placeholder="Enter company location" type="text" formControlName="location_name" required>
+                    </mat-form-field>
+                    
+                   
+                   
+                    
+                     <div formArrayName="area_list" *ngFor="let creds of workplaceForm['controls'].area_list['controls']; let i = index" >
+                      <div [formGroupName]="i">
+                     <div  class="row">
+                       <div class="col-md-10">
+                           <mat-form-field appearance="outline"  class="example-full-width" >
+                              <mat-label for="pwd">Area name</mat-label>
+                            <input matInput  placeholder="Washroom first floor" type="text" formControlName="area_name" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                          <button *ngIf="i==0" (click)="addCreds()" mat-fab style="background-color: #54586f; border-color:#54586f; width: 24px; height: 24px; margin-top: 10px;"><mat-icon style="color: #fff; font-size: 17px;position: relative;bottom: 14px; ">add</mat-icon></button>
+                          <button *ngIf="i>0" (click)=closeCreds(i)  mat-fab style="background-color: #54586f; border-color:#54586f; width: 24px; height: 24px; margin-top: 10px;"><mat-icon style="color: #fff; font-size: 17px;position: relative;bottom: 13px; ">remove</mat-icon></button>
+
+                        </div>
+                     </div>
+                     </div>
+                     </div>
+                     
+                       
+                       
+                          <!-- <div  class="row">
+                             <div class="col-md-10">
+                              <mat-form-field appearance="outline"  class="example-full-width" >
+                                <input matInput  placeholder="Washroom second floor" type="text"  required>
+                              </mat-form-field>
+                             </div>
+
+                            <div class="col-md-1">
+                                 <button style="background-color: #54586f; border-color:#54586f; border-radius:50%;width: 30px; height: 30px; margin-top: 10px;"><i class="fas fa-times" style="color: #fff; font-size: 15px; "></i></button>
+                              </div>
+                            </div> -->
+
+                      
+                      
+                     <button type="submit" class="btn" style="background-color: #0078D4;color: #fff">Create workplace</button>
+                
+                 </form>
+              </div>
+    </div>
+  </div>
+  </div>

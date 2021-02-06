@@ -1,0 +1,105 @@
+
+
+.navbar{
+  border-width: 0 0 0 !important;
+}
+
+#img_add{
+    cursor: pointer;
+}
+.container{
+max-width: 90% !important;
+}
+
+.card{
+  margin: 12px;
+  margin-top:40px;
+  max-width: 20%;
+}
+
+#box{
+  height: 242px;
+  border-radius: 5px;
+}
+/* .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background-color: #FFFF00 !important;
+  color: #FFC0CB !important;
+} */
+
+a:hover{
+  background-color:#dcdcdc !important;
+}
+
+.active{
+  background-color:#dcdcdc !important;
+}
+
+a{
+  color: #33475B !important;
+  font-size: 14px !important;
+}
+
+.carbon-text{
+  color: #33475B !important;  
+}
+
+
+.border-right{
+  background-color: #f3f2f1;
+  height: 1100px;
+  border: none !important;
+}
+
+.body{
+  background-color: #fff;
+}
+
+.dropdown-menu{
+  background-color: #f3f2f1 !important;
+}
+
+.fa-code-branch{
+color: #D3D3D3;
+}
+
+.badge{
+  font-size: 55%;
+}
+
+.fa-building{
+  color: #D3D3D3;
+  }
+  .fa-plus{
+  color: #D3D3D3;
+  }
+
+  .modal-title{
+    font-size: 20px;
+  }
+
+
+/* active tab */
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  color:#33475B;
+  min-width: 50px !important;
+  /* background-color: green; */
+  }
+  
+  /* ink bar */
+  ::ng-deep .mat-ink-bar {
+  background-color: #0078D4 !important;
+  height: 4px !important; 
+  min-width: 40px !important;
+  padding: 0 10px !important;
+  }
+
+  ::ng-deep .mat-tab-label {
+    min-width: 40px !important;
+    padding: 0 10px !important;
+  }
+
+  .card-footer{
+    padding: 1rem 0.5rem !important;
+  }
+
+  

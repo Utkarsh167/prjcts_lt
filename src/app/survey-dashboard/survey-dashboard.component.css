@@ -1,0 +1,31 @@
+mat-card{
+    padding: 0;
+    margin-top: 15px;
+}
+
+.avatar-title{
+    width: 70%;
+    height: 70%;
+}
+
+.last-row{
+    margin-bottom: 20px;
+    max-height: 500px;
+}
+
+#guageDiv{
+    height: 250px;
+}
+
+.loader-container {
+    position: relative;
+    text-align: center;
+    color: black;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 31%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }

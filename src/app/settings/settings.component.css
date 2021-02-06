@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+    background-color: #fff !important;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  
+  .mat-elevation-z8{
+    box-shadow: none !important;
+  }
+  
+  td,th{
+    font-size: 12px !important;
+  }

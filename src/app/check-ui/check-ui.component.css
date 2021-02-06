@@ -1,0 +1,10 @@
+.email-wrapper .mail-list-container .mail-list .content .message_text {
+    margin: 0;
+    max-width: 93%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+
+  

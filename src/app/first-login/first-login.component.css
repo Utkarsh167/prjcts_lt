@@ -1,0 +1,9 @@
+.example-full-width{
+	width: 100%;
+}
+#section-padding{
+	padding-top: 8%;
+}
+mat-label{
+	font-weight: 800;
+}
