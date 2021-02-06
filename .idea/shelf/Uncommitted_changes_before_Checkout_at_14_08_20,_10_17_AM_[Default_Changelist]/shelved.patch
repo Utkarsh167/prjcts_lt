@@ -1,0 +1,110 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:aashiq\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:aashiq\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"39a2ceda-a2b0-40e9-8404-d027da21e4ca\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/interfaces/Model.d.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/interfaces/Model.d.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/modules/v1/dashboard/DashboardDao.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/modules/v1/dashboard/DashboardDao.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/modules/v1/dashboard/dashboardController.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/modules/v1/dashboard/dashboardController.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/modules/v1/dashboard/dashboardRoute.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/modules/v1/dashboard/dashboardRoute.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/modules/v1/entryLog/EntryLogDao.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/modules/v1/entryLog/EntryLogDao.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/modules/v1/entryLog/entryLogController.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/modules/v1/entryLog/entryLogController.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/modules/v1/entryLog/entryLogRoute.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/modules/v1/entryLog/entryLogRoute.ts\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"PackageJsonUpdateNotifier\">\n    <dismissed value=\"$PROJECT_DIR$/package.json\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1fRo2ZoUmbcmcRgVpu4oHl9vVXh\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/modules/v1\" />\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"ts.external.directory.path\" value=\"$PROJECT_DIR$/node_modules/typescript/lib\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/modules/v1\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"39a2ceda-a2b0-40e9-8404-d027da21e4ca\" name=\"Default Changelist\" comment=\"\" />\n      <created>1596190060671</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1596190060671</updated>\n      <workItem from=\"1596190061967\" duration=\"16660000\" />\n      <workItem from=\"1596263170279\" duration=\"26293000\" />\n      <workItem from=\"1596351824690\" duration=\"5361000\" />\n      <workItem from=\"1596384259214\" duration=\"2809000\" />\n      <workItem from=\"1596424227347\" duration=\"15466000\" />\n      <workItem from=\"1596452402304\" duration=\"11110000\" />\n      <workItem from=\"1596513733889\" duration=\"19320000\" />\n      <workItem from=\"1596561267331\" duration=\"2739000\" />\n      <workItem from=\"1596602297072\" duration=\"11813000\" />\n      <workItem from=\"1596620691831\" duration=\"22452000\" />\n      <workItem from=\"1596686679939\" duration=\"2979000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state width=\"1343\" height=\"162\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1596222910044\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"702\" />\n    </state>\n    <state width=\"1343\" height=\"162\" key=\"GridCell.Tab.0.bottom/0.27.1366.702@0.27.1366.702\" timestamp=\"1596222910044\" />\n    <state width=\"1343\" height=\"162\" key=\"GridCell.Tab.0.center\" timestamp=\"1596222910043\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"702\" />\n    </state>\n    <state width=\"1343\" height=\"162\" key=\"GridCell.Tab.0.center/0.27.1366.702@0.27.1366.702\" timestamp=\"1596222910043\" />\n    <state width=\"1343\" height=\"162\" key=\"GridCell.Tab.0.left\" timestamp=\"1596222910043\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"702\" />\n    </state>\n    <state width=\"1343\" height=\"162\" key=\"GridCell.Tab.0.left/0.27.1366.702@0.27.1366.702\" timestamp=\"1596222910043\" />\n    <state width=\"1343\" height=\"162\" key=\"GridCell.Tab.0.right\" timestamp=\"1596222910044\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"702\" />\n    </state>\n    <state width=\"1343\" height=\"162\" key=\"GridCell.Tab.0.right/0.27.1366.702@0.27.1366.702\" timestamp=\"1596222910044\" />\n    <state x=\"266\" y=\"115\" width=\"824\" height=\"526\" key=\"IDE.errors.dialog\" timestamp=\"1596384273366\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"702\" />\n    </state>\n    <state x=\"266\" y=\"115\" width=\"824\" height=\"526\" key=\"IDE.errors.dialog/0.27.1366.702@0.27.1366.702\" timestamp=\"1596384273366\" />\n    <state x=\"374\" y=\"117\" width=\"618\" height=\"522\" key=\"find.popup\" timestamp=\"1596649905953\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"702\" />\n    </state>\n    <state x=\"374\" y=\"117\" width=\"618\" height=\"522\" key=\"find.popup/0.27.1366.702@0.27.1366.702\" timestamp=\"1596649905953\" />\n    <state x=\"408\" y=\"292\" width=\"540\" height=\"172\" key=\"vcs.readOnlyHandler.ReadOnlyStatusDialog\" timestamp=\"1596626938786\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"702\" />\n    </state>\n    <state x=\"408\" y=\"292\" width=\"540\" height=\"172\" key=\"vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1366.702@0.27.1366.702\" timestamp=\"1596626938786\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/companyDetailsModel.ts</url>\n          <line>77</line>\n          <option name=\"timeStamp\" value=\"6\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/companyDetailsModel.ts</url>\n          <line>84</line>\n          <option name=\"timeStamp\" value=\"7\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/config/environment.ts</url>\n          <line>104</line>\n          <option name=\"timeStamp\" value=\"8\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/companyDetailsModel.ts</url>\n          <line>80</line>\n          <option name=\"timeStamp\" value=\"11\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/companyDetailsModel.ts</url>\n          <line>82</line>\n          <option name=\"timeStamp\" value=\"12\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/companyDetailsModel.ts</url>\n          <line>81</line>\n          <option name=\"timeStamp\" value=\"14\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/AdminDao.ts</url>\n          <line>1413</line>\n          <option name=\"timeStamp\" value=\"15\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/interfaces/Model.d.ts</url>\n          <line>2</line>\n          <option name=\"timeStamp\" value=\"17\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/adminConstant.ts</url>\n          <line>397</line>\n          <option name=\"timeStamp\" value=\"18\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/adminRoute.ts</url>\n          <line>799</line>\n          <option name=\"timeStamp\" value=\"19\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/admin/adminController.ts</url>\n          <line>600</line>\n          <option name=\"timeStamp\" value=\"20\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/dashboard/dashboardRoute.ts</url>\n          <line>13</line>\n          <option name=\"timeStamp\" value=\"22\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/dashboard/dashboardRoute.ts</url>\n          <line>46</line>\n          <option name=\"timeStamp\" value=\"23\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/dashboard/dashboardRoute.ts</url>\n          <line>211</line>\n          <option name=\"timeStamp\" value=\"24\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/dashboard/dashboardRoute.ts</url>\n          <line>244</line>\n          <option name=\"timeStamp\" value=\"25\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\n          <url>file://$PROJECT_DIR$/src/modules/v1/shared/BootStrap.ts</url>\n          <line>34</line>\n          <option name=\"timeStamp\" value=\"26\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision a135dccff98d15645ac24af20bb0c8b0d8561feb)
++++ .idea/workspace.xml	(date 1597378525753)
+@@ -31,14 +31,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="39a2ceda-a2b0-40e9-8404-d027da21e4ca" name="Default Changelist" comment="">
++      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/admin-server-backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin-server-backend.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/interfaces/Model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/Model.d.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/modules/v1/dashboard/DashboardDao.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/v1/dashboard/DashboardDao.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/modules/v1/dashboard/dashboardController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/v1/dashboard/dashboardController.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/modules/v1/dashboard/dashboardRoute.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/v1/dashboard/dashboardRoute.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/modules/v1/entryLog/EntryLogDao.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/v1/entryLog/EntryLogDao.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/modules/v1/entryLog/entryLogController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/v1/entryLog/entryLogController.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/modules/v1/entryLog/entryLogRoute.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/v1/entryLog/entryLogRoute.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/modules/v1/admin/adminRoute.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/v1/admin/adminRoute.ts" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -46,6 +42,11 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="aashiq/subadminValidations" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="PackageJsonUpdateNotifier">
+@@ -71,6 +72,15 @@
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/src/modules/v1" />
+     </key>
++  </component>
++  <component name="RunManager">
++    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
++      <package-json value="$PROJECT_DIR$/package.json" />
++      <command value="start" />
++      <node-interpreter value="project" />
++      <envs />
++      <method v="2" />
++    </configuration>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -91,6 +101,8 @@
+       <workItem from="1596602297072" duration="11813000" />
+       <workItem from="1596620691831" duration="22452000" />
+       <workItem from="1596686679939" duration="2979000" />
++      <workItem from="1597333694103" duration="3220000" />
++      <workItem from="1597375247437" duration="595000" />
+     </task>
+     <servers />
+   </component>
+@@ -110,22 +122,26 @@
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="WindowStateProjectService">
+-    <state width="1343" height="162" key="GridCell.Tab.0.bottom" timestamp="1596222910044">
++    <state x="141" y="27" width="1084" height="702" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597328165535">
++      <screen x="0" y="27" width="1366" height="702" />
++    </state>
++    <state x="141" y="27" width="1084" height="702" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.702@0.27.1366.702" timestamp="1597328165535" />
++    <state width="1343" height="196" key="GridCell.Tab.0.bottom" timestamp="1597333627646">
+       <screen x="0" y="27" width="1366" height="702" />
+     </state>
+-    <state width="1343" height="162" key="GridCell.Tab.0.bottom/0.27.1366.702@0.27.1366.702" timestamp="1596222910044" />
+-    <state width="1343" height="162" key="GridCell.Tab.0.center" timestamp="1596222910043">
++    <state width="1343" height="196" key="GridCell.Tab.0.bottom/0.27.1366.702@0.27.1366.702" timestamp="1597333627646" />
++    <state width="1343" height="196" key="GridCell.Tab.0.center" timestamp="1597333627645">
+       <screen x="0" y="27" width="1366" height="702" />
+     </state>
+-    <state width="1343" height="162" key="GridCell.Tab.0.center/0.27.1366.702@0.27.1366.702" timestamp="1596222910043" />
+-    <state width="1343" height="162" key="GridCell.Tab.0.left" timestamp="1596222910043">
++    <state width="1343" height="196" key="GridCell.Tab.0.center/0.27.1366.702@0.27.1366.702" timestamp="1597333627645" />
++    <state width="1343" height="196" key="GridCell.Tab.0.left" timestamp="1597333627645">
+       <screen x="0" y="27" width="1366" height="702" />
+     </state>
+-    <state width="1343" height="162" key="GridCell.Tab.0.left/0.27.1366.702@0.27.1366.702" timestamp="1596222910043" />
+-    <state width="1343" height="162" key="GridCell.Tab.0.right" timestamp="1596222910044">
++    <state width="1343" height="196" key="GridCell.Tab.0.left/0.27.1366.702@0.27.1366.702" timestamp="1597333627645" />
++    <state width="1343" height="196" key="GridCell.Tab.0.right" timestamp="1597333627646">
+       <screen x="0" y="27" width="1366" height="702" />
+     </state>
+-    <state width="1343" height="162" key="GridCell.Tab.0.right/0.27.1366.702@0.27.1366.702" timestamp="1596222910044" />
++    <state width="1343" height="196" key="GridCell.Tab.0.right/0.27.1366.702@0.27.1366.702" timestamp="1597333627646" />
+     <state x="266" y="115" width="824" height="526" key="IDE.errors.dialog" timestamp="1596384273366">
+       <screen x="0" y="27" width="1366" height="702" />
+     </state>
+@@ -134,6 +150,10 @@
+       <screen x="0" y="27" width="1366" height="702" />
+     </state>
+     <state x="374" y="117" width="618" height="522" key="find.popup/0.27.1366.702@0.27.1366.702" timestamp="1596649905953" />
++    <state x="373" y="71" width="610" height="612" key="git4idea.branch.GitSmartOperationDialog" timestamp="1597337204524">
++      <screen x="0" y="27" width="1366" height="702" />
++    </state>
++    <state x="373" y="71" width="610" height="612" key="git4idea.branch.GitSmartOperationDialog/0.27.1366.702@0.27.1366.702" timestamp="1597337204524" />
+     <state x="408" y="292" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1596626938786">
+       <screen x="0" y="27" width="1366" height="702" />
+     </state>

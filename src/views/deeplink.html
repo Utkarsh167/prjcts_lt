@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:image" content="{{image}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:description" content="{{eventDate}}">
+  <meta property="og:url" content="{{url}}">
+  <title>{{title}}></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    function deepLink(options) {
+      var fallback = options.fallback || '';
+      var url = options.url || '';
+      var iosLink = options.iosLink;
+      var iosStoreLink = options.ios_store_link;
+      var androidPackageName = options.android_package_name;
+      var playStoreLink =
+        'https://market.android.com/details?id=' + androidPackageName;
+      var ua = window.navigator.userAgent;
+      var is_expired = options.is_expired;
+      // split the first :// from the url string
+      var split = url.split(/:\/\/(.+)/);
+      var scheme = split[0];
+      var path = split[1] || '';
+
+      var urls = {
+        deepLink: url,
+        iosLink: iosLink,
+        iosStoreLink: iosStoreLink,
+        android_intent:
+          'intent://' +
+          path +
+          '#Intent;scheme=' +
+          scheme +
+          ';package=' +
+          androidPackageName +
+          ';end;',
+        playStoreLink: playStoreLink,
+        fallback: fallback
+      };
+      console.log(ua)
+      var isMobile = {
+        android: function () {
+          return /android/i.test(ua);
+        },
+        ios: function () {
+          return /iPhone|iPad|iPod/i.test(ua);
+        }
+      };
+
+      // fallback to the application store on mobile devices
+      if (isMobile.ios() && urls.iosLink && urls.iosStoreLink && is_expired=='false') {
+        iosLaunch();
+      } else if (isMobile.android() && androidPackageName && is_expired=='false') {
+        androidLaunch();
+      } else {
+        window.location = urls.fallback;
+      }
+      function launchWekitApproach(url, fallback) {
+        window.location = url;
+
+        setTimeout(function () {
+          document.location = fallback;
+        }, 1000);
+      }
+
+      function launchIframeApproach(url, fallback) {
+        var iframe = document.createElement('iframe');
+        iframe.style.border = 'none';
+        iframe.style.width = '1px';
+        iframe.style.height = '1px';
+        iframe.onload = function () {
+          document.location = url;
+        };
+        iframe.src = url;
+
+        window.onload = function () {
+          document.body.appendChild(iframe);
+          setTimeout(function () {
+            window.location = fallback;
+          }, 1000);
+        };
+      }
+
+      console.log(urls)
+
+      function iosLaunch() {
+        console.log('iiiiiiiiiiiiiioooooooooooossssssssssssssssss' + urls)
+        // chrome and safari on ios >= 9 don't allow the iframe approach
+        if (
+          ua.match(/CriOS/) ||
+          (ua.match(/Safari/))
+        ) {
+          launchWekitApproach(urls.iosLink, urls.iosStoreLink || urls.fallback);
+        } else {
+          launchIframeApproach(urls.iosLink, urls.iosStoreLink || urls.fallback);
+        }
+      }
+
+      function androidLaunch() {
+        if (ua.match(/Chrome/)) {
+          document.location = urls.android_intent;
+        } else if (ua.match(/Firefox/)) {
+          launchWekitApproach(urls.deepLink, urls.playStoreLink || urls.fallback);
+        } else {
+          launchIframeApproach(url, urls.playStoreLink || urls.fallback);
+        }
+      }
+    }
+  </script>
+  <script type="text/javascript">
+    var options = {
+      fallback: '{{fallback}}',
+      url: '{{url}}',
+      iosLink: '{{iosLink}}',
+      ios_store_link: '{{ios_store_link}}',
+      android_package_name: '{{android_package_name}}',
+      is_expired : '{{is_expired}}'
+    }
+    deepLink(options)
+  </script>
+</body>
+
+</html>
