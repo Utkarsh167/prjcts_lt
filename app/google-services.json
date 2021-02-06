@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "401343182005",
+    "firebase_url": "https://xp-hpe.firebaseio.com",
+    "project_id": "xp-hpe",
+    "storage_bucket": "xp-hpe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401343182005:android:318d03ad0d12f1da993afc",
+        "android_client_info": {
+          "package_name": "com.xp.translab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401343182005-inb2g8i99hjgjip552pkj1pufa2ve1i3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xp.translab",
+            "certificate_hash": "6ce05b0566ce403254fe75304b3b3ca412b51418"
+          }
+        },
+        {
+          "client_id": "401343182005-ni297ag414ee4u752i3g8vskh8b0k3fc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXq9fcKizLy0AcEaBPZb_IvEkt-PYWWTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401343182005-ni297ag414ee4u752i3g8vskh8b0k3fc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

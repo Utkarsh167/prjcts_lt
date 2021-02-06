@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Feedibak</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="verification_title">Your Feedback is valuable.</string>
+    <string name="verificaion_subtitle">Please scan your badge and provide us your feedback.</string>
+    <string name="feedback_text_3">Your feedback is important to us and we will endavour to respond to your feedback and address the issue.</string>
+    <string name="feedback_text_2">Thank you for taking the time to provide us your feedback.</string>
+</resources>

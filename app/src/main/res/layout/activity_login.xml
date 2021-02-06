@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout_loginActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:background="@color/welcome_screen_background"
+    tools:context="graymars.feedibk.com.myapplication.Activities.LoginActivity">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="-7dp"
+        android:src="@drawable/ic_login_left_corner"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:padding="5dp"
+        android:layout_marginLeft="20dp"
+        android:text="Welcome to Feedibak"
+        android:id="@+id/textView_AppName"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="13sp"
+        android:padding="5dp"
+        android:layout_marginLeft="20dp"
+        android:text="Giving feedback has never been easier!"
+        android:textColor="#000"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/textView_AppName"
+        android:id="@+id/textView_tagLine"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/textView_title_login"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/textView_tagLine"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dip"
+        android:layout_below="@+id/textView_title_login"
+        android:layout_margin="20dp"
+        android:singleLine="true"
+        android:id="@+id/editText_userName"
+        android:hint="User Name"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:imeOptions="actionNext"
+        android:background="@drawable/rounded_background" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dip"
+        android:singleLine="true"
+        android:layout_below="@+id/editText_userName"
+        android:layout_margin="20dp"
+        android:id="@+id/editText_password"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        android:nextFocusForward="@+id/btn_login"
+        android:background="@drawable/rounded_background" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_background_blue"
+        android:layout_below="@+id/editText_password"
+        android:text="Login"
+        android:textColor="#fff"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_login"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/editText_password"
+                android:id="@+id/progessBar_loginActivity"
+                android:layout_centerHorizontal="true"/>
+
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="-7dp"
+        android:src="@drawable/ic_login_right_bottom_corner"/>
+
+</android.support.design.widget.CoordinatorLayout>
