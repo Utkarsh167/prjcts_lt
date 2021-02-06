@@ -1,0 +1,678 @@
+<div class="container">
+
+    <div>
+        <button (click)="submitDraft()">Draft</button>
+    </div>
+        <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 b-r padding_bottom_70" >
+                        
+                                <div class="header">
+                                  <div class="header-body">
+                                    <div class="row align-items-end">
+                                        <div class="col">
+                                            <h1 class="header-title">Add Survey</h1>
+                                        </div>
+                                    </div>
+                                  </div>
+                              </div>
+                                        <!-- Success message -->
+                                        <form class="well form-horizontal" [formGroup]="add_survey" (ngSubmit)="submitSurveyData()" method="POST" action=" " id="contact_form" enctype="multipart/form-data">
+                                               
+                         <div class="card" (click)="scroll(target1)">
+                            <div class="card-header">
+                                <h3 class="header-title">Welcome Screen</h3>
+                            </div>
+                                <div class="card-body">
+                         <div class="form-group">
+                            <label class="control-label">Welcome Message</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" formControlName="welcome_message" name="welcome_message" placeholder="Welcome Message" class="form-control" value="" autocomplete="off">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label class="control-label">Tagline</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" name="tagline" formControlName="tagline" placeholder="tagline" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                    
+                    
+                      <div class="card" >
+                        <div class="card-header">
+                            <h3 class="header-title">Add Logic / FollowUp Question</h3>
+                        </div>
+                        <div class="card-body">
+                          <div (click)="scroll(target2)">
+                            <h4 class="header-pretitle">Click a smiley to add individual followup question
+                            </h4>
+                            <input type="text" formControlName="master_question" placeholder="Enter question for smiley" class="form-control" value="" autocomplete="off">
+                          </div>
+                          
+                        <div style="margin-top: 5%" class="form-group">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-auto" id="5_star" (click)="scroll(target3)" name="5" value="5"><img src="/assets/img/ic_sentiment_great.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                    
+                                <div class="col-auto" id="4_star" (click)="scroll(target3)" name="4"  value="4"><img src="/assets/img/ic_sentiment_good.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                
+                                <div class="col-auto" id="3_star" (click)="scroll(target4)" name="3"  value="3"><img src="/assets/img/ic_sentiment_ok.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                    
+                                 <div class="col-auto" id="2_star" (click)="scroll(target5)" name="2"  value="2"><img src="/assets/img/ic_sentiment_bad.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                    
+                                <div class="col-auto" id="1_star" (click)="scroll(target5)" name="rating"  value="1"><img src="/assets/img/ic_sentiment_terrible.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                
+                            </div>   
+                        </div>
+                        <div (click)="scroll(target3)"  id="individual_followup_question_rating_positive" class="form-group" style="display: none;">
+                            <label class="control-label">Enter Positive Question</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="followup_question_positive" name="followup_question_positive" placeholder="Enter followup question" class="form-control" value="" autocomplete="off">
+                                    </div><br>
+                    
+                                     <div class="input-group">
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_1_positive"  placeholder="Option 1" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_2_positive" placeholder="Option 2" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_3_positive"  placeholder="Option 3" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_4_positive" placeholder="Option 4" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                             <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_5_positive"  placeholder="Option 5" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                             <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_6_positive"  placeholder="Option 6" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>       
+                                </div>
+                        </div>
+                
+                        <div (click)="scroll(target4)" id="individual_followup_question_rating_neutral" class="form-group" style="display: none;">
+                            <label class="control-label">Enter Neutral Question</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="followup_question_neutral" placeholder="Enter followup question" class="form-control" value="" autocomplete="off">
+                                    </div><br>
+                    
+                                     <div class="input-group">
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_1_neutral" placeholder="Option 1" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_2_neutral" placeholder="Option 2" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_3_neutral" placeholder="Option 3" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_4_neutral" placeholder="Option 4" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                             <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_5_neutral" placeholder="Option 5" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                             <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_6_neutral" placeholder="Option 6" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>       
+                                </div>
+                        </div>
+                
+                        <div (click)="scroll(target5)" id="individual_followup_question_rating_negative" class="form-group" style="display: none;">
+                            <label class="control-label">Enter Negative Question</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="followup_question_negative" placeholder="Enter followup question" class="form-control" value="" autocomplete="off">
+                                    </div><br>
+                    
+                                     <div class="input-group">
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_1_negative" placeholder="Option 1" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_2_negative" placeholder="Option 2" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_3_negative" placeholder="Option 3" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_4_negative" placeholder="Option 4" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                             <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_5_negative" placeholder="Option 5" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                             <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_6_negative" placeholder="Option 6" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>       
+                                </div>
+                        </div>
+                       
+                        <h4 (click)="scroll(target6)" id="add_common_question" class="header-pretitle">OR Add a common followup question <i id="add_common_question" class="fe fe-plus-circle"></i>
+                            </h4>
+                            <div (click)="scroll(target6)" id="common_followup_question" class="form-group">
+                            <label class="control-label">Question</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="followup_question" placeholder="Enter followup question" class="form-control" value="" autocomplete="off">
+                                    </div><br>
+                    
+                                     <div class="input-group">
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_1" placeholder="Option 1" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_2" placeholder="Option 2" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_3" placeholder="Option 3" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_4" placeholder="Option 4" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                             <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_5" placeholder="Option 5" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                             <div class="col d-flex justify-content-center">
+                                                <input type="text" formControlName="option_6" placeholder="Option 6" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>       
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header"><h4 class="header-title">Status</h4></div>
+                        <div class="card-body">
+                        <div class="form-group">
+                            <label class="control-label">Status</label>
+                            <div class="row">
+                                <div class="col">
+                                <div class="radio">
+                                    <label>
+                                 <input type="radio" formControlName="status" value="active" required=""> Active
+                                    </label>
+                                </div>
+                                </div>
+                                <div class="col">
+                                <div class="radio">
+                                    <label>
+                              <input type="radio" formControlName="status" value="inactive" required=""> In-active
+                                    </label>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                
+                
+                    <div class="form-group">
+                            <label class="control-label">Select Tablet</label>
+                          <select id="multipleSelect"  ngFordata-placeholder="Select Tablets" class="chosen-select form-control" multiple>
+                                   <option value=""></option>   <br/>
+                                    <option *ngFor ="let device of deviceList" [value]="device.tablet_id" >{{device.tablet_name}}</option>
+                       <!-- <option value="11">Washroom Area</option><br />
+                       <option value="13">harbi home</option>  -->
+                       </select>
+                       
+                       </div>
+                
+                
+                     
+                       
+                       
+                       <!-- Button -->
+                        <div class="form-group">
+                            <label class="control-label"></label>
+                            <div class="">
+                                <button type="submit" class="btn btn-primary">Save <span class="glyphicon glyphicon-send"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                                            
+                                        </form>
+                                   
+                  
+                </div>
+                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 b-r-part2 padding_bottom_70" >
+                    
+
+                    <button (click)="openModal('add-survey-preview-start')" >Preview</button>
+        
+                      <div #target1 class="thumbnail text-center">
+                                <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image3.png">
+                                <div class="caption-welcome">
+                                        <h4>{{this.add_survey.get('welcome_message').value}}</h4>
+                                      </div>
+                                      <!-- Translab Office Experience Survey 2019-2020 -->
+                                      <div class="caption-tagline">
+                                            <p>{{this.add_survey.get('tagline').value}}</p>
+                                      </div>
+
+                                      <div class="caption-button">
+                                            <button type="button" class="btn btn-outline-secondary">START SURVEY</button>
+                                      </div>
+                            </div>
+
+
+                            <div  #target2 style="margin-top: 20%" class="thumbnail text-center">
+                                    <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                                    <div class="caption-smiley-question">
+                                            <h4>{{this.add_survey.get('master_question').value}}</h4>
+                                          
+                                            <div style="margin-top: 10%" class="form-group">
+                                                <div class="row d-flex justify-content-center">
+                                                    <div class="col-auto" id="1_star" name="rating"  value="1"><img src="/assets/img/ic_sentiment_terrible.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                                    <div class="col-auto" id="2_star"  name="2"  value="2"><img src="/assets/img/ic_sentiment_bad.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                                    <div class="col-auto" id="3_star" name="3"  value="3"><img src="/assets/img/ic_sentiment_ok.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                                    <div class="col-auto" id="4_star" name="4"  value="4"><img src="/assets/img/ic_sentiment_good.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>                                                   
+                                                    <div class="col-auto" id="5_star"  name="5" value="5"><img src="assets/img/ic_sentiment_great.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                                    
+                                                </div>   
+                                            </div>
+                                        </div>
+                                         
+
+                                </div>
+
+                                <div  #target3 style="margin-top: 20%" class="thumbnail text-center">
+                                    <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                                    <div class="caption-pos-neg-neu-qiestion">
+                                            <!-- <input style="border: 0 !important;background-color:transparent !important;" type="text" [value]="this.add_survey.get('followup_question_positive').value" class="form-control" placeholder="Positive Question">                                            -->
+                                        <h5>{{this.add_survey.get('followup_question_positive').value? this.add_survey.get('followup_question_positive').value:'Enter Positive Question'}}</h5>
+                                          </div>
+                                          
+                                          <div class="form-group caption-input-op">
+                                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_1_positive').value" class="form-control" placeholder="Option 1">
+                                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_2_positive').value"class="form-control" placeholder="Option 2">
+                                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_3_positive').value" class="form-control" placeholder="Option 3">
+                                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_4_positive').value" class="form-control" placeholder="Option 4">
+                                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_5_positive').value" class="form-control" placeholder="Option 5">
+                                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_6_positive').value" class="form-control" placeholder="Option 6">
+                                            </div>
+
+    
+                                          <div class="caption-button-que-op">
+                                                <button disabled type="button" class="btn btn-outline-secondary">CONTINUE</button>
+                                          </div>
+                                </div>
+
+
+                                <div  #target4 style="margin-top: 20%" class="thumbnail text-center">
+                                        <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                                        <div class="caption-pos-neg-neu-qiestion">
+                                                <!-- <input style="border: 0 !important;background-color:transparent !important;" type="text" [value]="this.add_survey.get('followup_question_positive').value" class="form-control" placeholder="Positive Question">                                            -->
+                                            <h5>{{this.add_survey.get('followup_question_neutral').value? this.add_survey.get('followup_question_neutral').value:'Enter Neutral Question'}}</h5>
+                                              </div>
+                                              
+                                              <div class="form-group caption-input-op">
+                                                    <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_1_neutral').value" class="form-control" placeholder="Option 1">
+                                                    <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_2_neutral').value"class="form-control" placeholder="Option 2">
+                                                    <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_3_neutral').value" class="form-control" placeholder="Option 3">
+                                                    <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_4_neutral').value" class="form-control" placeholder="Option 4">
+                                                    <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_5_neutral').value" class="form-control" placeholder="Option 5">
+                                                    <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_6_neutral').value" class="form-control" placeholder="Option 6">
+                                                </div>
+    
+        
+                                              <div class="caption-button-que-op">
+                                                    <button disabled type="button" class="btn btn-outline-secondary">CONTINUE</button>
+                                              </div>
+                                    </div>
+
+                                    <div  #target5 style="margin-top: 20%" class="thumbnail text-center">
+                                            <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                                            <div class="caption-pos-neg-neu-qiestion">
+                                                    <!-- <input style="border: 0 !important;background-color:transparent !important;" type="text" [value]="this.add_survey.get('followup_question_positive').value" class="form-control" placeholder="Positive Question">                                            -->
+                                                <h5>{{this.add_survey.get('followup_question_negative').value? this.add_survey.get('followup_question_negative').value:'Enter Negative Question'}}</h5>
+                                                  </div>
+                                                  
+                                                  <div class="form-group caption-input-op">
+                                                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_1_negative').value" class="form-control" placeholder="Option 1">
+                                                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_2_negative').value"class="form-control" placeholder="Option 2">
+                                                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_3_negative').value" class="form-control" placeholder="Option 3">
+                                                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_4_negative').value" class="form-control" placeholder="Option 4">
+                                                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_5_negative').value" class="form-control" placeholder="Option 5">
+                                                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_6_negative').value" class="form-control" placeholder="Option 6">
+                                                    </div>
+        
+            
+                                                  <div class="caption-button-que-op">
+                                                        <button disabled type="button" class="btn btn-outline-secondary">CONTINUE</button>
+                                                  </div>                                        
+                                                </div>
+                           
+
+                                        <div  #target6 style="margin-top: 20%" class="thumbnail text-center">
+                                                <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                                                <div class="caption-pos-neg-neu-qiestion">
+                                                        <!-- <input style="border: 0 !important;background-color:transparent !important;" type="text" [value]="this.add_survey.get('followup_question_positive').value" class="form-control" placeholder="Positive Question">                                            -->
+                                                    <h5>{{this.add_survey.get('followup_question').value? this.add_survey.get('followup_question').value:'Enter Followup Question'}}</h5>
+                                                      </div>
+                                                      
+                                                      <div class="form-group caption-input-op">
+                                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_1').value" class="form-control" placeholder="Option 1">
+                                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_2').value"class="form-control" placeholder="Option 2">
+                                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_3').value" class="form-control" placeholder="Option 3">
+                                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_4').value" class="form-control" placeholder="Option 4">
+                                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_5').value" class="form-control" placeholder="Option 5">
+                                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_6').value" class="form-control" placeholder="Option 6">
+                                                        </div>
+            
+                
+                                                      <div class="caption-button-que-op">
+                                                            <button disabled type="button" class="btn btn-outline-secondary">CONTINUE</button>
+                                                      </div>
+                                            </div>
+                          
+                
+                   
+                    
+                    <!-- <div id="over" style="position:absolute; width:95%; height:100% vertical-align:middle; text-align:center">
+                                <img style="max-height:100%; max-width:100%;" src="/assets/img/tab_image.png">
+                              </div> -->
+                  
+                </div>
+                </div>
+        
+            </div>
+
+
+
+            <jw-modal class="modal-dialog" id="add-survey-preview-start">
+                <div class="modal-dialog" style="display: block;">
+                        <div class="modal-dialog modal-confirm">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalLabel">Preview</h5><h5>
+                                      <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-survey-preview-start');" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                      </button>
+                                  </h5></div>
+                                <div  class="thumbnail text-center">
+                                        <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image.png">
+                                        <div class="caption-welcome">
+                                                <h4>{{this.add_survey.get('welcome_message').value}}</h4>
+                                              </div>
+                                              <!-- Translab Office Experience Survey 2019-2020 -->
+                                              <div class="caption-tagline">
+                                                    <p>{{this.add_survey.get('tagline').value}}</p>
+                                              </div>
+        
+                                              <div class="caption-button">
+                                                    <button type="button" (click)="openNextModal('add-survey-preview-start','add-survey-smiley-question')"  class="btn btn-outline-secondary">START SURVEY</button>
+                                              </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                  </jw-modal>
+
+
+                  <jw-modal class="modal-dialog" id="add-survey-smiley-question">
+                        
+                                       <div class="modal-dialog" style="display: block;">
+                            <div class="modal-dialog modal-confirm">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                        <h5 class="modal-title" id="ModalLabel">Preview</h5><h5>
+                                          <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-survey-smiley-question');" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                          </button>
+                                      </h5></div>
+                                      <div    class="thumbnail text-center">
+                                            <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                                            <div class="caption-smiley-question">
+                                                    <h4>{{this.add_survey.get('master_question').value}}</h4>
+                                                  
+                                                    <div style="margin-top: 10%" class="form-group">
+                                                        <div class="row d-flex justify-content-center">
+                                                            <div class="col-auto" (click)="checkAndOpenNextModal('add-survey-smiley-question','add-negative-question-option')"  id="1_star" name="rating"  value="1"><img src="/assets/img/ic_sentiment_terrible.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                                            <div class="col-auto" id="2_star" (click)="checkAndOpenNextModal('add-survey-smiley-question','add-negative-question-option')"  name="2"  value="2"><img src="/assets/img/ic_sentiment_bad.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                                            <div class="col-auto" id="3_star" name="3" (click)="checkAndOpenNextModal('add-survey-smiley-question','add-neutral-question-option')" value="3"><img src="/assets/img/ic_sentiment_ok.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                                            <div class="col-auto" id="4_star" name="4" (click)="checkAndOpenNextModal('add-survey-smiley-question','add-positive-question-option')"  value="4"><img src="/assets/img/ic_sentiment_good.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>                                                   
+                                                            <div class="col-auto" id="5_star"  name="5" (click)="checkAndOpenNextModal('add-survey-smiley-question','add-positive-question-option')" value="5"><img src="assets/img/ic_sentiment_great.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                                                            
+                                                        </div>   
+                                                    </div>
+                                                </div>
+                                                 
+        
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                      </jw-modal>
+
+
+
+
+                      <jw-modal class="modal-dialog" id="add-positive-question-option">
+                        
+                            <div class="modal-dialog" style="display: block;">
+                 <div class="modal-dialog modal-confirm">
+             <div class="modal-content">
+                     <div class="modal-header">
+                             <h5 class="modal-title" id="ModalLabel">Preview</h5>
+                           <button type="button" (click)="openNextModal('add-positive-question-option','add-survey-smiley-question')">Prev</button>
+
+                             <h5>
+                               <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-positive-question-option');" aria-label="Close">
+                                 <span aria-hidden="true">×</span>
+                               </button>
+                           </h5>
+
+                        </div>
+                           <div   class="thumbnail text-center">
+                                <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                                <div class="caption-pos-neg-neu-qiestion">
+                                        <!-- <input style="border: 0 !important;background-color:transparent !important;" type="text" [value]="this.add_survey.get('followup_question_positive').value" class="form-control" placeholder="Positive Question">                                            -->
+                                    <h5>{{this.add_survey.get('followup_question_positive').value? this.add_survey.get('followup_question_positive').value:'Enter Positive Question'}}</h5>
+                                      </div>
+                                      
+                                      <div class="form-group caption-input-op">
+                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_1_positive').value" class="form-control" placeholder="Option 1">
+                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_2_positive').value"class="form-control" placeholder="Option 2">
+                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_3_positive').value" class="form-control" placeholder="Option 3">
+                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_4_positive').value" class="form-control" placeholder="Option 4">
+                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_5_positive').value" class="form-control" placeholder="Option 5">
+                                            <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_6_positive').value" class="form-control" placeholder="Option 6">
+                                        </div>
+
+
+                                      <div class="caption-button-que-op">
+                                            <button type="button" (click)="openNextModal('add-positive-question-option','thank-you-modal')" class="btn btn-outline-secondary">CONTINUE</button>
+                                        </div>
+                            </div>
+                             </div>
+                             </div>
+                             </div>
+           </jw-modal>
+
+
+           <jw-modal class="modal-dialog" id="add-neutral-question-option">
+                        
+                <div class="modal-dialog" style="display: block;">
+     <div class="modal-dialog modal-confirm">
+ <div class="modal-content">
+         <div class="modal-header">
+                 <h5 class="modal-title" id="ModalLabel">Preview</h5>
+                 <button type="button" (click)="openNextModal('add-neutral-question-option','add-survey-smiley-question')">Prev</button>                 
+                 <h5>
+                   <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-neutral-question-option');" aria-label="Close">
+                     <span aria-hidden="true">×</span>
+                   </button>
+               </h5></div>
+               <div   class="thumbnail text-center">
+                    <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                    <div class="caption-pos-neg-neu-qiestion">
+                            <!-- <input style="border: 0 !important;background-color:transparent !important;" type="text" [value]="this.add_survey.get('followup_question_positive').value" class="form-control" placeholder="Positive Question">                                            -->
+                        <h5>{{this.add_survey.get('followup_question_neutral').value? this.add_survey.get('followup_question_neutral').value:'Enter Neutral Question'}}</h5>
+                          </div>
+                          
+                          <div class="form-group caption-input-op">
+                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_1_neutral').value" class="form-control" placeholder="Option 1">
+                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_2_neutral').value"class="form-control" placeholder="Option 2">
+                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_3_neutral').value" class="form-control" placeholder="Option 3">
+                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_4_neutral').value" class="form-control" placeholder="Option 4">
+                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_5_neutral').value" class="form-control" placeholder="Option 5">
+                                <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_6_neutral').value" class="form-control" placeholder="Option 6">
+                            </div>
+
+
+                          <div class="caption-button-que-op">
+                                <button type="button" (click)="openNextModal('add-neutral-question-option','thank-you-modal')" class="btn btn-outline-secondary">CONTINUE</button>
+                          </div>
+                </div>
+
+                 </div>
+                 </div>
+                 </div>
+</jw-modal>
+
+<jw-modal class="modal-dialog" id="add-negative-question-option">
+                        
+        <div class="modal-dialog" style="display: block;">
+<div class="modal-dialog modal-confirm">
+<div class="modal-content">
+ <div class="modal-header">
+         <h5 class="modal-title" id="ModalLabel">Preview</h5>
+         <button type="button" (click)="openNextModal('add-negative-question-option','add-survey-smiley-question')">Prev</button>                 
+         
+         <h5>
+           <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-negative-question-option');" aria-label="Close">
+             <span aria-hidden="true">×</span>
+           </button>
+       </h5></div>
+       <div    class="thumbnail text-center">
+            <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+            <div class="caption-pos-neg-neu-qiestion">
+                    <!-- <input style="border: 0 !important;background-color:transparent !important;" type="text" [value]="this.add_survey.get('followup_question_positive').value" class="form-control" placeholder="Positive Question">                                            -->
+                <h5>{{this.add_survey.get('followup_question_negative').value? this.add_survey.get('followup_question_negative').value:'Enter Negative Question'}}</h5>
+                  </div>
+                  
+                  <div class="form-group caption-input-op">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_1_negative').value" class="form-control" placeholder="Option 1">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_2_negative').value"class="form-control" placeholder="Option 2">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_3_negative').value" class="form-control" placeholder="Option 3">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_4_negative').value" class="form-control" placeholder="Option 4">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_5_negative').value" class="form-control" placeholder="Option 5">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_6_negative').value" class="form-control" placeholder="Option 6">
+                    </div>
+
+
+                  <div class="caption-button-que-op">
+                        <button type="button" (click)="openNextModal('add-negative-question-option','thank-you-modal')" class="btn btn-outline-secondary">CONTINUE</button>
+                    </div>                                        
+                </div>
+
+
+         </div>
+         </div>
+         </div>
+</jw-modal>
+
+<jw-modal class="modal-dialog" id="add-followup-question-option">
+                        
+        <div class="modal-dialog" style="display: block;">
+<div class="modal-dialog modal-confirm">
+<div class="modal-content">
+ <div class="modal-header">
+         <h5 class="modal-title" id="ModalLabel">Preview</h5>
+         <button type="button" (click)="openNextModal('add-followup-question-option','add-survey-smiley-question')">Prev</button>                          
+         <h5>
+           <button type="button" class="close" data-dismiss="modal" (click)="closeModal('add-followup-question-option');" aria-label="Close">
+             <span aria-hidden="true">×</span>
+           </button>
+       </h5></div>
+       <div   class="thumbnail text-center">
+            <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+            <div class="caption-pos-neg-neu-qiestion">
+                    <!-- <input style="border: 0 !important;background-color:transparent !important;" type="text" [value]="this.add_survey.get('followup_question_positive').value" class="form-control" placeholder="Positive Question">                                            -->
+                <h5>{{this.add_survey.get('followup_question').value? this.add_survey.get('followup_question').value:'Enter Followup Question'}}</h5>
+                  </div>
+                  
+                  <div class="form-group caption-input-op">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_1').value" class="form-control" placeholder="Option 1">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_2').value"class="form-control" placeholder="Option 2">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_3').value" class="form-control" placeholder="Option 3">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_4').value" class="form-control" placeholder="Option 4">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_5').value" class="form-control" placeholder="Option 5">
+                        <input  disabled style=" height: 25px !important; font-size: 0.5rem !important;" type="text" [value]="this.add_survey.get('option_6').value" class="form-control" placeholder="Option 6">
+                    </div>
+
+
+                  <div class="caption-button-que-op">
+                        <button type="button" (click)="openNextModal('add-followup-question-option','thank-you-modal')" class="btn btn-outline-secondary">CONTINUE</button>
+                  </div>
+        </div>
+
+         </div>
+         </div>
+         </div>
+</jw-modal>
+
+
+<jw-modal class="modal-dialog" id="thank-you-modal">
+                        
+    <div class="modal-dialog" style="display: block;">
+<div class="modal-dialog modal-confirm">
+<div class="modal-content">
+<div class="modal-header">
+     <h5 class="modal-title" id="ModalLabel">Preview</h5><h5>
+       <button type="button" class="close" data-dismiss="modal" (click)="closeModal('thank-you-modal');" aria-label="Close">
+         <span aria-hidden="true">×</span>
+       </button>
+   </h5></div>
+   <div  class="thumbnail text-center">
+    <img class="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+    <div class="caption-smiley-question">
+            <img src="assets/img/correct_symb.png">
+          </div>
+          <!-- Translab Office Experience Survey 2019-2020 -->
+          <div class="caption-thank-you">
+                <h1>Thank You</h1>
+          </div>
+
+          <div class="caption-thank-you-msg">
+                <h4>Thank you for taking survey we appericiate your time for taking it.</h4>
+          </div>
+
+          <div class="caption-button-last">
+                <button type="button" (click)="closeModal('thank-you-modal')"  class="btn btn-outline-secondary">Close</button>
+          </div>
+    </div>
+
+     </div>
+     </div>
+     </div>
+</jw-modal>
+
+
+
+            <!-- Translab Office Experience Survey 2019-2020 Your survey is valuable to us -->

@@ -1,0 +1,123 @@
+<div class="container">
+
+<!-- <mat-spinner class="loader"></mat-spinner> -->
+
+    <div style="margin-top: 10px" class="row align-items-end">
+        <div class="col">
+          <h1 class="header-title">Area List</h1>
+        </div>
+      <div class="col-auto">
+        <div class="pr-4 pl-4 mb-3 mb-xl-0 d-xl-block d-none">
+          <button class="btn btn-success" (click)="openModalForAddArea()" data-toggle="modal" data-target="#add_new_area">Add new</button>  
+        </div>
+      </div>
+      </div>
+<!-- <div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-sm table-nowrap card-table">
+        <thead>
+          <tr>
+            <th class="text-muted sort">
+              #
+            </th>
+             <th class="text-muted sort">
+              AREA NAME
+            </th>
+             <th class="text-muted sort">
+              LOCATION NAME
+            </th>
+             <th class="text-muted sort">
+              CREATED AT
+            </th>
+             <th class="text-muted sort">
+              ACTION
+            </th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let area of allAreaData ; let i = index">
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{area.area_name}}
+          </td>
+          <td>
+            {{area.location_name}}
+          </td>
+          <td>
+            {{area.created_at}}
+          </td>
+         <td>
+            <i class="fe fe-lock"></i>
+          </td>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="row">
+
+  <div class="col-12">
+      <mat-card>  
+          <div>  
+            <input type="button" value="CAPTURE" (click)="captureScreen()"/>  
+          </div>  
+        </mat-card>
+    <div class="table-responsive">
+     
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+          
+          <div class="mat-elevation-z8">
+        <table id="contentToConvert" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+              <td mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="area_name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> AREA NAME </th>
+              <td mat-cell *matCellDef="let element"> {{element.area_name}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="location_name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> LOCATION NAME </th>
+              <td mat-cell *matCellDef="let element" (click)="test(element.position)"> {{element.location_name}} </td>
+            </ng-container>
+          
+           
+              <ng-container matColumnDef="created_at">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> CREATED AT </th>
+                  <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+                </ng-container>
+          
+               
+
+                  <ng-container matColumnDef="action">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </th>
+                      <td mat-cell *matCellDef="let element"><i class="fe fe-lock"></i> </td>
+                    </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+        </div>
+
+
+       </div>
+  </div>
+</div>
+</div>

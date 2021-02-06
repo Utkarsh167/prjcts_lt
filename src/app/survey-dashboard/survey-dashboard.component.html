@@ -1,0 +1,365 @@
+<div class="container">
+  <div class="header">
+          <!-- Body -->
+          <div class="header-body">
+            <div class="row align-items-end">
+              <div class="col">
+                
+                <!-- Pretitle -->
+                <h6 class="header-pretitle">
+                  Overview
+                </h6>
+
+                <!-- Title -->
+                <h1 class="header-title">
+                  {{selectedSurveyName}}               
+                </h1>
+
+              </div>
+              <div class="col-auto">
+                
+                <select class="form-control" (change)="selectOption(selected)" [(ngModel)]="selected" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" id="select_campaign" >
+                  <option  >Select Survey</option>
+                <option *ngFor ="let survey of surveyList" [ngValue]="survey.survey_id">
+                        {{survey.survey_name}}</option>
+                </select>
+              </div>
+            </div> <!-- / .row -->
+          </div> <!-- / .header-body -->
+      </div>
+
+
+<div class="row">
+            <div class="col-12 col-lg-6 col-xl">
+              
+
+              <div class="tab-content tab-transparent-content pb-0">
+                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+
+                  <div class="row">       
+                    <div class="col-12 col-lg-6 col-xl">
+                      <!-- Card -->
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <!-- Title -->
+                              <h6 class="card-title text-uppercase text-muted mb-2">
+                                Responses
+                              </h6>
+                              <!-- Heading -->
+                              <span class="h2 mb-0">
+                                {{noOfResponses}}                             </span>
+                              <!-- Badge -->
+                              <span class="badge badge-soft-success mt-n1">
+                                +3.5%
+                              </span>
+                            </div>
+                            <div class="col-auto">
+                              <!-- Icon -->
+                              <span class="h2 fe fe-message-square text-muted mb-0"></span>
+                            </div>
+                          </div> <!-- / .row -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 col-xl">
+                      <!-- Card -->
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <!-- Title -->
+                              <h6 class="card-title text-uppercase text-muted mb-2">
+                                Respondents
+                              </h6>
+                              <!-- Heading -->
+                              <span class="h2 mb-0">
+                                {{noOfRespondents}}                             </span>
+                              <!-- Badge -->
+                              <span class="badge badge-soft-success mt-n1">
+                                +3.5%
+                              </span>
+                            </div>
+                            <div class="col-auto">
+                              <!-- Icon -->
+                              <span class="h2 fe fe-users text-muted mb-0"></span>
+                            </div>
+                          </div> <!-- / .row -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 col-xl">
+                      <!-- Card -->
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <!-- Title -->
+                              <h6 class="card-title text-uppercase text-muted mb-2">
+                                Areas
+                              </h6>
+                              <!-- Heading -->
+                              <span class="h2 mb-0">
+                                {{noOfAreas}}                              </span>
+                              <!-- Badge -->
+                              <span class="badge badge-soft-success mt-n1">
+                                +3.5%
+                              </span>
+                            </div>
+                            <div class="col-auto">
+                              <!-- Icon -->
+                              <span class="h2 fe fe-home text-muted mb-0"></span>
+                            </div>
+                          </div> <!-- / .row -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                   <div class="row">
+                    <div class="col-lg-4 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body" >
+                          <h4 class="card-title">Positive Index</h4>
+                          <div class="text-center">
+                        <ngx-gauge  [type]="gaugeType" 
+                      [value]="gaugeValue" 
+                      [thick]="guageThickness"
+                      [size]="guageSize">
+                    </ngx-gauge>
+                      </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="col-lg-8 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                          
+                          <div class="row" style="padding:5px;">
+                            <div class="col-sm-2"> 
+                              <img src="assets/img/ic_sentiment_great.png">
+                            </div>
+                            <div class="col-sm-8">
+                              {{fiveStarPer}}%
+                              <div class="progress progress-sm" style="width: 100%">
+                                 <div class="progress-bar" role="progressbar" [style.width]="fiveStarWithPer" style="background-color:#189150" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div> 
+                              </div>
+                            </div>
+                            <div class="col-sm-2" style="margin-top: 15px">
+                               {{fiveStarValue}}                              </div>
+                          </div>
+                          <div class="row" style="padding:5px">
+                            <div class="col-sm-2"> 
+                              <img src="assets/img/ic_sentiment_good.png">
+                            </div>
+                            <div class="col-sm-8">
+                              {{fourStarPer}}%
+                            
+                              <div class="progress progress-sm" style="width: 100%">
+                                <div class="progress-bar" role="progressbar" [style.width]="fourStarWithPer" style=" background-color:#74B78C" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2" style="margin-top: 15px">
+                               {{fourStarValue}}                              </div>
+                          </div>
+
+                          <div class="row" style="padding:5px;">
+                            <div class="col-sm-2"> 
+                              <img src="assets/img/ic_sentiment_ok.png">
+                            </div>
+                            <div class="col-sm-8">
+                              {{threeStarPer}}%
+                              
+                              <div class="progress progress-sm" style="width: 100%">
+                                <div class="progress-bar" role="progressbar" [style.width]="threeStarWithPer" style=" background-color:#FECE8B" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2" style="margin-top: 15px">
+                               {{threeStarValue}}                              </div>
+                          </div>
+
+                          <div class="row" style="padding:5px">
+                            <div class="col-sm-2"> 
+                              <img src="assets/img/ic_sentiment_bad.png">
+                            </div>
+                            <div class="col-sm-8">
+                              {{twoStarPer}}%
+                              
+                              <div class="progress progress-sm" style="width: 100%">
+                                <div class="progress-bar" role="progressbar" [style.width]="twoStarWithPer" style=" background-color:#FF847C" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2" style="margin-top: 15px">
+                               {{twoStarValue}}                              </div>
+                          </div>
+
+                          <div class="row" style="padding:5px">
+                            <div class="col-sm-2"> 
+                              <img src="assets/img/ic_sentiment_terrible.png">
+                            </div>
+                            <div class="col-sm-8">
+                              {{oneStarPer}}%
+
+                              <div class="progress progress-sm" style="width: 100%">
+                                <div class="progress-bar" role="progressbar" [style.width]="oneStarWithPer" style="background-color:#E84A5F" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2" style="margin-top: 15px">
+                               {{oneStarValue}}                              </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+
+                           <ul class="nav nav-tabs tab-transparent text-right" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link" id="daily-tab" (click)="loadDailyGraph()" data-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="true">Daily</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" (click)="loadMonthlyGraph()" id="monthly-tab" data-toggle="tab" href="#" role="tab" aria-controls="users" aria-selected="false">Monthly</a>
+                              </li>
+                            </ul>
+                            
+                        <div class="card-body">
+                         
+                          <div style="display: block;">
+                              <canvas baseChart height="300"
+                                [datasets]="lineChartData"
+                                [labels]="lineChartLabels"
+                                [options]="lineChartOptions"
+                                [colors]="lineChartColors"
+                                [legend]="lineChartLegend"
+                                [chartType]="lineChartType"
+                                [plugins]="lineChartPlugins">
+                              </canvas>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                    <div class="row">
+                          <div class="col-12 col-xl-4">
+                              <div class="card">
+                                <div class="card-header">
+                                  <div class="row align-items-center">
+                                    <div class="col">
+                                      <!-- Title -->
+                                    <h4 class="card-header-title">Area Wise Data</h4>
+                                    </div>
+                                  </div> <!-- / .row -->
+                                </div>
+                                <div class="card-body">
+                                      <div class="table-responsive">
+                                        <table class="table table-sm card-table">
+                                          <thead>
+                                            <tr>
+                                              <th>Area</th>
+                                              <th class="text-right">Score (%)</th>
+                                              
+                                            </tr>
+                                          </thead>
+                                          <tbody *ngFor="let indexAreaWise of positiveIndexAreaWise">
+
+                                            <div *ngFor="let key of objectKeys(indexAreaWise)">
+                                            <tr>
+                                              <td>
+                                              {{key}}
+                                            </td>
+                                              <td>
+                                              {{indexAreaWise[key]}}
+                                              </td>
+                                            </tr>
+                                            </div>
+                                          </tbody>
+                                        </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                    <div class="col-12 col-xl-8">
+                        <div class="card">
+                          <div class="card-header">
+                            <div class="row align-items-center">
+                              <div class="col">
+                                <!-- Title -->
+                                <h4 class="card-header-title">Real Time Data</h4>
+                              </div>
+                              
+                            </div> <!-- / .row -->
+                          </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table table-sm card-table">
+                              <thead>
+                                <tr>
+                                  <th>Initial</th>
+                                  <th> Name</th>
+                                  <th> Area</th>
+                                  <th>Rating</th>
+                                  <th>Follow Up</th>
+                                  <th>Time</th>
+                                </tr>
+                              </thead>
+                              <tbody *ngFor="let responseData of responses">
+
+                                <tr>
+                                        <td>
+                                        <div class="avatar avatar-sm">
+                                        <span class="avatar-title rounded-circle">{{responseData.userName.substring(0,1) | titlecase}}</span>
+                                        </div>
+                                        </td>
+                                        <td><div class="text-dark font-weight-medium">
+                                          {{responseData.userName | titlecase}}
+                                        </div></td>
+                                        <td>
+                                          {{responseData.areaName | titlecase}}
+                                        </td>
+                                        <td><div class="avatar avatar-sm"><span class="avatar-title rounded-circle" style="background-color:#31AD6A; color:#fff">
+                                          {{responseData.rating}}
+                                        </span></div>
+                                        </td>
+                                        <td>
+                                          {{responseData.followUp | titlecase}}
+                                        </td>
+                                        <td>
+                                          {{responseData.date}}
+                                        </td>
+                                        </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                      </div>
+                  
+                </div>
+                <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
+                  Tab Item
+                </div>
+                <div class="tab-pane fade" id="returns-1" role="tabpanel" aria-labelledby="returns-tab">
+                  Tab Item
+                </div>
+                <div class="tab-pane fade" id="more" role="tabpanel" aria-labelledby="more-tab">
+                  Tab Item
+                </div>
+              </div>
+            </div>
+          </div>
+
+</div>

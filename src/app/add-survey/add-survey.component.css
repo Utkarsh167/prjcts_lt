@@ -1,0 +1,147 @@
+.b-r{
+    border-right: thin black solid;
+    height: 70vh;
+    overflow: auto;
+  }
+
+  .b-r-part2{
+    height: 70vh;
+    overflow: auto;
+  }
+  
+  .margin_top_600px{
+    margin-top:600px;
+  }
+  
+  .noScroll {
+      overflow: hidden;
+      position:fixed;
+  }
+  
+  
+  
+  #over img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .caption-welcome {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+  
+  .caption-tagline {
+    position: absolute;
+    top: 55%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-button {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-smiley-question{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+  
+  .thumbnail {
+    position: relative;
+  }
+  
+  p {
+    font-size: 10px;
+  }
+
+  .caption-pos-neg-neu-qiestion{
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-input-op{
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+  .caption-form-control{
+    height: 25px !important;
+    font-size: 0.5rem !important;
+  }
+  
+  .caption-button-que-op{
+    position: absolute;
+    top: 75%;
+    left: 0;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 20%;
+  }
+
+
+  
+
+  .modal-dialog {
+  width: 80%;
+  height: 90%;
+  padding: 0;
+  max-width: 90% !important;
+}
+
+.modal-content {
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;
+}
+
+.caption-thank-you{
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 20%;
+}
+
+.caption-thank-you-msg{
+  position: absolute;
+  top: 58%;
+  left: 0;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 20%;
+}
+
+.caption-button-last{
+  position: absolute;
+  top: 80%;
+  right: 0;
+  width: 100%;
+}
+
+
+ 

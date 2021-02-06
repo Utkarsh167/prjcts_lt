@@ -1,0 +1,188 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <mat-card>  
+            <div>  
+              <input type="button" value="CAPTURE" (click)="captureScreen()"/>  
+            </div>  
+          </mat-card>
+      <div class="table-responsive">
+       
+          <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+            
+            <div class="mat-elevation-z8">
+          <table id="contentToConvert" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+              <!-- Position Column -->
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+                <td mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="client_email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ADMIN TYPE </th>
+                <td mat-cell *matCellDef="let element" (click)="test(element.position)"> {{element.client_email}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="location_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> LOCATION NAME </th>
+                <td mat-cell *matCellDef="let element"> {{element.location_name}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="admin_type">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> USER ROLE </th>
+                  <td mat-cell *matCellDef="let element"> {{element.admin_type}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="created_at">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Created At </th>
+                    <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+                  </ng-container>
+            
+
+                  <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </th>
+                    <td mat-cell *matCellDef="let element"><i class="fe fe-lock"></i> </td>
+                  </ng-container>
+                 
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+  
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  
+          </div>
+  
+  
+        <!-- <table id="contentToConvert" class="table table-sm table-nowrap card-table">
+          <thead>
+            <tr>
+              <th class="text-muted sort">
+                #
+              </th>
+               <th class="text-muted sort">
+                DEVICE NAME
+              </th>
+               <th class="text-muted sort">
+                LOCATION
+              </th>
+               <th class="text-muted sort">
+                AREA
+              </th>
+               <th class="text-muted sort">
+                ASSIGNED SURVEY
+              </th>
+               <th class="text-muted sort">
+                CREATED AT
+              </th>
+               <th class="text-muted sort">
+                HEALTH
+              </th>
+               <th class="text-muted sort">
+                ACTION
+              </th>
+            </tr>
+          </thead>
+  
+          <tbody *ngFor="let device of allDeviceData; let i = index">
+            <td>
+              {{i+1}}
+            </td>
+            <td>
+              {{device.tablet_name}}
+            </td>
+            <td>
+              {{device.location_name}}
+            </td>
+            <td>
+              {{device.area_name}}
+            </td>
+            <td>
+              {{device.survey_name}}
+            </td>
+            <td>
+              {{device.created_at}}
+            </td>
+            <td *ngIf="device.last_responsed>60; else elseBlock">
+              Tablet not reponding for more than a hour
+            </td>
+            <ng-template #elseBlock><td *ngIf="device.battery_status ; else batteryelseblock">{{device.battery_status}} </td> 
+              <ng-template #batteryelseblock><td> No Data</td>
+             </ng-template>
+           </ng-template>
+            <td>
+              <i class="fe fe-lock"></i>
+            </td>
+  
+          </tbody>
+        </table> -->
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+<!-- <div class="container">
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-sm table-nowrap card-table">
+        <thead>
+          <tr>
+            <th class="text-muted sort">
+              #
+            </th>
+             <th class="text-muted sort">
+              NAME
+            </th>
+             <th class="text-muted sort">
+              ADMIN TYPE
+            </th>
+             <th class="text-muted sort">
+              LOCATION NAME
+            </th>
+            <th class="text-muted sort">
+              USER ROLE
+            </th>
+             <th class="text-muted sort">
+              ACTIONS
+            </th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let user of allUserData ; let i = index">
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{user.name}}
+          </td>
+          <td>
+            {{user.client_email}}
+          </td>
+          <td>
+            {{user.location_name}}
+          </td>
+           <td>
+            {{user.admin_type}}
+          </td>
+         <td>
+            <i class="fe fe-lock"></i>
+          </td>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div> -->

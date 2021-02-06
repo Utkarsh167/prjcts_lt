@@ -1,0 +1,370 @@
+<p>check-ui works!</p>
+
+<!-- <div class="container">
+<div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 b-r padding_bottom_70" >
+                
+                        <div class="header">
+                          <div class="header-body">
+                            <div class="row align-items-end">
+                                <div class="col">
+                                    <h1 class="header-title">Add Survey</h1>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                                <form class="well form-horizontal" [formGroup]="add_survey" (ngSubmit)="submitSurveyData()" method="POST" action=" " id="contact_form" enctype="multipart/form-data">
+                                       
+                 <div class="card">
+                    <div class="card-header">
+                        <h3 class="header-title">Welcome Screen</h3>
+                    </div>
+                        <div class="card-body">
+                 <div class="form-group">
+                    <label class="control-label">Welcome Message</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input type="text" formControlName="welcome_message" name="welcome_message" placeholder="Welcome Message" class="form-control" value="" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <label class="control-label">Tagline</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input type="text" name="tagline" formControlName="tagline" placeholder="tagline" class="form-control" value="" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+            
+            
+              <div class="card" >
+                <div class="card-header">
+                    <h3 class="header-title">Add Logic / FollowUp Question</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="header-pretitle">Click a smiley to add individual followup question
+                    </h4>
+                <div class="form-group">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-auto" id="5_star" (click)="onPositiveClick()" name="5" value="5"><img src="/assets/img/ic_sentiment_great.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+            
+                        <div class="col-auto" id="4_star" name="4" (click)="onPositiveClick()" value="4"><img src="/assets/img/ic_sentiment_good.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                        
+                        <div class="col-auto" id="3_star" name="3" (click)="onNeutralClick()" value="3"><img src="/assets/img/ic_sentiment_ok.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+            
+                         <div class="col-auto" id="2_star" name="2" (click)="onBadClick()" value="2"><img src="/assets/img/ic_sentiment_bad.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+            
+                        <div class="col-auto" id="1_star" name="rating" (click)="onBadClick()" value="1"><img src="/assets/img/ic_sentiment_terrible.png" data-toggle="tooltip" title="" data-original-title="Add Logic"></div>
+                        
+                    </div>   
+                </div>
+                <div  id="individual_followup_question_rating_positive" class="form-group" style="display: none;">
+                    <label class="control-label">Enter Positive Question</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <input type="text" formControlName="followup_question_positive" name="followup_question_positive" placeholder="Enter followup question" class="form-control" value="" autocomplete="off">
+                            </div><br>
+            
+                             <div class="input-group">
+                                <div class="row">
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_1_positive"  placeholder="Option 1" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_2_positive" placeholder="Option 2" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_3_positive"  placeholder="Option 3" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_4_positive" placeholder="Option 4" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                     <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_5_positive"  placeholder="Option 5" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                     <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_6_positive"  placeholder="Option 6" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>       
+                        </div>
+                </div>
+        
+                <div id="individual_followup_question_rating_neutral" class="form-group" style="display: none;">
+                    <label class="control-label">Enter Neutral Question</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <input type="text" formControlName="followup_question_neutral" placeholder="Enter followup question" class="form-control" value="" autocomplete="off">
+                            </div><br>
+            
+                             <div class="input-group">
+                                <div class="row">
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_1_neutral" placeholder="Option 1" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_2_neutral" placeholder="Option 2" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_3_neutral" placeholder="Option 3" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_4_neutral" placeholder="Option 4" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                     <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_5_neutral" placeholder="Option 5" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                     <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_6_neutral" placeholder="Option 6" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>       
+                        </div>
+                </div>
+        
+                <div  id="individual_followup_question_rating_negative" class="form-group" style="display: none;">
+                    <label class="control-label">Enter Negative Question</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <input type="text" formControlName="followup_question_negative" placeholder="Enter followup question" class="form-control" value="" autocomplete="off">
+                            </div><br>
+            
+                             <div class="input-group">
+                                <div class="row">
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_1_negative" placeholder="Option 1" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_2_negative" placeholder="Option 2" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_3_negative" placeholder="Option 3" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_4_negative" placeholder="Option 4" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                     <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_5_negative" placeholder="Option 5" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                     <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_6_negative" placeholder="Option 6" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>       
+                        </div>
+                </div>
+               
+                <h4 class="header-pretitle">OR Add a common followup question <i id="add_common_question" class="fe fe-plus-circle"></i>
+                    </h4>
+                    <div  id="common_followup_question" class="form-group">
+                    <label class="control-label">Question</label>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <input type="text" formControlName="followup_question" placeholder="Enter followup question" class="form-control" value="" autocomplete="off">
+                            </div><br>
+            
+                             <div class="input-group">
+                                <div class="row">
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_1" placeholder="Option 1" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_2" placeholder="Option 2" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_3" placeholder="Option 3" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_4" placeholder="Option 4" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                     <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_5" placeholder="Option 5" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                     <div class="col d-flex justify-content-center">
+                                        <input type="text" formControlName="option_6" placeholder="Option 6" class="form-control" value="" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>       
+                        </div>
+                </div>
+            </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header"><h4 class="header-title">Status</h4></div>
+                <div class="card-body">
+                <div class="form-group">
+                    <label class="control-label">Status</label>
+                    <div class="row">
+                        <div class="col">
+                        <div class="radio">
+                            <label>
+                         <input type="radio" formControlName="status" value="active" required=""> Active
+                            </label>
+                        </div>
+                        </div>
+                        <div class="col">
+                        <div class="radio">
+                            <label>
+                      <input type="radio" formControlName="status" value="inactive" required=""> In-active
+                            </label>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        
+        
+            <div class="form-group">
+                    <label class="control-label">Select Tablet</label>
+                  <select id="multipleSelect"  ngFordata-placeholder="Select Tablets" class="chosen-select form-control" multiple>
+                           <option value=""></option>   <br/>
+                            <option *ngFor ="let device of deviceList" [value]="device.tablet_id" >{{device.tablet_name}}</option>
+            
+               </select>
+               
+               </div>
+        
+        
+             
+               
+               
+                <div class="form-group">
+                    <label class="control-label"></label>
+                    <div class="">
+                        <button type="submit" class="btn btn-primary">Save <span class="glyphicon glyphicon-send"></span></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+                                    
+                                </form>
+                           
+          
+        </div>
+        
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 b-r padding_bottom_70" >
+            
+
+                <div class="thumbnail text-center">
+                        <img lass="img-responsive" style="max-height:100%; max-width:100%;" src="/assets/img/tab_image2.png">
+                        <div class="caption-welcome">
+                                <h4>Translab Office Experience Survey 2019-2020</h4>
+                              </div>
+
+                              <div class="caption-tagline">
+                                    <p>Your survey is valuable to us</p>
+                              </div>
+                    </div>
+        
+           
+            
+           
+          
+        </div>
+        </div>
+
+    </div> -->
+
+<!-- <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
+    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+
+<mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal data
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your name and age
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input matInput placeholder="First name">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput type="number" min="1" placeholder="Age">
+      </mat-form-field>
+  
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Destination
+        </mat-panel-title>
+        <mat-panel-description>
+          Type the country name
+          <mat-icon>map</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input matInput placeholder="Country">
+      </mat-form-field>
+  
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Day of the trip
+        </mat-panel-title>
+        <mat-panel-description>
+          Inform the date you wish to travel
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+      </mat-form-field>
+      <mat-datepicker #picker></mat-datepicker>
+  
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+  

@@ -1,0 +1,329 @@
+<div class="container">
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+            <div class="col-sm-4 mb-4 mb-xl-0">
+              <h3>Response List</h3>
+            </div>
+            <div class="col-sm-8">
+              <div class="d-flex align-items-center justify-content-md-end">
+                <div class="border-right-dark pr-4 mb-3 mb-xl-0 d-xl-block d-none">
+
+                    <div id="datepicker-popup-response" class="input-group date datepicker">
+                          <input type="text" id="select_date_responses" class="form-control" onchange="onDateChanged(event)" value="">
+                          <span class="input-group-addon input-group-append border-left">
+                            <span class="mdi mdi-calendar input-group-text"></span>
+                          </span>
+                        </div>
+                
+                </div>
+                <div class="mb-3 mb-xl-0">
+                  <div class="btn-group dropdown">
+
+                     <select class="form-control" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" id="select_campaign_responses">
+                        <option>Select Survey</option>
+                    <option id="1">Test Question</option><option id="2">Demo Option Survey</option><option id="3" selected="">Site Services Feedback</option>                        </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+  <!--
+
+<hr>
+
+ <div class="col-md-12">
+    <form class="form form-sample" action="">
+        <div class="inputGroupContainer">
+                     <div class="input-group">
+                        <input type="text" class="form-control"  id="input_search"  name="search_string" placeholder="Enter Search String" aria-label="Search String" value="">
+                        <div class="input-group-append">
+                            <button class="btn btn-sm btn-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+    </form>
+</div> -->
+
+<hr>
+
+<div class="content-wrapper">
+      <div class="email-wrapper wrapper">
+        <div class="row align-items-stretch" style="background: #fff; padding-bottom: 15px;">
+                          
+        
+          <div class="mail-list-container col-md-4 pt-4 pb-4 border-right bg-white">
+            
+            <!--<div class="border-bottom pb-4 mb-3 px-3">
+              <div class="form-group">
+                <input class="form-control w-100" type="search" placeholder="Search mail" id="Mail-rearch">
+              </div>
+            </div> -->
+
+                                        <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="0" onclick="clicked_response(this.id)">Thulasingam, Dhilip Kumar</p>
+                            <p class="message_text" id="0" onclick="clicked_response(this.id)">hunger box doesn't de</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="1" onclick="clicked_response(this.id)">Thulasingam, Dhilip Kumar</p>
+                            <p class="message_text" id="1" onclick="clicked_response(this.id)">swad e Punjab is not </p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="2" onclick="clicked_response(this.id)">Thulasingam, Dhilip Kumar</p>
+                            <p class="message_text" id="2" onclick="clicked_response(this.id)">onion ootappam was no</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="3" onclick="clicked_response(this.id)">Thulasingam, Dhilip Kumar</p>
+                            <p class="message_text" id="3" onclick="clicked_response(this.id)">swad e Punjab guy was</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="4" onclick="clicked_response(this.id)">Bindhani, Prasanta Kumar</p>
+                            <p class="message_text" id="4" onclick="clicked_response(this.id)">No drinking water in </p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="5" onclick="clicked_response(this.id)">Reguraman, Balasubramania...</p>
+                            <p class="message_text" id="5" onclick="clicked_response(this.id)">this is regarding cle</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="6" onclick="clicked_response(this.id)">Reguraman, Balasubramania...</p>
+                            <p class="message_text" id="6" onclick="clicked_response(this.id)">
+</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#F4C902; color:#fff">3</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>VTP</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="7" onclick="clicked_response(this.id)">Kulkarni, Gajanan</p>
+                            <p class="message_text" id="7" onclick="clicked_response(this.id)">no varieties, no qual</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="8" onclick="clicked_response(this.id)">Sahu, Rashmi Ranjan</p>
+                            <p class="message_text" id="8" onclick="clicked_response(this.id)">could be more better</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#F4C902; color:#fff">3</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="9" onclick="clicked_response(this.id)">Puthur Subramanian, Dilee...</p>
+                            <p class="message_text" id="9" onclick="clicked_response(this.id)">please ask juice vend</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#F67424; color:#fff">2</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="10" onclick="clicked_response(this.id)">Bhardwaj, Vineet</p>
+                            <p class="message_text" id="10" onclick="clicked_response(this.id)">desk table has a prot</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="11" onclick="clicked_response(this.id)">SONALIYO, ASWINI</p>
+                            <p class="message_text" id="11" onclick="clicked_response(this.id)">bad smell</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="12" onclick="clicked_response(this.id)">S, Raksha</p>
+                            <p class="message_text" id="12" onclick="clicked_response(this.id)">not getting cab on ti</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="13" onclick="clicked_response(this.id)">Baslica M, Mary</p>
+                            <p class="message_text" id="13" onclick="clicked_response(this.id)">found a big rat in sa</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="14" onclick="clicked_response(this.id)">S, Raksha</p>
+                            <p class="message_text" id="14" onclick="clicked_response(this.id)">weekends no food </p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="15" onclick="clicked_response(this.id)">Donthi, Narendra Babu S</p>
+                            <p class="message_text" id="15" onclick="clicked_response(this.id)">swad e Punjab,  they </p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#F4C902; color:#fff">3</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="16" onclick="clicked_response(this.id)">Rajendran, Anjali Nair</p>
+                            <p class="message_text" id="16" onclick="clicked_response(this.id)">the quality of food i</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>EC2</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="17" onclick="clicked_response(this.id)">Goral, Radhika L</p>
+                            <p class="message_text" id="17" onclick="clicked_response(this.id)">very good and excelle</p></div>
+                            <div class=""><span class="badge badge-pill badge-success">5</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>VTP</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="18" onclick="clicked_response(this.id)">Mannepalli Chaitanya, Kri...</p>
+                            <p class="message_text" id="18" onclick="clicked_response(this.id)">No enough parking spa</p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                                            <div class="mail-list"><div class="form-check"><span class="badge badge-soft-success mt-nl"><b>VTP</b></span></div>
+                             <div class="content" style="margin-left:20px;">
+                             <p class="sender-name" id="19" onclick="clicked_response(this.id)">Basu, Kuntal</p>
+                            <p class="message_text" id="19" onclick="clicked_response(this.id)">not happy </p></div>
+                            <div class=""><span class="badge badge-pill" style="background-color:#EE2762; color:#fff">1</span></div>
+            </div>                              </div>
+          <div class="mail-view d-none d-md-block col-md-8 col-lg-8 bg-white">
+           
+            <div class="message-body">
+              <div class="sender-details">
+                <img class="img-sm rounded-circle mr-3" src="https://via.placeholder.com/43x43" alt="">
+
+                <div class="details">
+                  <p class="msg-subject" id="campaign_name">
+                    Site Services Feedback</p><p id="issue_details"> (Cafeteria-&gt;Café Vendors-&gt;Others)</p>                      <p></p>
+                  <p class="sender-email" id="usernameanddate">
+                     <strong id="user_name">Thulasingam, Dhilip Kumar (843904)</strong>                           
+                 <i id="comment_date" style="font-weight:normal; font-size:12px"> 2019-08-28 09:18:31 </i><br>
+       <strong>Location:</strong><i id="tablet_location" style="font-weight:normal; font-size:12px"> EC2</i>,
+       <strong>Area: </strong> <i id="tablet_area" style="font-weight:normal; font-size:12px">GF-A wing E cafe</i>
+                  </p>
+                </div>
+              </div>
+              <div class="message-content" id="comment">
+                hunger box doesn't deal the feedback well.. they say that the vendor is handled by hope and they can just inform the vendor not to do...No point in having the app if it takes more time for delivering food.                  </div>
+              <div class="attachments-sections">
+               <form class="forms-sample">
+                <div class="form-group">
+                  <!--<label for="exampleInputName1">Send Response</label> -->
+                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Type your message here">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<div class="col-md-12 col-sm-6 grid-margin">
+
+    <nav>
+
+    <ul class="pagination d-flex flex-wrap justify-content-center pagination-success"><li class="active page-item"><a class="page-link" href="responses?survey_id=3&amp;page=1">1</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=2">2</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=3">3</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=4">4</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=5">5</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=6">6</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=7">7</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=8">8</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=9">9</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=10">10</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=11">11</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=12">12</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=13">13</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=14">14</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=15">15</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=16">16</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=17">17</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=18">18</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=19">19</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=20">20</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=21">21</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=22">22</a></li><li class="page-item"><a class="page-link" href="responses?survey_id=3&amp;page=23">23</a></li></ul></nav>    </div>
+</div>
+</div>
+</div>
+
+
+<!-- <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="header">
+        <div class="header-body">
+          <div class="row align-items-end">
+            <div class="col">
+              <h1 class="header-title">Response List</h1>
+            </div>
+            <div class="col-auto">
+              <div class="d-flex align-items-center justify-content-md-end">
+                <div class="border-right-dark pr-4 mb-3 mb-xl-0 d-xl-block d-none">
+                  <div id="datepicker-popup-response" class="input-group date datepicker">
+                    <input type="text" id="select_date_responses" class="form-control" onchange="onDateChanged(event)" value="">
+                    <span class="input-group-addon input-group-append border-left">
+                      <span class="fe fe-calendar input-group-text"></span>
+                    </span>
+                  </div>
+
+                    </div>
+                    <div class="col-auto">
+                      <div class="btn-group dropdown">
+
+
+ <select class="form-control" (change)="selectOption(selected)" [(ngModel)]="selected" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end" id="select_campaign_responses" >
+                  <option  >Select Survey</option>
+                <option *ngFor ="let survey of surveyList" [ngValue]="survey.survey_id">
+                        {{survey.survey_name}}</option>
+                </select>
+                
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+ 
+    
+ <div class="card">
+          <div class="card-body">
+            <div class="row align-items-center">
+                  <div class="table-responsive">
+                      <table id="sortable-table-1" class="table table-sm card-table">
+                        <thead>
+                          <tr>
+                            <th class="col-auto">#</th>
+                            <th class="col-auto"> Name</th>
+                            <th class="col-auto">Rating</th>
+                            <th class="col-auto">Comment</th>
+                            <th class="col-auto">Survey Name</th>
+                            <th class="col-auto">Followup</th>
+                            <th class="col-auto">Location</th>
+                            <th class="col-auto">Area</th>
+                            <th class="col-auto">Date</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let response of allResponses; let i = index">
+                                               <tr>
+                                                 <td>
+                                                   {{i+1}}
+                                                 </td>
+                                                 <td>
+                                                   {{response.name}}
+                                                 </td>
+                                                 <td>
+                                                   {{response.rating}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.comment}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.surveyName}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.multiOption}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.locationName}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.areaName}}
+                                                   
+                                                 </td>
+                                                 <td>
+                                                   {{response.created_at}}
+                                                   
+                                                 </td>
+                                               </tr>    
+                                             </tbody>
+            </table>
+        </div>
+          </div>
+        </div>
+
+    
+
+    <div class="col-md-12 col-sm-6 grid-margin">
+
+        <nav>
+
+            </nav></div>
+</div>
+
+
+</div>
+</div>
+</div> -->
