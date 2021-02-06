@@ -1,0 +1,9 @@
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "tslint.alwaysShowStatus": true,
+    "tslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "tslint.alwaysShowRuleFailuresAsWarnings": true
+}
